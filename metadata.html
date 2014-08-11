@@ -1,0 +1,1132 @@
+﻿<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+    <title></title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="css/jquery-ui-1.8.22.custom.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style type="text/css"> 
+        table.basic tr { vertical-align: top; }
+        table.basic td { min-width: 200px; font-size: 0.9em; vertical-align: top; }
+        tr.odd td { background-color: #ddd; }
+        #ruca-table td { min-width: 40px !important; }
+        
+        .compute { font-weight: bold; font-size: 0.9em; }
+         
+        h2.expand-heading:hover, h4.expand-heading:hover { cursor: pointer; }
+        div.collapsable { display: none; padding: 0 20px;  }
+    </style>
+
+    <script src="js/libs/modernizr-2.5.3.min.js"></script>
+    
+    <script type="text/javascript">
+ /*
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-35715026-1']);
+      _gaq.push(['_trackPageview']);
+ 
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+ */
+    </script>
+</head>
+<body>
+<div style="width: 100%;">
+    <a name="top"></a>
+    <div id="header">
+        <div id="logoArea"><img src="img/Logo_POTM_100.png" /></div>
+        <div id="topMenu"><a href="about_us.html">About Us</a> &nbsp; | &nbsp; <a href="tutorial.html">Tutorial</a> &nbsp; | &nbsp; <a href="metadata.html">Data/Metadata</a> &nbsp; | &nbsp; <a href="resources.html">More Resources</a> &nbsp; | &nbsp; <a href="contact_us.html">Contact Us</a> &nbsp; </div>
+        <div id="ucText"><img src="img/uc-text.png" alt="University of California" /></div>
+    </div>
+    
+    <div id="contentPanel">
+    <div id="contentSub">
+        <br/>
+        This page has detailed information about all Putting Youth on the Map indices, data sources, 
+        and potential data and map shortcomings "limitations"). Soon you will be able to download the 
+        data used in making these maps. Click on the map series of interest for this information.
+        
+        <h1>Youth Well-Being Index (YWI)</h1>
+
+        The YWI offers a snapshot of overall youth well-being by looking across indicators of health, education, 
+        positive social relationships, and community engagement. We also break down YWI analyses by sex and race/ethnicity.
+        <br />
+        
+        <img src="img/YWI_overview.png" alt="Youth Wellbeing Index graphical representation"/>
+        <br/>
+        
+        We selected YWI indicators based on a review of research and other indices, as well as data availability for 
+        geographic units smaller than counties. For more information about the YWI, click the sections below. 
+
+        <h2 class="expand-heading">I. CAUTION: YWI Data Sources and their Limitations</h2>
+        <div class="collapsable">
+            The index uses three main data sources: the U.S. Census Bureau, the California Department of Education (CDE), 
+            and the California Healthy Kids Survey (CHKS). Each provides presents limitations (potential weaknesses) 
+            that are important to understand when using the YWI because they might bias location scores. 
+            <br/>
+            <h4 class="expand-heading">1. U.S. Census Bureau</h4> 
+            <div class="collapsable">
+            The U.S. Census Bureau provides extensive data on youth and family conditions throughout the United States. 
+            Here we use American Community Survey (ACS) 5-year estimates for 2007-2012. Data limitations include: 
+                <ul style="list-style-type: disc;">
+                    <li>potential under-representation of undocumented immigrant populations,</li>
+                    <li>increased potential for population estimate errors for low-density rural areas.</li>
+                </ul> 
+            </div>
+            <h4 class="expand-heading">2. CDE</h4> 
+            <div class="collapsable">
+            The CDE provides data on California students and schools. There are several challenges with the data used here. 
+                <ul style="list-style-type: disc;">
+                    <li>Teachers receive limited instruction on administering physical fitness tests, 
+                        which might lead to variability in the testing and results.</li>
+                    <li>The practice of sending some students to alternative schools run by county offices of education, 
+                        enrollment in charter, private and virtual schools (some of which enroll out-of-area students), 
+                        and home schooling affect the accuracy of dropout rates for district geographic areas; these schools’ 
+                        data, along with that of incarcerated students are not reflected in district-level data. School district 
+                        boundary changes complicate accurate data mapping.</li>
+                </ul> 
+            </div>
+            <h4 class="expand-heading">3. CHKS</h4> 
+            <div class="collapsable">
+            The <a href="https://chks.wested.org" target="_blank">CHKS</a> was administered by CDE and WestEd to 5th, 7th, 
+                9th and 11th grade students in most California school districts until 2011 (see [website] for more info on 
+                administration)—here we use 9th and 11th grade data. CHKS offers rich information about students' experiences, 
+                and it is the only large-scale California youth survey that aims to represent well (or “be representative” for) 
+                geographic areas smaller than the county. Important dataset limitations to keep in mind are:
+                <ul style="list-style-type: disc;">
+                    <li>The survey typically is not administered at charter schools, alternative or community day 
+                        schools, home school programs, private schools, and schools serving incarcerated youth. 
+                        This could bias well-being scores. Data are missing altogether for some districts, in other 
+                        cases for a grade level, and in all cases for youth not attending school;</li>
+                    <li>School district boundary changes complicate accurate data mapping;</li>
+                    <li>Districts do not always meet the sampling and participation guidelines set by the 
+                        survey developers to produce sound (valid and representative) data. To have valid 
+                        and representative data, West Ed and CDE set these criteria.
+                        <ol style="list-style-type: 1; font-size: 0.8em; margin-top: 3px;">
+                            <li>100% of all district schools participated; or 100% of all selected schools participated in an approved sampling plan;</li>
+                            <li>An appropriate class subject or class period was identified and used; </li>
+                            <li>100% of selected classrooms participated; </li>
+                            <li>The number of usable answer forms received was 60% or more of the selected sample [at least 70% is considered optimal].</li>
+                        </ol>
+                    </li>
+                </ul> 
+                We are unable to assess whether districts met criteria 1-3. We do provide and use CHKS survey participation information. 
+                For each map with CHKS data, an asterisk marks districts where CHKS participation rates were less than 60%. We provide 
+                District CHKS Participation Rates in district pop-up boxes.  More information on student participation is available 
+                in individual district secondary level reports, available at <a href="http://dq.cde.ca.gov/dataquest/" target="_blank">http://dq.cde.ca.gov/dataquest/</a>
+                [Use “district” as the “level,” and “California Healthy Kids Survey” as the “subject.” Within the report see “Sample Characteristic” tables.]
+                <br/><br/>
+                CHKS participation rates affect YWI map and data availability in two important ways:
+                <ul style="list-style-type: disc;">
+                    <li>We do not calculate the YWI Score for districts where CHKS participation rates were less than 40% and/or 
+                        fewer than 15 participants answered the survey questions we used. However, underlying indicator data are 
+                        provided for these districts.</li>
+                    <li>The YWI and underlying CHKS indicator data are provided by racial/ethnic group only where the district 
+                        participation rate is at least 40% and at least 15 participants of specific racial/ethnic backgrounds 
+                        have answered the survey questions used.</li>
+                </ul> 
+            </div>
+            <strong>All data source limitations should be considered when interpreting the indicator data and using this index.</strong>
+        </div>
+
+        <h2 class="expand-heading">II. YWI Data</h2>
+        <div class="collapsable">
+            The YWI assesses adolescent outcomes across four domains: health, education, social relationships, and community context. 
+            Each domain is comprised of one to three indicators, and each indicator includes one or more measures, as described below. 
+            Domains, indicators and measures were selected based on review of research on youth well-being and review of other 
+            indices of youth well-being (Erbstein, Hartzog and Geraghty, forthcoming).
+            <br />
+            <ol type="A">
+                <li>
+                    Health Domain: The Health Domain represents a composite score based on the following indicators: Physical Fitness, 
+                    Substance Use Avoidance and Feeling Safe.
+                    (<a href="Download_Data/Index_Youth_Well_Being/Health_Domain.csv" target="_blank">Download Health Domain Data</a>)
+                    <ol type="1">
+                        <li>
+                            Physical Fitness Indicator: The extent, to which youth are meeting minimum levels of fitness associated 
+                            with protection against diseases linked to physical inactivity, operationalized using 1 measure from 
+                            <a href="http://www.cde.ca.gov/ta/tg/pf/pftresearch.asp" target="_blank">CDE 2010-2011 data</a>
+                            (<a href="Download_Data/Index_Youth_Well_Being/Physical_Fitness.csv" target="_blank">Download Physical Fitness Indicator Data</a>).
+                            <ol type="a">
+                                <li>% 9th graders deemed fit on 6 of 6 physical fitness tests (CDE)<br /> 
+                                    This measure is the percentage of youth who were in the "Healthy Fitness Zone" for all six of the following 
+                                    tests: aerobic capacity, abdominal strength and endurance, upper body strength and endurance, body composition, 
+                                    trunk strength, and back and shoulder flexibility.</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Substance Use Avoidance Indicator: The extent, to which youth are mostly abstaining from substance use, 
+                            operationalized using 3 measures from CHKS 2008-2010.
+                            (<a href="Download_Data/Index_Youth_Well_Being/Substance_Use_Avoidance.csv" target="_blank">Download Substance Use Avoidance Indicator Data</a>)
+                            <ol type="a">
+                                <li>% 9th and 11th graders who smoked 0-1 cigarettes in their lifetime (CHKS)</li>
+                                <li>% 9th and 11th graders who had 0-1 full drinks of alcohol in their lifetime (CHKS)</li>
+                                <li>% 9th and 11th graders who used marijuana 0-1 times in their lifetime (CHKS)</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Feeling Safe Indicator: The extent, to which youth are experiencing school safety and freedom from harassment 
+                            at school based on real or perceived aspects of personal/group identity, operationalized using 7 measures 
+                            from CHKS 2008-2010. 
+                            (<a href="Download_Data/Index_Youth_Well_Being/Feeling_Safe.csv" target="_blank">Download Feeling Safe Indicator Data</a>)
+                            <ol type="a">
+                                <li>Feeling Safe at School Measure: This map shows the response to the question, "How safe do you feel at school?" 
+                                The original data were derived from the 2008-2010 California Healthy Kids Survey (CHKS) administered in grades 9 and 11. 
+                                Due to confidentiality agreements, we are showing only the range in which each school district falls.</li>
+                            </ol>
+                            <ul type="disc">
+                                <li>% 9th and 11th graders not bullied at school past 12 months due to race/ethnicity/national origin (CHKS)</li>
+                                <li>% not bullied at school past 12 months due to religion (CHKS)</li>
+                                <li>% not bullied at school past 12 months due to gender (CHKS)</li>
+                                <li>% not bullied at school past 12 months due to sexual orientation (CHKS)</li>
+                                <li>% not bullied at school past 12 months due to physical or mental disability (CHKS)</li>
+                                <li>% not bullied at school past 12 months for other reasons (CHKS)</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Education Domain: The Education Domain represents a composite score based on the following indicators: High School 
+                    Graduation Rate and University Readiness.
+                    (<a href="Download_Data/Index_Youth_Well_Being/Educational_Domain.csv" target="_blank">Download Education Domain Data</a>)
+                    <ol type="1">
+                        <li>High School Graduation Rate Indicator: The extent to which youth are completing basic academic training.
+                            (<a href="Download_Data/Index_Youth_Well_Being/High_SChool_Graduation_Rate.csv" target="_blank">Download High School Graduation Rate Indicator Data</a>)
+                            <ol type="a">
+                                <li>Proportion graduating from high school (as 1 minus 4-year dropout rate) 
+                                (<a href="http://www.cde.ca.gov/ds/sd/sd/filescohort.asp" target="_blank">CDE 2009-2010</a>)</li>
+                            </ol>
+                        </li>
+                        <li>University Ready Indicator: The extent to which youth are prepared to pursue a 4-year college education 
+                            upon graduating from high school if they choose to do so.
+                            (<a href="Download_Data/Index_Youth_Well_Being/University_Ready.csv" target="_blank">Download University Ready Indicator Data</a>)
+                            <ol type="a">
+                                <li>Proportion high school graduates passing state university prerequisites 
+                                (<a href="http://www.cde.ca.gov/ds/" target="_blank">CDE</a> 2009-2010)</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                    Social Relationships Domain: The Social Relationships Domain represents a composite score based on the following 
+                    indicator: Positive Relationships. 
+                    (<a href="Download_Data/Index_Youth_Well_Being/Social_Relationships_Domain.csv" target="_blank">Download Social Relationships Domain Data</a>)
+                    <ol type="1">
+                        <li>
+                            Positive Relationships Indicator: The extent to which youth are engaged in positive relationships across 
+                            multiple contexts, operationalized through 6 measures from CHKS 2008-2010, grades 9 and 11.
+                            (<a href="Download_Data/Index_Youth_Well_Being/Positive_Relationships.csv" target="_blank">Download Positive Relationships Indicator Data</a>)
+                            <ol type="a">
+                                <li>There is an adult outside school or home whom I trust (not true to very true) (CHKS)</li>
+                                <li>There is a teacher/other adult at my school who really cares about me (not true to very true) (CHKS)</li>
+                                <li>Outside home and school, there is an adult who really cares about me (not true to very true) (CHKS)</li>
+                                <li>I feel close to people at this school (strongly disagree to strongly agree) (CHKS)</li>
+                                <li>I am happy to be at this school (strongly disagree to strongly agree) (CHKS)</li>
+                                <li>I feel like I am part of this school (strongly disagree to strongly agree) (CHKS)</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+                <li>
+                   Community Context Domain: The Community Context Domain represents a composite score based on the following 
+                   indicators: Material Resources and Community Involvement.
+                   (<a href="Download_Data/Index_Youth_Well_Being/Community_Context_Domain.csv" target="_blank">Download Community Context Domain Data</a>)
+                   <ol type="1">
+                        <li>
+                            Material Resources Indicator: The extent to which youth are growing up in households with adequate 
+                            financial resources, operationalized through 1 measure from the US Census Bureau. To construct a 
+                            threshold of "adequate" household resources, we draw on cost of living estimates associated with 
+                            a "living wage" for families with children in California, generated by the "Living Wage Calculator" 
+                            (Downloaded from 
+                            <a href="http://www.livingwage.geog.psu.edu/states/06" target="_blank">http://www.livingwage.geog.psu.edu/states/06</a>
+                            on March 23, 2011.  Estimates are 
+                            based on the latest data available as of November 2008.); across various family configurations 
+                            these estimates are approximately three times the federal poverty level.
+                            (<a href="Download_Data/Index_Youth_Well_Being/Material_Resources.csv" target="_blank">Download Material Resources Indicator Data</a>)
+                            <ol type="a">
+                                <li>% 12-17 year olds in households with income at least 300% federal poverty line 
+                                    (<a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">ACS</a> 2006-2010 5 year estimates, Table B17024)</li>
+                            </ol>
+                        </li>
+                        <li>
+                            Community Involvement Indicator: The extent to which youth are involved in their communities 
+                            outside school classes, operationalized through 3 measures from CHKS 2008-2010.
+                            (<a href="Download_Data/Index_Youth_Well_Being/Community_Involvement.csv" target="_blank">Download Community Involvement Data</a>)
+                            <ol type="a">
+                                <li>Belong to clubs, teams, church or other group activities (not true to very true) (CHKS)</li>
+                                <li>Involved in music, art, literature, sports, hobbies (not true to very true) (CHKS)</li>
+                                <li>Help other people (not true to very true) (CHKS)</li>
+                            </ol>
+                        </li>
+                    </ol>
+                </li>
+            </ol>
+        </div>
+
+        <h2 class="expand-heading">III. YWI Construction</h2>
+        <div class="collapsable">
+            For each of the four domains—health, education, social relationships, and community context—we construct analyses of the 
+            proportion of youth that fall into the most positive category across indicators. The index presents a composite score
+            based on all four domains. 
+            <br /><br />
+            Original data elements came in multiple forms (e.g. Likert scales of varying size, percentages). Each item was converted 
+            to a percentage of the best possible score. Once the measures were standardized, results from correlational and principal 
+            components analyses were used to construct indicators. We then use a stepwise approach in which indicators are equally 
+            weighted in each domain score, and then the domains are equally weighted in the overall index score.
+            <br /><br />
+            Like any index, the YWI presents multiple limitations that should be considered in interpreting results.
+            <br /><br />
+            <i>Indicators</i>
+            <br />
+            The index lacks key indicators of well-being because data were unavailable, or unavailable at an appropriate scale. 
+            For example, it does not include robust measures of relationships with parents, peers, or partners, which numerous 
+            studies find are pivotal factors in youth well-being. Nor does it include information about positive gender, ethnic 
+            and sexual identity development. Indicator data for the education domain focuses heavily on school and not at all 
+            on development of other critical life skills and knowledge (e.g. knowing how to navigate systems, manage personal 
+            finances, etc.).  The analysis is also constrained by the lack of data on positive indicators of youth well-being 
+            (as opposed to measures of negative behaviors and outcomes).
+            <br /><br />
+            <i>Weighting</i>
+            <br />
+            Indices are sensitive to the items included, how they are grouped, and how they are weighted in calculations of 
+            summary scores. The 'stepwise equal weighting' method used here ultimately does create unequal weights for 
+            indicators within domains due to differing numbers of indicators within a domain. Our primary goals were to 
+            equally weight domains, consistent with prior research, and to ensure that indicators provided the most complete 
+            possible picture of well-being for each domain. Use of principal components analysis helped avoid significant 
+            redundancy in the grouping of indicators and measurement of effects.
+            <br /><br />
+            <i>Compensatability</i>
+            <br />
+            As with any index created by summing multiple items into a composite measure, the YWI is subject to the problem 
+            of compensatability. A high score in one domain may offset a low score in another domain, leading to a moderate 
+            overall score for a school district. Another school district may achieve the same overall score through the 
+            combination of moderate sub-domain scores. These two districts, though qualitatively different, would appear 
+            similar on the map given their index scores. Similarly, two districts could achieve the same domain score through 
+            different combinations of values on the component indicators. The compensability problem therefore limits the 
+            ability of the index to convey how youth are faring. To offset this, we provide information about the distribution 
+            of domain scores, and when possible, indicator scores. 
+            <br /><br />
+            <i>Significance</i> 
+            <br />
+            We are unable to test statistical significance between well-being scores by school districts. Since data were
+            collected at the school district level (one observation per variable per school district) at a single point in time, 
+            we are unable to assess the stability of our estimates or the error in each observation.
+            <br /><br />
+            <i>Validity</i>
+            <br />
+            Assessing the validity of a multidimensional index is difficult because it is unclear what criteria to use. However, 
+            a set of Capital Region-focused qualitative studies of youth well-being (n(youth)=16, n(adult allies)=59) offered one 
+            external basis for assessment of a pilot version of the index, and patterns captured in that version did reflect 
+            local and regional qualitative descriptions. Going forward, it will be important to compare this index to others, 
+            assess its ability to predict various concurrent and future outcomes, and assess its utility as a tool for 
+            policy-makers, youth-focused practitioners and youth advocates. 
+            <br /><br />
+            <strong>All index construction limitations should be considered when using this index.</strong> Despite these limitations, the 
+            index captures many key aspects of youth well-being, including factors known to predict successful and healthy 
+            transitions to adulthood and factors that youth consider important. An index based on all of these indicators 
+            provides a snapshot of the state of California's youth. 
+        </div>
+
+        <h2 class="expand-heading">IV. YWI Mapping</h2>
+        <div class="collapsable">
+            Index data were imported into GIS software (ArcMap v10.0, Esri, Redlands, CA) and joined to a geographic file 
+            representing merged Unified School District boundaries and Secondary School District boundaries (original boundary 
+            files downloaded from 
+            <a href="http://www.census.gov/geo/www/tiger/tgrshp2010/tgrshp2010.html" target="_blank">http://www.census.gov/geo/www/tiger/tgrshp2010/tgrshp2010.html</a>).
+            For each of the four domains 
+            and the aggregate index, a map representing the distribution of the data was symbolized. In each map, data are 
+            broken down into 10% intervals that range from a low of 20% to the maximum possible score, 100%.
+            <br /><br />
+            The school district scale may still mask important intra-district geographic disparities. Please see the Tutorial 
+            section of this website for information on interpretation of spatial data. 
+            <strong>All index mapping limitations should be considered when using this index.</strong>
+            <br /><br />
+        </div>
+
+        <hr />
+        <h1>Index of Youth Vulnerability</h1>
+
+        The index of youth vulnerability combines four indicators that have been associated with youth marginalization 
+        from many of the institutional settings that facilitate pathways to a healthy adulthood for most youth. They 
+        include: teen parenting, not completing high school, foster care placement and low family income. Though we 
+        originally intended to include involvement in the juvenile justice system (felony arrests) as a fifth indicator, 
+        those data were unavailable to us. For each indicator used, we normalized the data and then categorized into 
+        quintiles. Each quintile was then given a rank from 1 to 5 with 1 representing lowest levels of vulnerability 
+        or need and 5 indicating the highest levels. Please see the metadata for each of the indicators for specific 
+        information on data manipulation and analysis. To create the final index, we averaged the rank for each of 
+        the four predictive indicators. Then the results were classified by quintiles such that the lowest quintile 
+        would represent areas with the least vulnerability to disconnection while the highest quintile would be at 
+        risk for disconnection.
+        <br /><br />
+        (Click a section title below to view its contents.)
+
+        <h2 class="expand-heading">Teen Birth Rate</h2>
+        <div class="collapsable">
+            Teen mothers are more likely to not graduate from high school and/or pursue postsecondary education, 
+            experience more rapid repeat pregnancy, face the challenges of single parenthood and grapple with 
+            unemployment and poverty.  This teen birth rate map represents the number of 13 to 19 year olds in each 
+            census tract who gave birth in 2010 divided by number of females in the same age group. Teen birth data 
+            were obtained (after receiving approval from the Committee for the Protection of Human Subjects) from 
+            the California Department of Public Health's Health Information and Research Section, using the Birth 
+            Statistical Master File for 2010. A total of 43,651 births were known to occur to mothers under the age 
+            of 20. Births were geocoded to the mother's home address. Seventy-eight teen mothers did not have 
+            addresses in the database (0.18%) and another 99 (0.23%) could not be geocoded due to improper address 
+            information. The remaining addresses with a successful geocode were aggregated to the census tract 
+            level and then divided by the female population age 13-19 (the at risk population) to achieve a teen 
+            birth rate. Female population data came from the U.S. Census report QT-P2 (Single Years of Age and Sex) 
+            from the 2010 Census Summary File 1.
+            <br /><br />
+            (<a href="Download_Data/Index_Youth_Vulnerability/Teen_Birth_Rate.csv" target="_blank">Download Teen Birth Rate Data</a>)
+        </div>
+
+        <h2 class="expand-heading">Foster Care Entry Rate</h2>
+        <div class="collapsable">
+            Youth who enter into the foster care system tend to be vulnerable to inadequate support that leads to 
+            poor educational, mental and physical health, social developmental and economic outcomes. Our map shows 
+            the rate of foster care entry per 1,000 youth age 0 to 17 in 2010. The raw foster care data were collected 
+            from the Child Welfare Dynamic Reporting System which is a California Department of Social Services / 
+            University of California at Berkeley collaboration. Their website is:
+            <a href="http://cssr.berkeley.edu/ucb_childwelfare/GeoData.aspx" target="_blank">http://cssr.berkeley.edu/ucb_childwelfare/GeoData.aspx</a>. 
+            Of note, the foster care data for 2010 were collected based on year 2000 census tracts. In order to 
+            crosswalk the 2000 census tract data to 2010 boundaries, we used code developed for STATA statistical 
+            software (Stata/MP 12.0 for Windows, StataCorp LP, College Station, TX) by researchers at Brown University*. 
+            The code can be accessed at: 
+            <a href="http://www.s4.brown.edu/us2010/Researcher/LTBDDload/DataList.aspx" target="_blank">http://www.s4.brown.edu/us2010/Researcher/LTBDDload/DataList.aspx</a>. 
+            The use agreement for this code included non-redistribution of the data. For that reason, we only allow 
+            download of the foster care entry rate rank. 
+            <br /><br />
+            * US2010 Project - data source at 
+            <a href="http://www.s4.brown.edu/us2010/Researcher/Bridging.htm" target="_blank">http://www.s4.brown.edu/us2010/Researcher/Bridging.htm</a>. 
+            Technical documentation: John R. Logan, Zengwang Xu, and Brian Stults. 2012. "Interpolating US Decennial 
+            Census Tract Data from as Early as 1970 to 2010: A Longitudinal Tract Database" <i>Professional Geographer</i>, 
+            forthcoming. 
+            <br /><br />
+            (<a href="Download_Data/Index_Youth_Vulnerability/Foster_Care_Entry_Rate.csv" target="_blank">Download Foster Care Entry Rate Data</a>)
+        </div>
+
+        <h2 class="expand-heading">Poverty Rate</h2>
+        <div class="collapsable">
+            Lower family income is associated with decreased opportunities for transition to a healthy adulthood. 
+            In this map we show the poverty rate as the percentage of 12 to 17 year olds living in families with 
+            incomes that are less than 200% of the federal poverty level. Data were collected from the U.S. Census 
+            Bureau's American Community Survey 5-year estimates for 2010, using table B17024 "Age by ratio of income 
+            to poverty level in the past 12 months." Since the American Community Survey (ACS) is not a complete 
+            census, a margin of error (MOE) for each data point is given with the raw data. In this indicator, we 
+            combined several estimate to create the &lt; 200% poverty level variable. An explanation of the margin of 
+            error calculation for aggregated count data and derived proportions is shown below. Please beware of 
+            census tracts with large MOEs because the data are likely much less accurate.
+            <br /><br />
+            <i>Variable list in the ACS report (see below). Note that the number ranges indicate the ratio of 
+            income to poverty level in the past 12 months. Therefore, to obtain &lt; 200% poverty level, one could 
+            add all of the populations under 2_00…OR…add all of the populations 2_00 and above and subtract them 
+            from the total. When working with the margins of error, it is generally considered best practice to use 
+            the fewest number of variables or components possible to reduce error.</i>
+            <br /><br />
+            <table style="margin-left: 20px;" class="basic">
+                <tr class="odd"><td>VD28</td><td>'Total 12 to 17 years'</td></tr>
+                <tr><td>VD28MOE</td><td>'Total 12 to 17 years MOE'</td></tr> 
+                <tr class="odd"><td>VD29</td><td>'Total 12 to 17 years Under _50'</td></tr>
+                <tr><td>VD29MOE</td><td>'Total 12 to 17 years Under _50 MOE'</td></tr>
+                <tr class="odd"><td>VD30</td><td>'Total 12 to 17 years _50 to _74'</td></tr>
+                <tr><td>VD30MOE</td><td>'Total 12 to 17 years _50 to _74 MOE'</td></tr>
+                <tr class="odd"><td>VD31</td><td>'Total 12 to 17 years _75 to _99'</td></tr>
+                <tr><td>VD31MOE</td><td>'Total 12 to 17 years _75 to _99 MOE'</td></tr>
+                <tr class="odd"><td>VD32</td><td>'Total 12 to 17 years 1_00 to 1_24'</td></tr>
+                <tr><td>VD32MOE</td><td>'Total 12 to 17 years 1_00 to 1_24 MOE'</td></tr>
+                <tr class="odd"><td>VD33</td><td>'Total 12 to 17 years 1_25 to 1_49'</td></tr>
+                <tr><td>VD33MOE</td><td>'Total 12 to 17 years 1_25 to 1_49 MOE'</td></tr>
+                <tr class="odd"><td>VD34</td><td>'Total 12 to 17 years 1_50 to 1_74'</td></tr>
+                <tr><td>VD34MOE</td><td>'Total 12 to 17 years 1_50 to 1_74 MOE'</td></tr>
+                <tr class="odd"><td>VD35</td><td>'Total 12 to 17 years 1_75 to 1_84'</td></tr>
+                <tr><td>VD35MOE</td><td>'Total 12 to 17 years 1_75 to 1_84 MOE'</td></tr>
+                <tr class="odd"><td>VD36</td><td>'Total 12 to 17 years 1_85 to 1_99'</td></tr>
+                <tr><td>VD36MOE</td><td>'Total 12 to 17 years 1_85 to 1_99 MOE'</td></tr>
+                <tr class="odd"><td>VD37</td><td>'Total 12 to 17 years 2_00 to 2_99'</td></tr>
+                <tr><td>VD37MOE</td><td>'Total 12 to 17 years 2_00 to 2_99 MOE'</td></tr>
+                <tr class="odd"><td>VD38</td><td>'Total 12 to 17 years 3_00 to 3_99'</td></tr>
+                <tr><td>VD38MOE</td><td>'Total 12 to 17 years 3_00 to 3_99 MOE'</td></tr>
+                <tr class="odd"><td>VD39</td><td>'Total 12 to 17 years 4_00 to 4_99'</td></tr>
+                <tr><td>VD39MOE</td><td>'Total 12 to 17 years 4_00 to 4_99 MOE'</td></tr>
+                <tr class="odd"><td>VD40</td><td>'Total 12 to 17 years 5_00 and over'</td></tr>
+                <tr><td>VD40MOE</td><td>'Total 12 to 17 years 5_00 and over MOE'</td></tr>
+            </table>
+            <br />
+            <i>To reduce the number of component estimates, we chose to calculate the percentage above 200% and subtracting from the total.</i>
+            <br /><br />
+            
+            <i><span style="text-decoration: underline;">Step 1. Calculate MOE for Aggregated Numerator.</span><br />
+            Step 1.1. Define the MOE for each numerator component estimate.</i><br />
+            <br />
+            <span class="compute">COMPUTE N1=VD37MOE.</span><br />
+            <span class="compute">COMPUTE N2=VD38MOE.</span><br />
+            <span class="compute">COMPUTE N3=VD39MOE.</span><br />
+            <span class="compute">COMPUTE N4=VD40MOE.</span><br />
+            <br />
+            
+            <i>Step 1.2. Sum the component estimates that comprise the numerator.</i><br />
+            <br />
+            <span class="compute">COMPUTE X_NUM = VD37 + VD38 + VD39 + VD40.</span><br />
+            <br />
+            <i>The MOE for the numerator is given by MOE_NUM.<br />
+            <br />
+            Step 1.3. Square the MOE for each numerator component estimate.<br />
+            Step 1.4.  Sum the squared MOEs.<br />
+            Step 1.5. Take the square root of the sum of the squared MOEs.</i><br />
+            <br />
+            <span class="compute">COMPUTE MOE_NUM = SQRT((N1**2) + (N2**2) + (N3**2) + (N4**2)).</span><br />
+            <br />
+            
+            <i><span style="text-decoration: underline;">Section 2. Calculate the MOE for the Aggregated Denominator.</span><br />
+            Step 2.1. Define the MOE for each denominator component estimate.</i><br />
+            <br />
+            <span class="compute">COMPUTE D1= VD28MOE.</span><br />
+            <br />
+            <i>Step 2.2.  Sum the component estimates that comprise the denominator.</i><br />
+            <br />
+            <span class="compute">COMPUTE X_DEN = VD28.</span><br />
+            <br />
+            <i>The MOE for the denominator is given by: MOE_DEN.<br />
+            <br />
+            Step 2.3. Square the MOE for each numerator component estimate.<br />
+            Step 2.4.  Sum the squared MOEs.<br />
+            Step 2.5. Take the square root of the sum of the squared MOEs.</i><br />
+            <br />
+            <span class="compute">COMPUTE MOE_DEN = SQRT((D1**2) + (D2**2)).</span><br />
+            <br />
+            <i><span style="text-decoration: underline;">Section 3. Calculate the MOE for the Derived Proportion.</span></i><br />
+            The derived ratio is:<br />
+            <br />
+            <span class="compute">COMPUTE R = X_NUM/X_DEN.</span><br />
+            <br />
+            <i>The calculation of the MOE is as follows:<br />
+            Step 3.1. Square the derived proportion.<br />
+            Step 3.2. Square the MOE of the numerator.<br />
+            Step 3.3. Square the MOE of the denominator.<br />
+            Step 3.4.  Multiply the squared MOE of the denominator by the squared proportion (R).<br />
+            Step 3.5. Subtract the results of (3.4) from the squared MOE of the numerator.<br />
+            Step 3.6.  Take the square root of the result of (3.5).</i><br />
+            <br />
+            <span class="compute">COMPUTE MOE_XNUM = SQRT((MOE_NUM**2) -((R**2)*(MOE_DEN**2))).</span><br />
+            <br />
+            <i>Step 3.7. Divide the result of (3.6) by the denominator of the proportion (X_Den).</i><br />
+            <br />
+            <span class="compute">COMPUTE MOE_X = MOE_XNUM/X_DEN.</span><br />
+            <br />
+            <i><span style="text-decoration: underline;">Section 4.  Define variables for analysis.</span><br />
+            Step 4.1. Define MOE of the percentage of 12-17 year olds in the tract who are below 200% of the Federal Poverty Level.</i><br />
+            <br />
+            <span class="compute">COMPUTE M_P1217_2FPL = MOE_X.</span><br />
+            <br />
+            <i>Step 4.2. Define percentage of 12-17 year olds in the tract who are below 200% of the Federal Poverty Level.</i><br />
+            <br />
+            <span class="compute">COMPUTE P1217_2FPL= (1 - R).</span><br />
+            <br />
+            References:<br />
+            <br />
+            Bidita J. Tithi and Chris Benner, <i>Technical Paper for Vulnerability and Opportunity Indices Calculation</i>, UC Davis, 2011.<br />
+            <br />
+            Appendix 3 of the US Census Bureau (October 2008) manual <i>A Compass for Understanding and Using the American Community 
+            Survey Data: What General Data Users Need to Know.</i>
+            <a href="http://www.census.gov/acs/www/guidance_for_data_users/handbooks/" target="_blank">http://www.census.gov/acs/www/guidance_for_data_users/handbooks/</a>
+            <br /><br />
+            (<a href="Download_Data/Index_Youth_Vulnerability/Poverty_Rate.csv" target="_blank">Download Poverty Rate Data</a>)
+        </div>
+
+        <h2 class="expand-heading">High School Dropout Rate</h2>
+        <div class="collapsable">
+            Youth who do not complete high school are more likely to experience a variety of challenges, including poverty, 
+            poor physical and mental health, and more limited opportunity, among others. High School Dropout was defined as 
+            adults ages 18 to 24 who had less than a 9th grade education or who entered 9th to 12th grades but received no 
+            diploma. The dropout rate was created by taking those individuals divided by the total population of 18-24 year 
+            olds. Data were collected from the U.S. Census Bureau's American Community Survey 5-year estimates for 2010, 
+            using Table B15001, "Sex by Age by Educational Attainment for the Population 18 years and Over." To search 
+            the U.S. Census website for data, please see the American Fact Finder query tool at:
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>. 
+            Since the American Community Survey (ACS) is not a complete census, a margin of error (MOE) for each data 
+            point is given with the raw data. In this indicator, we combined several estimate to create the High School 
+            Dropout indicator. An explanation of the margin of error calculation for aggregated count data and derived 
+            proportions is shown below. Please beware of census tracts with large MOEs because the data are likely much 
+            less accurate.
+            <br /><br />
+            <i>Variable list in the ACS report (see below) and our method for creation of the high school dropout rate and margin of error.</i>
+            <br /><br />
+            <table style="margin-left: 20px;" class="basic">
+                <tr class="odd"><td>VD01</td><td>'Total:'</td></tr>
+                <tr><td>VD02</td><td>'Total Male:'</td></tr>
+                <tr class="odd"><td>VD03</td><td>'Total: Male: 18 to 24 years:'</td></tr>
+                <tr><td>VD04</td><td>'Total: Male: 18 to 24 years: Less than 9th grade'</td></tr>
+                <tr class="odd"><td>VD05</td><td>'Total: Male: 18 to 24 years: 9th to 12th grade, no diploma'</td></tr>
+                <tr><td>VD43</td><td>'Total: Female:'</td></tr>
+                <tr class="odd"><td>VD44</td><td>'Total: Female: 18 to 24 years:'</td></tr>
+                <tr><td>VD45</td><td>'Total: Female: 18 to 24 years: Less than 9th grade'</td></tr>
+                <tr class="odd"><td>VD46</td><td>'Total: Female: 18 to 24 years: 9th to 12th grade, no diploma'</td></tr>
+                <tr><td>VD01MOE</td><td>'Total: (MOE)'</td></tr>
+                <tr class="odd"><td>VD02MOE</td><td>'Total: Male: (MOE)'</td></tr>
+                <tr><td>VD03MOE</td><td>'Total: Male: 18 to 24 years: (MOE)'</td></tr>
+                <tr class="odd"><td>VD04MOE</td><td>'Total: Male: 18 to 24 years: Less than 9th grade (MOE)'</td></tr>
+                <tr><td>VD05MOE</td><td>'Total: Male: 18 to 24 years: 9th to 12th grade, no diploma (MOE)'</td></tr>
+                <tr class="odd"><td>VD43MOE</td><td>'Total: Female: (MOE)'</td></tr>
+                <tr><td>VD44MOE</td><td>'Total: Female: 18 to 24 years: (MOE)'</td></tr>
+                <tr class="odd"><td>VD45MOE</td><td>'Total: Female: 18 to 24 years: Less than 9th grade (MOE)'</td></tr>
+                <tr><td>VD46MOE</td><td>'Total: Female: 18 to 24 years: 9th to 12th grade, no diploma (MOE)'.</td></tr>
+            </table>
+            <br />
+            <i>PURPOSE: Calculating the MOE for the Percentage of 18-24 year olds who completed either less than 9th grade, 
+            or 9th through 12th grade, without receiving a diploma.<br />
+            <br />
+            <u>Step 1. Calculate MOE for Aggregated Numerator.</u><br />
+            Step 1.1. Define the MOE for each numerator component estimate.</i><br />
+            <br />
+            <span class="compute">COMPUTE N1=VD04MOE.</span><br />
+            <span class="compute">COMPUTE N2=VD05MOE.</span><br />
+            <span class="compute">COMPUTE N3=VD45MOE.</span><br />
+            <span class="compute">COMPUTE N4=VD46MOE.</span><br />
+            <br />
+            <i>Step 1.2. Sum the component estimates that comprise the numerator.</i><br />
+            <br />
+            <span class="compute">COMPUTE X_NUM = VD04 + VD05 + VD45 + VD46.</span><br />
+            <br />
+            <i>The MOE for the numerator is given by MOE_NUM.<br />
+            <br />
+            Step 1.3. Square the MOE for each numerator component estimate.<br />
+            Step 1.4.  Sum the squared MOEs.<br />
+            Step 1.5. Take the square root of the sum of the squared MOEs.</i><br />
+            <br />
+            <span class="compute">COMPUTE MOE_NUM = SQRT((N1**2) + (N2**2) + (N3**2) + (N4**2)).</span><br />
+            <br />
+            <i><u>Section 2. Calculate the MOE for the Aggregated Denominator.</u><br />
+            Step 2.1. Define the MOE for each denominator component estimate.</i><br />
+            <br />
+            <span class="compute">COMPUTE D1= VD03MOE.</span><br />
+            <span class="compute">COMPUTE D2= VD44MOE.</span><br />
+            <br />
+            <i>Step 2.2.  Sum the component estimates that comprise the denominator.</i><br />
+            <br />
+            <span class="compute">COMPUTE X_DEN = (VD03+VD44).</span><br />
+            <br />
+            <i>The MOE for the denominator is given by: MOE_DEN.<br />
+            <br />
+            Step 2.3. Square the MOE for each numerator component estimate.<br />
+            Step 2.4.  Sum the squared MOEs.<br />
+            Step 2.5. Take the square root of the sum of the squared MOEs.</i><br />
+            <br />
+            <span class="compute">COMPUTE MOE_DEN = SQRT((D1**2) + (D2**2)).</span><br />
+            <br />
+            <i><u>Section 3. Calculate the MOE for the Derived Proportion.</u></i><br />
+            The derived ratio is:<br />
+            <br />
+            <span class="compute">COMPUTE R = X_NUM/X_DEN.</span><br />
+            <br />
+            <i>The calculation of the MOE is as follows:<br />
+            Step 3.1. Square the derived proportion.<br />
+            Step 3.2. Square the MOE of the numerator.<br />
+            Step 3.3. Square the MOE of the denominator.<br />
+            Step 3.4.  Multiply the squared MOE of the denominator by the squared proportion (R).<br />
+            Step 3.5. Subtract the results of (3.4) from the squared MOE of the numerator.<br />
+            Step 3.6.  Take the square root of the result of (3.5).</i><br />
+            <br />
+            <span class="compute">COMPUTE MOE_XNUM = SQRT((MOE_NUM**2) -((R**2)*(MOE_DEN**2))).</span><br />
+            <br />
+            <i>Step 3.7. Divide the result of (3.6) by the denominator of the proportion (X_Den).</i><br />
+            <br />
+            <span class="compute">COMPUTE MOE_X = MOE_XNUM/X_DEN.</span><br />
+            <br />
+            <i><u>Section 4.  Define variables for analysis.</u><br />
+            Step 4.1. Define MOE of the Percentage of 18-24 year olds in the tract who (1) completed less 
+            than 9th grade OR (2) completed 9th-12th grade without receiving a diploma.</i><br />
+            <br />
+            <span class="compute">COMPUTE M_P1824_Dropouts= MOE_X.</span><br />
+            <br />
+            <i>Step 4.2. Define percentage of 18-24 year olds in the tract who (1) completed less than 9th 
+            grade OR (2) completed 9th-12th grade without receiving a diploma.</i><br />
+            <br />
+            <span class="compute">COMPUTE P1824_Dropouts = R.</span><br />
+            <br />
+            References:  
+            <br />
+            Bidita J. Tithi and Chris Benner, <i>Technical Paper for Vulnerability and Opportunity Indices Calculation</i>, UC Davis, 2011.<br />
+            <br />
+            Appendix 3 of the US Census Bureau (October 2008) manual <i>A Compass for Understanding and Using the American Community 
+            Survey Data: What General Data Users Need to Know.</i>
+            <a href="http://www.census.gov/acs/www/guidance_for_data_users/handbooks/" target="_blank">http://www.census.gov/acs/www/guidance_for_data_users/handbooks/</a>
+            <br /><br />
+            (<a href="Download_Data/Index_Youth_Vulnerability/High_School_Dropout_Rate.csv" target="_blank">Download High School Dropout Rate Data</a>)
+        </div>
+        
+        <hr />
+        <h1>Other Map Data</h1>
+        
+        A good map will answer questions about a problem. And typically, a good map will also inspire some new questions and 
+        stimulate the map reader to generate new hypotheses. In anticipation of this phenomenon, we have included a number 
+        of additional data driven maps to facilitate the process. So in addition to the cumulative index maps for well-being 
+        and vulnerability and all of their indicators, we also include youth population demographics, truancy rates, food 
+        deserts, assets such as 4-H club density and more. In each case, we’ve mapped data at the smallest possible scale 
+        available.
+        <br /><br />
+        (Click a section title below to view its contents.)
+
+        <h2 class="expand-heading">Youth Demographics</h2>
+        <div class="collapsable">
+            <h4>Percentage of the Population Age 10-14</h4>
+            Data on the youth population by census tract came from the 2010 decennial census form SF1. 
+            See American Fact Finder to obtain raw data: 
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>. 
+            <br /><br />
+            (<a href="Download_Data/Other/Percentage_Population_Age_10_14.csv" target="_blank">Download Population Age 10-14 Data</a>)
+
+            <h4>Percentage of the Population Age 15-19</h4>
+            Data on the youth population by census tract came from the 2010 decennial census form SF1. 
+            See American Fact Finder to obtain raw data: 
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>. 
+            <br /><br />
+            (<a href="Download_Data/Other/Percentage_Population_Age_15_19.csv" target="_blank">Download Population age 15-19 Data</a>)
+
+            <h4>Percentage of the Population Age 10-19</h4>
+            Data on the youth population by census tract came from the 2010 decennial census form SF1. 
+            See American Fact Finder to obtain raw data: 
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>. 
+            <br /><br />
+            (<a href="Download_Data/Other/Percentage_Population_Age_10_19.csv" target="_blank">Download Population Age 10-19 Data</a>)
+
+            <h4>Latino Population</h4>
+            We classified Latino/Hispanic origin based on U.S. Census data from the 2010 decennial census 
+            form SF1, P12H report. The map shows the percentage of youth age 0 to 17 who are of Hispanic 
+            origin or Latino as a percentage of the entire youth population within a county (from U.S 
+            census SF1, QTP1 report). See American Fact Finder to obtain raw data: 
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>. 
+            <br /><br />
+            (<a href="Download_Data/Other/Latino_Population.csv" target="_blank">Download Latino Population Data</a>)
+
+            <h4>Percentage of White Youth</h4>
+            The U.S. Census racial categories-- White, Black or African American, Asian, American Indian 
+            and Alaskan Native, Hawaiian and Other Pacific Islander-- are employed to describe the racial 
+            make-up of California's young people. Here we show the percentage of youth age 0 to 17 that 
+            are White by county. Clicking on a county will provide a popup showing the overall racial 
+            make-up of that county. Data came from the 2010 decennial census form SF1. See American Fact 
+            Finder to obtain raw data: 
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>. 
+            <br /><br />
+            (<a href="Download_Data/Other/Percentage_Youth_Demographics.csv" target="_blank">Download Youth Demographics Data</a>)
+
+            <h4>Percentage of Black or African American Youth</h4>
+            The U.S. Census racial categories-- White, Black or African American, Asian, American Indian 
+            and Alaskan Native, Hawaiian and Other Pacific Islander-- are employed to describe the racial 
+            make-up of California's young people. Here we show the percentage of youth age 0 to 17 that 
+            are Black or African American by county. Clicking on a county will provide a popup showing 
+            the overall racial make-up of that county. Data came from the 2010 decennial census form SF1. 
+            See American Fact Finder to obtain raw data: 
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>. 
+            <br /><br />
+            (<a href="Download_Data/Other/Percentage_Youth_Demographics.csv" target="_blank">Download Youth Demographics Data</a>)
+
+            <h4>Percentage of Asian Youth</h4>
+            The U.S. Census racial categories-- White, Black or African American, Asian, American Indian 
+            and Alaskan Native, Hawaiian and Other Pacific Islander-- are employed to describe the racial 
+            make-up of California's young people. Here we show the percentage of youth age 0 to 17 that 
+            are Asian by county. Clicking on a county will provide a popup showing the overall racial 
+            make-up of that county. Data came from the 2010 decennial census form SF1. See American Fact 
+            Finder to obtain raw data: 
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>.
+            <br /><br />
+            (<a href="Download_Data/Other/Percentage_Youth_Demographics.csv" target="_blank">Download Youth Demographics Data</a>)
+
+            <h4>Percentage of American Indian and Alaskan Native Youth</h4>
+            The U.S. Census racial categories-- White, Black or African American, Asian, American Indian 
+            and Alaskan Native, Hawaiian and Other Pacific Islander-- are employed to describe the racial 
+            make-up of California's young people. Here we show the percentage of youth age 0 to 17 that 
+            are American Indian and Alaskan Native by county. Clicking on a county will provide a popup 
+            showing the overall racial make-up of that county. Data came from the 2010 decennial census 
+            form SF1. See American Fact Finder to obtain raw data: 
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>.
+            <br /><br />
+            (<a href="Download_Data/Other/Percentage_Youth_Demographics.csv" target="_blank">Download Youth Demographics Data</a>)
+
+            <h4>Percentage of Hawaiian and Other Pacific Islander Youth</h4>
+            The U.S. Census racial categories-- White, Black or African American, Asian, American Indian 
+            and Alaskan Native, Hawaiian and Other Pacific Islander-- are employed to describe the racial 
+            make-up of California's young people. Here we show the percentage of youth age 0 to 17 that 
+            are Hawaiian and Other Pacific Islander by county. Clicking on a county will provide a popup 
+            showing the overall racial make-up of that county. Data came from the 2010 decennial census 
+            form SF1. See American Fact Finder to obtain raw data: 
+            <a href="http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml" target="_blank">http://factfinder2.census.gov/faces/nav/jsf/pages/index.xhtml</a>.
+            <br /><br />
+            (<a href="Download_Data/Other/Percentage_Youth_Demographics.csv" target="_blank">Download Youth Demographics Data</a>)
+        </div>
+        
+        <h2 class="expand-heading">Sexually Transmitted Diseases</h2>
+        <div class="collapsable">
+            <h4>Chlamydia Rate Females Age 10-14</h4>
+            The California Department of Public Health defines chlamydia as "a common sexually transmitted 
+            infection caused by a bacterium called Chlamydia trachomatis. Infection is often without symptoms, 
+            and if not treated, can cause serious reproductive health problems such as pelvic inflammatory 
+            disease (PID) and infertility. Chlamydia also can cause infections in newborn babies. Tests and 
+            effective treatments are available." Here we report 2011 chlamydia rates for females age 10 to 14 
+            per 100,000 population. Raw data were obtained from 
+            <a href="http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf" target="_blank">http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf</a>. 
+            The notation of -99 means that the number of cases was suppressed for confidentiality.
+            <br /><br />
+            (<a href="Download_Data/Other/Chlamydia_Rate_Females_Age_10_14.csv" target="_blank">Download Chlamydia Rate Females Age 10-14 Data</a>)
+
+            <h4>Chlamydia Rate Females Age 15-19</h4>
+            The California Department of Public Health defines chlamydia as "a common sexually transmitted 
+            infection caused by a bacterium called Chlamydia trachomatis. Infection is often without symptoms, 
+            and if not treated, can cause serious reproductive health problems such as pelvic inflammatory 
+            disease (PID) and infertility. Chlamydia also can cause infections in newborn babies. Tests and 
+            effective treatments are available." Here we report 2011 chlamydia rates for females age 15 to 19 
+            per 100,000 population. Raw data were obtained from 
+            <a href="http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf" target="_blank">http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf</a>. 
+            The notation of -99 means that the number of cases was suppressed for confidentiality.
+            <br /><br />
+            (<a href="Download_Data/Other/Chlamydia_Rate_Females_Age_15_19.csv" target="_blank">Download Chlamydia Rate Females Age 15-19 Data</a>)
+
+            <h4>Chlamydia Rate Males Age 10-14</h4>
+            The California Department of Public Health defines chlamydia as "a common sexually transmitted 
+            infection caused by a bacterium called Chlamydia trachomatis. Infection is often without symptoms, 
+            and if not treated, can cause serious reproductive health problems such as pelvic inflammatory 
+            disease (PID) and infertility. Chlamydia also can cause infections in newborn babies. Tests and 
+            effective treatments are available." Here we report 2011 chlamydia rates for males age 10 to 14 
+            per 100,000 population. Raw data were obtained from 
+            <a href="http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf" target="_blank">http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf</a>.
+            <br /><br />
+            (<a href="Download_Data/Other/Chlamydia_Rate_Males_Age_10_14.csv" target="_blank">Download Chlamydia Rate Males Age 10-14 Data</a>)
+
+            <h4>Chlamydia Rate Males Age 15-19</h4>
+            The California Department of Public Health defines chlamydia as "a common sexually transmitted 
+            infection caused by a bacterium called Chlamydia trachomatis. Infection is often without symptoms, 
+            and if not treated, can cause serious reproductive health problems such as pelvic inflammatory 
+            disease (PID) and infertility. Chlamydia also can cause infections in newborn babies. Tests and 
+            effective treatments are available." Here we report 2011 chlamydia rates for males age 15 to 19 
+            per 100,000 population. Raw data were obtained from 
+            <a href="http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf" target="_blank">http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf</a>.
+            <br /><br />
+            (<a href="Download_Data/Other/Chlamydia_Rate_Males_Age_15_19.csv" target="_blank">Download Chlamydia Rate Males Age 15-19 Data</a>)
+
+            <h4>Gonorrhea Rate Females Age 10-14</h4>
+            The California Department of Public Health defines gonorrhea as "a common sexually transmitted 
+            infection caused by a bacterium called Neisseria gonorrhoeae. Infection can cause serious 
+            reproductive health problems, such as pelvic inflammatory disease (PID) and infertility. 
+            Gonorrhea also can cause infections in newborn babies. Tests and effective treatments are 
+            available." Here we report 2011 gonorrhea rates for females age 10 to 14 per 100,000 population. 
+            Raw data were obtained from 
+            <a href="http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf" target="_blank">http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf</a>.
+            <br /><br />
+            (<a href="Download_Data/Other/Gonorrhea_Rate_Females_Age_10_14.csv" target="_blank">Download Gonorrhea Rate Females Age 10-14 Data</a>)
+
+            <h4>Gonorrhea Rate Females Age 15-19</h4>
+            The California Department of Public Health defines gonorrhea as "a common sexually transmitted 
+            infection caused by a bacterium called Neisseria gonorrhoeae. Infection can cause serious 
+            reproductive health problems, such as pelvic inflammatory disease (PID) and infertility. 
+            Gonorrhea also can cause infections in newborn babies. Tests and effective treatments are 
+            available." Here we report 2011 gonorrhea rates for females age 15 to 19 per 100,000 population. 
+            Raw data were obtained from 
+            <a href="http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf" target="_blank">http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf</a>./
+            <br /><br />
+            (<a href="Download_Data/Other/Gonorrhea_Rate_Females_Age_15_19.csv" target="_blank">Download Gonorrhea Rate Females Age 15-19 Data</a>)
+
+            <h4>Gonorrhea Rate Males Age 10-14</h4>
+            The California Department of Public Health defines gonorrhea as "a common sexually transmitted 
+            infection caused by a bacterium called Neisseria gonorrhoeae. Infection can cause serious 
+            reproductive health problems, such as pelvic inflammatory disease (PID) and infertility. 
+            Gonorrhea also can cause infections in newborn babies. Tests and effective treatments are 
+            available." Here we report 2011 gonorrhea rates for males age 10 to 14 per 100,000 population. 
+            Raw data were obtained from 
+            <a href="http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf" target="_blank">http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf</a>.
+            <br /><br />
+            (<a href="Download_Data/Other/Gonorrhea_Rate_Males_Age_10_14.csv" target="_blank">Download Gonorrhea Rate Males Age 10-14 Data</a>)
+
+            <h4>Gonorrhea Rate Males Age 15-19</h4>
+            The California Department of Public Health defines gonorrhea as "a common sexually transmitted 
+            infection caused by a bacterium called Neisseria gonorrhoeae. Infection can cause serious 
+            reproductive health problems, such as pelvic inflammatory disease (PID) and infertility. 
+            Gonorrhea also can cause infections in newborn babies. Tests and effective treatments are 
+            available." Here we report 2011 gonorrhea rates for males age 15 to 19 per 100,000 population. 
+            Raw data were obtained from 
+            <a href="http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf" target="_blank">http://www.cdph.ca.gov/data/statistics/Documents/STD-Data-LHJ-DataSummaries-All.pdf</a>.
+            <br /><br />
+            (<a href="Download_Data/Other/Gonorrhea_Rate_Males_Age_15_19.csv" target="_blank">Download Gonorrhea Rate Males Age 15-19 Data</a>)
+        </div>
+
+        <h2 class="expand-heading">Geographic District Boundaries</h2>
+        <div class="collapsable">
+            <h4>California Counties</h4>
+            The boundary files were downloaded from Cal-Atlas Geospatial Clearinghouse 
+            (<a href="http://atlas.ca.gov/" target="_blank">http://atlas.ca.gov/</a>).
+
+            <h4>Old Congressional Districts 2001</h4>
+            These congressional district boundaries were enacted on September 13, 2001, and signed into law on 
+            September 26, 2001 by the Governor of California. The boundary files were downloaded from Cal-Atlas 
+            Geospatial Clearinghouse (<a href="http://atlas.ca.gov/" target="_blank">http://atlas.ca.gov/</a>). 
+            Please note: redistricting was performed in 2011. See the New Congressional Districts 2011 map 
+            layer for changes. We do not provide a download of this boundary file.
+
+            <h4>Old State Senate Districts 2001</h4>
+            These state senate district boundaries were enacted on September 13, 2001, and signed into law on
+            September 26, 2001 by the Governor of California. The boundary files were downloaded from Cal-Atlas 
+            Geospatial Clearinghouse (<a href="http://atlas.ca.gov/" target="_blank">http://atlas.ca.gov/</a>). 
+            Please note: redistricting was performed in 2011. See the New State Senate Districts 2011 map 
+            layer for changes. We do not provide a download of this boundary file.
+
+            <h4>Old State Assembly Districts 2001</h4>
+            These state assembly district boundaries were enacted on September 13, 2001, and signed into law on 
+            September 26, 2001 by the Governor of California. The boundary files were downloaded from Cal-Atlas 
+            Geospatial Clearinghouse (<a href="http://atlas.ca.gov/" target="_blank">http://atlas.ca.gov/</a>). 
+            Please note: redistricting was performed in 2011. See the New State Assembly Districts 2011 map
+            layer for changes. We do not provide a download of this boundary file.
+
+            <h4>New Congressional Districts 2011</h4>
+            These congressional district boundaries were developed by the California Citizens Redistricting 
+            Commission (created in 2008 in response to the passage of California Proposition 11), following 
+            the passage of California Proposition 20 in 2010. They were downloaded from 
+            <a href="http://wedrawthelines.ca.gov/" target="_blank">http://wedrawthelines.ca.gov/</a>.
+            Please note: We do not provide a download of this boundary file.
+
+            <h4>New State Senate Districts 2011</h4>
+            These state senate district boundaries were developed by the California Citizens Redistricting 
+            Commission (created in 2008 in response to the passage of California Proposition 11), following 
+            the passage of California Proposition 20 in 2010. They were downloaded from 
+            <a href="http://wedrawthelines.ca.gov/" target="_blank">http://wedrawthelines.ca.gov/</a>.
+            Please note: We do not provide a download of this boundary file.
+
+            <h4>New State Assembly Districts 2011</h4>
+            These state assembly district boundaries were developed by the California Citizens Redistricting 
+            Commission (created in 2008 in response to the passage of California Proposition 11), following 
+            the passage of California Proposition 20 in 2010. They were downloaded from 
+            <a href="http://wedrawthelines.ca.gov/" target="_blank">http://wedrawthelines.ca.gov/</a>.
+            Please note: We do not provide a download of this boundary file.
+        </div>
+
+        <h2 class="expand-heading">Out of Work and Out of School</h2>
+        <div class="collapsable">
+            Young people who are both out of work and out of school often lack access to support for a healthy transition 
+            to adulthood. Data on rates at which young people ages 20-24 were out of school and out of work in 2010 were
+            downloaded from the University of Minnesota IPUMS Program* (Integrated Public Use Microdata Series) at the 
+            PUMA level.  A PUMA is a statistical geographical area that contains a census population of 100,000. 
+            Selection criteria included persons who were:  not in school, not employed and not in labor force, and 
+            ages 20 to 24. To review the data at its source or collect data for other years, please see the website 
+            <a href="http://usa.ipums.org/usa/index.shtml" target="_blank">http://usa.ipums.org/usa/index.shtml</a>. 
+            In this analysis we used their EMPSTAT variable (which included the above selection criteria) weighted 
+            using the PERWT variable (a U.S. population weight used when doing person-level analysis).
+            <br /><br />
+            (<a href="Download_Data/Other/Percentage_Out_of_Work_and_Out_of_School.csv" target="_blank">Download Out of Work and Out of School Data</a>)
+            <br /><br />
+            <i>*Steven Ruggles, J. Trent Alexander, Katie Genadek, Ronald Goeken, Matthew B. Schroeder, and Matthew Sobek. 
+            Integrated Public Use Microdata Series: Version 5.0 [Machine-readable database]. Minneapolis: 
+            University of Minnesota, 2010.</i>
+        </div>
+
+        <h2 class="expand-heading">4-H Clubs</h2>
+        <div class="collapsable">
+            4-H Clubs, which are supported through the UC Division of Agriculture and Natural Resources, 
+            offer youth development programming for children and youth throughout California (see 
+            <a href="http://www.ca4H.org" target="_blank">www.ca4H.org</a> 
+            for more information). The number of 4-H clubs per 100,000 eligible youth age 5 to 19 was 
+            tabulated by county. The club types include: organized community, after-school, in-school, 
+            special interest/short-term, military and overnight camp programs. Youth population data 
+            were collected from the 2010 decennial census; form SF1, report QT-P1, and 4-H Club data 
+            were obtained from the State 4-H office.
+            <br /><br />
+            *Note: The State 4-H Office combines the clubs for Plumas and Sierra counties, as well as 
+            San Mateo and San Francisco counties. We combined the population of each county pair to 
+            calculate the rate. 
+            <br /><br />
+            (<a href="Download_Data/Other/4_H_Clubs_per_100k_Eligible_Youth.csv" target="_blank">Download 4_H Clubs Data</a>)
+        </div>
+
+        <h2 class="expand-heading">Truancy Rates</h2>
+        <div class="collapsable">
+            According to the California Department of Education, the truancy rate is calculated as 
+            the number of students with unexcused absence or tardiness on 3 or more days divided by 
+            the total enrollment (see 
+            <a href="http://www.cde.ca.gov/ls/ai/tr/" target="_blank">http://www.cde.ca.gov/ls/ai/tr/</a>
+            for more information about truancy). This map shows the truancy rate in California 
+            secondary and unified school districts for 2010-2011. It is important to note that 
+            this map does NOT include truancy rates for schools administered through County Offices 
+            of Education (including many alternative schools) and charter schools that are not 
+            affiliated with school districts.
+            <br /><br />
+            (<a href="Download_Data/Other/Truancy_Rate.csv" target="_blank">Download Truancy Rates Data</a>)
+        </div>
+
+        <h2 class="expand-heading">Rural-Urban Commuting Area Codes</h2>
+        <div class="collapsable">
+            The Rural-Urban Commuting Area Codes (RUCAs) were created to facilitate sub-county determinations 
+            of rural/urban status. They were developed using census definitions of rural or urban status 
+            combined with work commuting information. Original data have over 30 individual codes (see below) 
+            which we aggregated to major designations of Metropolitan (codes 1-3.0), Micropolitan (codes 4-6.1), 
+            Small Town (codes 7-9.2) and Rural (Codes 10-10.6) in this ZIP code level map. Original data can be found at: 
+            <a href="http://depts.washington.edu/uwruca/index.php" target="_blank">http://depts.washington.edu/uwruca/index.php</a>.            
+            <br /><br />
+            <table style="margin-left: 50px;" class="basic" id="ruca-table">
+                <tr class="odd"><td colspan="2"><strong>Full set of RUCA Codes:</strong></td></tr>
+                <tr><td>1</td><td>Metropolitan area core: primary flow within an Urbanized Area (UA)</td></tr>
+                <tr class="odd"><td>1.0</td><td>No additional code</td></tr>
+                <tr><td>1.1</td><td>Secondary flow 30% through 49% to a larger UA</td></tr>
+                <tr class="odd"><td>2</td><td>Metropolitan area high commuting: primary flow 30% or more to a UA</td></tr>
+                <tr><td>2.0</td><td>No additional code</td></tr>
+                <tr class="odd"><td>2.1</td><td>Secondary flow 30% through 49% to a larger UA</td></tr>
+                <tr><td>3</td><td>Metropolitan area low commuting: primary flow 10% to 30% to a UA</td></tr>
+                <tr class="odd"><td>3.0</td><td>No additional code</td></tr>
+                <tr><td>4</td><td>Micropolitan* area core: primary flow within an Urban Cluster (UC) of 10,000 through 49,999 (large UC)</td></tr>
+                <tr class="odd"><td>4.0</td><td>No additional code</td></tr>
+                <tr><td>4.1</td><td>Secondary flow 30% through 49% to a UA</td></tr>
+                <tr class="odd"><td>4.2</td><td>Secondary flow 10% through 29% to a UA</td></tr>
+                <tr><td>5</td><td>Micropolitan* high commuting: primary flow 30% or more to a large UC</td></tr>
+                <tr class="odd"><td>5.0</td><td>No additional code</td></tr>
+                <tr><td>5.1</td><td>Secondary flow 30% through 49% to a UA</td></tr>
+                <tr class="odd"><td>5.2</td><td>Secondary flow 10% through 29% to a UA</td></tr>
+                <tr><td>6</td><td>Micropolitan* low commuting: primary flow 10% to 30% to a large UC</td></tr>
+                <tr class="odd"><td>6.0</td><td>No additional code</td></tr>
+                <tr><td>6.1</td><td>Secondary flow 10% through 29% to a UA</td></tr>
+                <tr class="odd"><td>7</td><td>Small town core: primary flow within an Urban Cluster of 2,500 through 9,999 (small UC)</td></tr>
+                <tr><td>7.0</td><td>No additional code</td></tr>
+                <tr class="odd"><td>7.1</td><td>Secondary flow 30% through 49% to a UA</td></tr>
+                <tr><td>7.2</td><td>Secondary flow 30% through 49% to a large UC</td></tr>
+                <tr class="odd"><td>7.3</td><td>Secondary flow 10% through 29% to a UA</td></tr>
+                <tr><td>7.4</td><td>Secondary flow 10% through 29% to a large UC</td></tr>
+                <tr class="odd"><td>8</td><td>Small town high commuting: primary flow 30% or more to a small UC</td></tr>
+                <tr><td>8.0</td><td>No additional code</td></tr>
+                <tr class="odd"><td>8.1</td><td>Secondary flow 30% through 49% to a UA</td></tr>
+                <tr><td>8.2</td><td>Secondary flow 30% through 49% to a large UC</td></tr>
+                <tr class="odd"><td>8.3</td><td>Secondary flow 10% through 29% to a UA</td></tr>
+                <tr><td>8.4</td><td>Secondary flow 10% through 29% to a large UC</td></tr>
+                <tr class="odd"><td>9</td><td>Small town low commuting: primary flow 10% through 29% to a small UC</td></tr>
+                <tr><td>9.0</td><td>No additional code</td></tr>
+                <tr class="odd"><td>9.1</td><td>Secondary flow 10% through 29% to a UA</td></tr>
+                <tr><td>9.2</td><td>Secondary flow 10% through 29% to a large UC</td></tr>
+                <tr class="odd"><td>10</td><td>Rural areas: primary flow to a tract outside a UA or UC (including self)</td></tr>
+                <tr><td>10.0</td><td>No additional code</td></tr>
+                <tr class="odd"><td>10.1</td><td>Secondary flow 30% through 49% to a UA</td></tr>
+                <tr><td>10.2</td><td>Secondary flow 30% through 49% to a large UC</td></tr>
+                <tr class="odd"><td>10.3</td><td>Secondary flow 30% through 49% to a small UC</td></tr>
+                <tr><td>10.4</td><td>Secondary flow 10% through 29% to a UA</td></tr>
+                <tr class="odd"><td>10.5</td><td>Secondary flow 10% through 29% to a large UC</td></tr>
+                <tr><td>10.6</td><td>Secondary flow 10% through 29% to a small UC</td></tr>
+            </table>
+        </div>
+
+        <h2 class="expand-heading">Food Deserts</h2>
+        <div class="collapsable">
+            Food desert data were downloaded from: 
+            <a href="http://www.ers.usda.gov/data/fooddesert/downloadData.html" target="_blank">http://www.ers.usda.gov/data/fooddesert/downloadData.html</a> 
+            on July 20, 2012. A complete data dictionary for this resource can be found at: 
+            <a href="http://www.ers.usda.gov/Data/FoodDesert/documentation.html" target="_blank">http://www.ers.usda.gov/Data/FoodDesert/documentation.html</a>.
+            We have included the relevant information below – adapted directly from the above website.
+            <br /><br />
+            The Healthy Food Financing Initiative (HFFI) Working Group defines a food desert as a low-income census 
+            tract where a substantial number or share of residents has low access to a supermarket or large grocery 
+            store. To qualify as low-income, census tracts must meet the Treasury Department's New Markets Tax Credit 
+            (NMTC) program eligibility criteria. Furthermore, to qualify as a food desert tract, at least 33 percent 
+            of the tract's population or a minimum of 500 people in the tract must have low access to a supermarket 
+            or large grocery store.
+            <br /><br />
+            The NMTC program defines a low-income census tract as: any census tract where (1) the poverty rate for 
+            that tract is at least 20 percent, or (2) for tracts not located within a metropolitan area, the median 
+            family income for the tract does not exceed 80 percent of statewide median family income; or for tracts 
+            located within a metropolitan area, the median family income for the tract does not exceed 80 percent 
+            of the greater of statewide median family income or the metropolitan area median family income.
+            <br /><br />
+            Low access to a healthy food retail outlet is defined as more than 1 mile from a supermarket or large 
+            grocery store in urban areas and as more than 10 miles from a supermarket or large grocery store in rural 
+            areas. The distance to supermarkets and large grocery stores is measured by the distance between the 
+            geographic center of the 1-km square grid that contains information on the population (number of people 
+            and other characteristics) and the nearest supermarket or large grocery store. Once the distance to the 
+            nearest supermarket or large grocery store is calculated for each grid cell, the number of people or 
+            housing units more than one mile from a supermarket or large grocery store in urban tracts (or 10 miles 
+            for rural census tracts) is aggregated to the census tract level. (A census tract is considered rural 
+            if the centroid of that tract is located in an area with a population of less than 2,500, and all other 
+            tracts are considered urban tracts.) If the aggregate number of people in the census tract with low 
+            access is at least 500 or the percentage of people in the census tract with low access is at least 33 
+            percent, then the census tract is considered a food desert.
+            <br /><br />
+            Application of these criteria results in 6,500 census tracts in the continental U.S. that meet the 
+            definition of a food desert (food deserts are not yet defined for Alaska and Hawaii). Roughly 75 
+            percent of these food-desert tracts are urban, while the remaining 25 percent are rural. An estimated 
+            total of 13.5 million people in these census tracts have low access to a supermarket or large grocery 
+            store—that is, they live more than 1 or 10 miles from a supermarket or large grocery store. Of these 
+            13.5 million people, 82.1 percent are in urban areas.
+            <br /><br />
+            Note: Some census tracts that contain supermarkets or large grocery stores may meet the criteria of 
+            a food desert if a substantial number or share of people within that census tract is more than 1 mile 
+            (urban areas) or 10 miles (rural areas) from the nearest supermarket. Furthermore, some residents of 
+            food desert census tracts may live within 1 or 10 miles of a supermarket; these residents are not
+            counted as low access and thus not counted in the 13.5 million total.
+            <br /><br />
+            For 140 densely-populated urban census tracts, the tract area is smaller than 1 square kilometer. 
+            For these tracts, grid-level population or access data are not available; it was assumed that each 
+            of these tracts was outside of the 1-mile buffer of a supermarket and that everyone in the tract 
+            had low access to a supermarket or large grocery store.
+            <br /><br />
+            Data Sources
+            <br /><br />
+            Data on population and income come from the 2000 Census of Population and Housing. The 1-km square 
+            grid data come from the Socioeconomic Data and Applications Center. Census population data, which 
+            are released at the block group level, are first allocated to blocks and then allocated aerially 
+            down to the grid level.
+            <br /><br />
+            Information on supermarket and large grocery store locations comes from a directory of supermarkets 
+            and large grocery stores (food stores with at least $2 million in sales that contain all the major 
+            food departments found in a traditional supermarket). The directory was developed from a list of stores 
+            authorized to receive Supplemental Nutrition Assistance Program (SNAP) benefits, augmented by data 
+            from Trade Dimensions TDLinx (a Nielsen company), a proprietary source of individual supermarket store 
+            listings, both for the year 2006. Details on these data sources can be found in the 2009 ERS report, 
+            Access to Affordable and Nutritious Food: Measuring and Understanding Food Deserts and Their Consequences.
+            <br /><br />
+            In Putting Youth on the Map, we show the percentage of children age 0 through 17 in the census tract 
+            that live more than 1 mile from a supermarket or large grocery store (urban tracts) or more than 10 
+            miles from a supermarket or large grocery store (rural tracts). The total number of children in each 
+            grid cell that is either 1 mile (urban tracts) or 10 miles (rural tracts) from a supermarket or large 
+            grocery store was aggregated at the tract level to produce a census tract total. This total was then 
+            divided by the total number of children age 0-17 within the census tract to produce the percentage 
+            of children with low access.
+            <br /><br />
+            (<a href="Download_Data/Other/Food_Desert.csv" target="_blank">Download Food Deserts Data</a>)
+        </div>
+        <br />
+        (<a href="#top">top</a>)
+        <br /><br />
+        <br /><br />
+    </div>
+</div>
+
+<script type="text/javascript" src="js/libs/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="js/libs/jquery-ui-1.10.3.custom.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('h2.expand-heading').click(function () {
+            $me = $(this);
+            if ($me.hasClass('collapse-heading')) {
+                $me.removeClass('collapse-heading');
+                $me.next('div').css('display', 'none');
+            } else {
+                $me.addClass('collapse-heading');
+                $me.next('div').css('display', 'block');
+            }
+        });
+        $('h4.expand-heading').click(function () {
+            $me = $(this);
+            if ($me.hasClass('collapse-heading')) {
+                $me.removeClass('collapse-heading');
+                $me.next('div').css('display', 'none');
+            } else {
+                $me.addClass('collapse-heading');
+                $me.next('div').css('display', 'block');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
