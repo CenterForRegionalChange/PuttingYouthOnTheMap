@@ -97,7 +97,7 @@ var SERVICES = [{
         // Name isn't used anywhere - it's just for reference when editing this file
         name: "Youth Wellbeing",
         // The URL to the ArcGIS server service
-        url: "http://crcdemo.caes.ucdavis.edu/arcgis/rest/services/PYOM/Service345_well_district/",
+        url: "http://169.237.124.179/arcgis/rest/services/PYOM/Service345_well_district/",
         // This is required to be here, but should always be set to [] in this file. The application will make use of it later.
         layerObs: [],
         // If any of the services in this layer should show in a map tab when the application initially loads, then include the map #'s here.
@@ -245,7 +245,7 @@ var SERVICES = [{
             }]
     }, {
         name: "Youth Vuln",
-        url: "http://crcdemo.caes.ucdavis.edu/arcgis/rest/services/PYOM/Service12_vuln_tract_1/",
+        url: "http://169.237.124.179/arcgis/rest/services/PYOM/Service12_vuln_tract_1/",
         layerObs: [],
         defaultForMap: [1],
         defaultLayerIndex: [2],
@@ -330,7 +330,7 @@ var SERVICES = [{
             }]
     }, {
         name: "Civic Engagement",
-        url: "http://crcdemo.caes.ucdavis.edu/arcgis/rest/services/PYOM/Service9_CivicEng/",
+        url: "http://169.237.124.179/arcgis/rest/services/PYOM/Service9_CivicEng/",
         layerObs: [],
         defaultForMap: [],
         defaultLayerIndex: [],
@@ -417,7 +417,7 @@ var SERVICES = [{
             }]
     }, {
         name: "Demographics",
-        url: "http://crcdemo.caes.ucdavis.edu/arcgis/rest/services/PYOM/Service6_YouthDemog_1/",
+        url: "http://169.237.124.179/arcgis/rest/services/PYOM/Service6_YouthDemog_1/",
         layerObs: [],
         defaultForMap: [2],
         defaultLayerIndex: [4],
@@ -425,7 +425,7 @@ var SERVICES = [{
         chart: []
     }, {
         name: "Other",
-        url: "http://crcdemo.caes.ucdavis.edu/arcgis/rest/services/PYOM/Service7_Other_1/",
+        url: "http://169.237.124.179/arcgis/rest/services/PYOM/Service7_Other_1/",
         layerObs: [],
         defaultForMap: [],
         defaultLayerIndex: [],
