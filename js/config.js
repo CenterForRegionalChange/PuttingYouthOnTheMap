@@ -40,7 +40,7 @@ var BASEMAPS = [{
 var GENDER = ["All", "Males", "Females"];
 
 // List of ethnicity identifiers. This text will show in (...) after the layer titles in the blue bar above the maps and on charts.
-var ETH = ["All", "Nat.Amer/Alask", "Asian", "Black", "Filipino", "Hispanic", "Islander", "White", "Two or More"];
+var ETH = ["All", "Nat.Amer/Alask", "Asian", "Black", "Filipino", "Hispanic", "Pac. Islander", "White", "Two or More"];
 
 // On the popup box - if the clicked polygon contains a field mathcing any of the names listed under "field:", then display its
 //  value in the popup box with the title in the "title:" portion.  For example, using the existing options below:
