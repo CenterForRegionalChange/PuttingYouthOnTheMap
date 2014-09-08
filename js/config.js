@@ -40,7 +40,7 @@ var BASEMAPS = [{
 var GENDER = ["All", "Males", "Females"];
 
 // List of ethnicity identifiers. This text will show in (...) after the layer titles in the blue bar above the maps and on charts.
-var ETH = ["All", "Nat.Amer/Alask", "Asian", "Black", "", "Hispanic", "", "White", "Two or More"];
+var ETH = ["All", "Nat.Amer/Alask", "Asian", "Black", "Filipino", "Hispanic", "Islander", "White", "Two or More"];
 
 // On the popup box - if the clicked polygon contains a field mathcing any of the names listed under "field:", then display its
 //  value in the popup box with the title in the "title:" portion.  For example, using the existing options below:
@@ -122,39 +122,39 @@ var SERVICES = [{
         disagg: [{
                 // topmost group layer, no data
             }, {
-                overall: "dywi001", male: "dywi101", female: "dywi201", amind: "dywi011", asian: false, asian_nf: "dywi021", black: "dywi031", filipino: false, hispanic: "dywi051", islander: false, white: "dywi071", multi: "dywi081"
+                overall: "dywi001", male: "dywi101", female: "dywi201", amind: "dywi011", asian: false, asian_nf: "dywi021", black: "dywi031", filipino: "dywi041", hispanic: "dywi051", islander: "dywi061", white: "dywi071", multi: "dywi081"
             },{
                 // health domain group layer, no data
             }, {
-                overall: "dpha001", male: "dpha101", female: "dpha201", amind: "dpha011", asian: false, asian_nf: "dpha021", black: "dpha031", filipino: false, hispanic: "dpha051", islander: false, white: "dpha071", multi: "dpha081"
+                overall: "dpha001", male: "dpha101", female: "dpha201", amind: "dpha011", asian: false, asian_nf: "dpha021", black: "dpha031", filipino: "dywi041", hispanic: "dpha051", islander: "dywi061", white: "dpha071", multi: "dpha081"
             }, {
-                overall: "dphb001", male: "dphb101", female: "dphb201", amind: "dphb011", asian: false, asian_nf: "dphb021", black: "dphb031", filipino: false, hispanic: "dphb051", islander: false, white: "dphb071", multi: "dphb081"
+                overall: "dphb001", male: "dphb101", female: "dphb201", amind: "dphb011", asian: false, asian_nf: "dphb021", black: "dphb031", filipino: "dywi041", hispanic: "dphb051", islander: "dywi061", white: "dphb071", multi: "dphb081"
             }, {
-                overall: "dphc001", male: "dphc101", female: "dphc201", amind: "dphc011", asian: false, asian_nf: "dphc021", black: "dphc031", filipino: false, hispanic: "dphc051", islander: false, white: "dphc071", multi: "dphc081"
+                overall: "dphc001", male: "dphc101", female: "dphc201", amind: "dphc011", asian: false, asian_nf: "dphc021", black: "dphc031", filipino: "dywi041", hispanic: "dphc051", islander: "dywi061", white: "dphc071", multi: "dphc081"
             }, {
-                overall: "dphd001", male: "dphd101", female: "dphd201", amind: "dphd011", asian: false, asian_nf: "dphd021", black: "dphd031", filipino: false, hispanic: "dphd051", islander: false, white: "dphd071", multi: "dphd081"
+                overall: "dphd001", male: "dphd101", female: "dphd201", amind: "dphd011", asian: false, asian_nf: "dphd021", black: "dphd031", filipino: "dywi041", hispanic: "dphd051", islander: "dywi061", white: "dphd071", multi: "dphd081"
             }, {
-                overall: "dphe001", male: "dphe101", female: "dphe201", amind: "dphe011", asian: false, asian_nf: "dphe021", black: "dphe031", filipino: false, hispanic: "dphe051", islander: false, white: "dphe071", multi: "dphe081"
+                overall: "dphe001", male: "dphe101", female: "dphe201", amind: "dphe011", asian: false, asian_nf: "dphe021", black: "dphe031", filipino: "dywi041", hispanic: "dphe051", islander: "dywi061", white: "dphe071", multi: "dphe081"
             }, {
                 // education domain group layer, no data
             }, {
-                overall: "deda001", male: "deda101", female: "deda201", amind: "deda011", asian: false, asian_nf: "deda021", black: "deda031", filipino: false, hispanic: "deda051", islander: false, white: "deda071", multi: "deda081"
+                overall: "deda001", male: "deda101", female: "deda201", amind: "deda011", asian: false, asian_nf: "deda021", black: "deda031", filipino: "dywi041", hispanic: "deda051", islander: "dywi061", white: "deda071", multi: "deda081"
             }, {
-                overall: "dedb001", male: "dedb101", female: "dedb201", amind: "dedb011", asian: false, asian_nf: "dedb021", black: "dedb031", filipino: false, hispanic: "dedb051", islander: false, white: "dedb071", multi: "dedb081"
+                overall: "dedb001", male: "dedb101", female: "dedb201", amind: "dedb011", asian: false, asian_nf: "dedb021", black: "dedb031", filipino: "dywi041", hispanic: "dedb051", islander: "dywi061", white: "dedb071", multi: "dedb081"
             }, {
-                overall: "dedc001", male: "dedc101", female: "dedc201", amind: "dedc011", asian: false, asian_nf: "dedc021", black: "dedc031", filipino: false, hispanic: "dedc051", islander: false, white: "dedc071", multi: "dedc081"
+                overall: "dedc001", male: "dedc101", female: "dedc201", amind: "dedc011", asian: false, asian_nf: "dedc021", black: "dedc031", filipino: "dywi041", hispanic: "dedc051", islander: "dywi061", white: "dedc071", multi: "dedc081"
             }, {
                 // social domain group layer, no data
             }, {
-                overall: "dsca001", male: "dsca101", female: "dsca201", amind: "dsca011", asian: false, asian_nf: "dsca021", black: "dsca031", filipino: false, hispanic: "dsca051", islander: false, white: "dsca071", multi: "dsca081"
+                overall: "dsca001", male: "dsca101", female: "dsca201", amind: "dsca011", asian: false, asian_nf: "dsca021", black: "dsca031", filipino: "dywi041", hispanic: "dsca051", islander: "dywi061", white: "dsca071", multi: "dsca081"
             }, {
-                overall: "dscb001", male: "dscb101", female: "dscb201", amind: "dscb011", asian: false, asian_nf: "dscb021", black: "dscb031", filipino: false, hispanic: "dscb051", islander: false, white: "dscb071", multi: "dscb081"
+                overall: "dscb001", male: "dscb101", female: "dscb201", amind: "dscb011", asian: false, asian_nf: "dscb021", black: "dscb031", filipino: "dywi041", hispanic: "dscb051", islander: "dywi061", white: "dscb071", multi: "dscb081"
             }, {
                 // community domain group layer, no data            
             }, {
-                overall: "dcma001", male: "dcma101", female: "dcma201", amind: "dcma011", asian: false, asian_nf: "dcma021", black: "dcma031", filipino: false, hispanic: "dcma051", islander: false, white: "dcma071", multi: "dcma081"
+                overall: "dcma001", male: "dcma101", female: "dcma201", amind: "dcma011", asian: false, asian_nf: "dcma021", black: "dcma031", filipino: "dywi041", hispanic: "dcma051", islander: "dywi061", white: "dcma071", multi: "dcma081"
             }, {
-                overall: "dcmb001", male: "dcmb101", female: "dcmb201", amind: "dcmb011", asian: false, asian_nf: "dcmb021", black: "dcmb031", filipino: false, hispanic: "dcmb051", islander: false, white: "dcmb071", multi: "dcmb081"
+                overall: "dcmb001", male: "dcmb101", female: "dcmb201", amind: "dcmb011", asian: false, asian_nf: "dcmb021", black: "dcmb031", filipino: "dywi041", hispanic: "dcmb051", islander: "dywi061", white: "dcmb071", multi: "dcmb081"
             }],
         chart: [{
                 // topmost group layer, no data
