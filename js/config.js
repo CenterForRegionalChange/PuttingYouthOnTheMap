@@ -435,36 +435,35 @@ var SERVICES = [{
     
 // Configuration for the locator box dropdowns.
 // This first is the ArcGIS service that contains all of the layers for searching
-var SEARCH_SVC = "http://169.237.124.179/arcgis/rest/services/PYOM/Service8_search_v1/";
+var SEARCH_SVC = "http://crcgis2.caes.ucdavis.edu/ArcGIS/rest/services/PYOM/pyom-05072013/";
 // This next parameter holds one {...} section per item that will appear in the dropdown list.
 // The order that these sections appear in this list is the order they will appear in the dropdown.
 var SEARCH = [{
         title: "School Districts",  // the text that will show in the dropdown box
         index: 1,                   // the layer index for this layer in the map service above
-        idField: "OBJECTID",       // the field that contains a unique identifier for each feature in the feature class
+        idField: "SCSDLEA10",       // the field that contains a unique identifier for each feature in the feature class
         compareField: "NAME10"      // the field that will be matched against the text the user types in the search box 
     },{
         title: "California Counties",
-        index: 2,
-        idField: "FIPS_Cty",
-        compareField: "CntyNm"
+        index: 52,
+        idField: "FIPS",
+        compareField: "COUNTY"
     },{
         title: "State Assembly",
-        index: 3,
+        index: 53,
         idField: "ID",
         compareField: "DISTRICT"
     },{
         title: "US Congressional",
-        index: 4,
+        index: 54,
         idField: "DISTRICT",
         compareField: "DISTRICT"
     },{
         title: "State Senate",
-        index: 5,
+        index: 55,
         idField: "ID",
         compareField: "DISTRICT"
     }];
-
 
 // application use - do not modify
 var vgis = {
