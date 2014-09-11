@@ -732,7 +732,7 @@ function equityChart(mapIndex, svcIndex, lyrIndex) { 'use strict';
                 chartData = [];
                 chartCats = [];
                 for (i = 1, il = ETH.length; i < il; i += 1) {
-                    if (ETH[i] !== "") {
+                    if (!(ETH[i] === "" || (ETH[i] === "Filipino" && disaggParams.filipino === false) || (ETH[i] === "Pac.Islander" && disaggParams.islander === false))) {
                         field = chartParams.local + chartParams.unit + '0' + i + '1';
                         chartCats.push(ETH[i]);
                         chartData.push({

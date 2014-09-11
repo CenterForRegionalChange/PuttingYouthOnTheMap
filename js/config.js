@@ -40,7 +40,7 @@ var BASEMAPS = [{
 var GENDER = ["All", "Males", "Females"];
 
 // List of ethnicity identifiers. This text will show in (...) after the layer titles in the blue bar above the maps and on charts.
-var ETH = ["All", "Nat.Amer/Alask", "Asian", "Black", "Filipino", "Hispanic", "Pac. Islander", "White", "Two or More"];
+var ETH = ["All", "Nat.Amer/Alask", "Asian", "Black", "Filipino", "Hispanic", "Pac.Islander", "White", "Two or More"];
 
 // On the popup box - if the clicked polygon contains a field mathcing any of the names listed under "field:", then display its
 //  value in the popup box with the title in the "title:" portion.  For example, using the existing options below:
@@ -435,32 +435,32 @@ var SERVICES = [{
     
 // Configuration for the locator box dropdowns.
 // This first is the ArcGIS service that contains all of the layers for searching
-var SEARCH_SVC = "http://crcgis2.caes.ucdavis.edu/ArcGIS/rest/services/PYOM/pyom-05072013/";
+var SEARCH_SVC = "http://169.237.124.179/arcgis/rest/services/PYOM/Service8_search_v1/";
 // This next parameter holds one {...} section per item that will appear in the dropdown list.
 // The order that these sections appear in this list is the order they will appear in the dropdown.
 var SEARCH = [{
         title: "School Districts",  // the text that will show in the dropdown box
         index: 1,                   // the layer index for this layer in the map service above
-        idField: "SCSDLEA10",       // the field that contains a unique identifier for each feature in the feature class
+        idField: "OBJECTID",       // the field that contains a unique identifier for each feature in the feature class
         compareField: "NAME10"      // the field that will be matched against the text the user types in the search box 
     },{
         title: "California Counties",
-        index: 52,
-        idField: "FIPS",
-        compareField: "COUNTY"
+        index: 2,
+        idField: "FIPS_Cty",
+        compareField: "CntyNm"
     },{
         title: "State Assembly",
-        index: 53,
+        index: 3,
         idField: "ID",
         compareField: "DISTRICT"
     },{
         title: "US Congressional",
-        index: 54,
+        index: 4,
         idField: "DISTRICT",
         compareField: "DISTRICT"
     },{
         title: "State Senate",
-        index: 55,
+        index: 5,
         idField: "ID",
         compareField: "DISTRICT"
     }];
