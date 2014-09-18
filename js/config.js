@@ -172,7 +172,7 @@ var SERVICES = [{
                 unit: "pha", subs: ['phb', 'phc', 'phd'], scale: "%", subScale: "%", // re-enabling the subs array will cause a 2nd chart to show for the indicators in this domain (requires data to be visible in the layer)
                 title: "Youth Wellbeing Health", subTitle: "Domain Score Breakdown by Indicators",
                 categories: ['District', 'State Average'], subCategories: ['Phys. Fitness', 'Subst. Use Avoidance', 'Feeling Safe'], subColors: null,
-                subLayerNames: {"phb": "Physical Fitness", "phc": "Subst. Use Avoidance", "phd": "Feeling Safe" },
+                subLayerNames: {"phb": "Physical Fitness", "phc": "Substance Use Avoidance", "phd": "Feeling Safe" },
                 showMOE: false, showCHKS: true, showRates: false, showEquity: true
             }, {
                 local: "d", region: "s", tractField: "", countyField: "Cnty", districtField: "NAME10",
