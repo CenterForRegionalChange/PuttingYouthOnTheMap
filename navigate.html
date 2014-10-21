@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>PYOM | Navigation</title>
+	<link rel="stylesheet" href="css/pyom.css" media="only screen and (min-width: 1001px)">
+    <link rel="stylesheet" type="text/css" media="only screen and (min-width: 481px) and (max-width: 1000px)" href="css/tablet.css" >
+    <link rel="stylesheet" href="css/mobile.css" media="only screen and (max-width:480px)">
+    <link rel="shortcut icon" href="img/favicon.png">
+    
+	<script src="js/jquery_002.js"></script>
+<script src="js/jquery.js"></script>  
+    
+        <script type=text/javascript>
+    
+    $(function() {
+                $('a').bind('click',function(event){
+                    var $anchor = $(this);
+                    
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                    }, 1500,'easeInOutExpo');
+                    /*
+                    if you don't want to use the easing effects:
+                    $('html, body').stop().animate({
+                        scrollTop: $($anchor.attr('href')).offset().top
+                    }, 1000);
+                    */
+                    event.preventDefault();
+                });
+            });
+            
+
+      
+            
+        </script>
+    <script src="js/pyom.js"></script>
+
+
+</head>
+
+
+<body>
+
+<header>
+<ul id="blue">
+<li id="crc">
+    <a href="http://regionalchange.ucdavis.edu" id="top"> <img src="images/crclogo.gif" alt="crc logo" height="33" width="200" id="logo" ></a>
+</li>
+
+<li id="pyom">
+	<a href="index.html" id="top" >	<h2 style="font-size: 35px;" id="top">Putting Youth on the Map</h2> </a>
+</li>
+
+<li>
+<div id="search">
+
+<script>
+  (function() {
+    var cx = '012146410678385031848:p9djgvgmbz4';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:searchbox-only></gcse:searchbox-only>
+
+</div>
+<div id="icons">
+<p>
+<a href="https://www.facebook.com/pages/Center-for-Regional-Change/75479485977" id="facebook" alt="facebook"><img src="images/facebook.gif" height="25" width="25" alt="facebook"> </a>
+
+</p>
+</div>
+</li>
+</ul>
+<div id='cssmenu'>
+<ul>
+   <li class='has-sub' class='last'><a href='about.html'><span>About</span></a>
+ <ul>
+         <li><a href='about.html#partners'><span>Partners</span></a></li>
+         <li><a href='about.html#sponsors'><span>Sponsors</span></a></li>
+                  <li><a href='about.html#contact'><span>Contact</span></a></li>
+         <li class='last'><a href='http://regionalchange.ucdavis.edu'><span>Go to CRC</span></a></li>
+         </ul>
+   </li>
+   <li class='has-sub'><a href='data.html'><span>Data</span></a>
+      <ul>
+         <li><a href='data.html#metadata'><span>Metadata</span></a></li>
+         <li><a href='data.html#download'><span>Download</span></a></li>
+         <li class='last'><a href='data.html#equity'><span>Equity Analyses</span></a></li>
+      </ul>
+   </li>
+  <li class='has-sub'><a href='resources.html'><span>Resources</span></a>
+      <ul>
+         <li><a href='resources.html#links'><span>Links</span></a></li>
+         <li><a href='resources.html#tools'><span>Tools</span></a></li>
+         <li class='last'><a href='resources.html#learn'><span>Learn</span></a></li>
+      </ul>
+   </li>
+     <li class='has-sub'><a href='action.html'><span>Action</span></a>
+      <ul>
+         <li><a href='action.html#calendar'><span>Calendar</span></a></li>
+         <li><a href='action.html#stories'><span>Stories</span></a></li>
+         <li class='last'><a href='action.html#gallery'><span>Gallery</span></a></li>
+      </ul>
+   </li>
+   
+   <li class='has-sub'><a href='#maps'><span style="text-decoration:underline;">Maps</span></a>
+   <ul>
+            <li><a href='#navigation'><span>Navigation</span></a></li>
+         	<li><a href='webmap/webmap.html'><span>Go to Maps</span></a></li>
+           </ul>
+            </li>
+</ul>
+</div>
+
+</header>
+
+
+
+
+<section id="main">
+<article id="maps">
+<h3 style="padding-top: 75px;">Maps</h3>
+<div id="column1" style="width: 40%; font-size: 18px;">
+<p>Putting Youth on the Map provides data maps for youth and adults working to ensure youth well-being in California. The<a href="webmap/webmap.html" alt="pyom maps"> interactive map</a> page lets you:</p>
+<ul>
+<li>See holistic place-based measures of youth well-being and severe isolation from support using the Youth Well-Being and Youth Vulnerability Indices </li>
+<li>View index analyses by sex and race/ethnicity locally and statewide </li>
+<li>Explore other data maps on health, income adequacy, suspensions/truancy, transportation access, young adult voting patterns and more </li>
+<li>Compare and print maps</li>
+</ul>
+<p>On this page click <a href="#navigation">“Navigate”</a> in the dropdown menu or scroll down for a presentation on navigating the mapping page. Use <a href="webmap/webmap.html">“Go to Maps”</a> in the dropdown to start making maps.</p>
+</div>
+<div id="column3" style="margin-top: -10px;">
+<img src="img/2stockton/8stockton.gif" width="600" alt="stockton workshop picture">
+</div>
+</article>
+
+
+<article id="navigation" style="clear: both; padding-bottom: 100px;">
+<div class="top"></div>
+<h3>Navigation </h3>
+<p>To learn more about how to use the maps, play the prezi presentations below. After clicking the start button, scroll through the prezi using the arrow buttons at the bottom or set it to auto play using the icon on the lower right.</p>
+<div id="column1">
+<a href="http://prezi.com/p3v6q9fpkegm/?utm_campaign=share&utm_medium=copy&rc=ex0share"><h4 id="pre">What is PYOM? </h4></a>
+
+<iframe src="http://prezi.com/embed/p3v6q9fpkegm/?bgcolor=ffffff&amp;lock_to_path=1&amp;autoplay=0&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined&amp;html5=1" width="550" height="400" frameBorder="0" webkitAllowFullScreen mozAllowFullscreen allowfullscreen></iframe>
+</div>
+<div id="column3" style="padding-left: 10px; margin-top: 0px;">
+<a href="http://prezi.com/x3rx0gddwo_s/?utm_campaign=share&utm_medium=copy&rc=ex0share"><h4 id="preN">Navigating the Maps </h4></a>
+<iframe src="http://prezi.com/embed/x3rx0gddwo_s/?bgcolor=ffffff&amp;lock_to_path=0&amp;autoplay=0&amp;autohide_ctrls=0&amp;features=undefined&amp;disabled_features=undefined&amp;html5=1" width="550" height="400" frameBorder="0" webkitAllowFullScreen mozAllowFullscreen allowfullscreen></iframe>
+</div>
+<p style="clear:both;"><br>Trouble viewing these presentations? Click the titles for a direct link above.
+<div class="top" style="clear:both;"></div>
+</article>
+
+</section>
+
+
+
+<footer>
+<div class="bottom"> Copyright © UC Davis 2014 |  <a href="mailto:crcinfo@ucdavis.edu " id="top">Contact CRC </a> | <a href="sitemap.html" id="top">Site Map </a> | <a href="http://ucdavis.edu" id="top"> UC Davis </a> 
+</div>
+</footer>
+</body>
+</html>
