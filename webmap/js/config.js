@@ -1,4 +1,5 @@
 ﻿// Services Provider.  Uncomment the line to provide services from the map server
+// Additional comments here
 // varSerProv = "http://interact.regionalchange.ucdavis.edu" //Production Server
 varSerProv = "http://crcdemo.caes.ucdavis.edu" //Development Server
 
