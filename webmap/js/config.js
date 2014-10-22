@@ -1,10 +1,13 @@
-﻿
+﻿// Services Provider.  Uncomment the line to provide services from the map server
+// varSerProv = "http://interact.regionalchange.ucdavis.edu" //Production Server
+varSerProv = "http://crcdemo.caes.ucdavis.edu" //Development Server
+
 // Location of the geocode service
 var GEOCODE_URL = "http://tasks.arcgis.com/ArcGIS/rest/services/WorldLocator/GeocodeServer";
 
 // Location of the print service
 //var PRINT_URL = "http://interact.regionalchange.ucdavis.edu/arcgis/rest/services/Utilities/PrintingTools/GPServer/Export%20Web%20Map%20Task";
-var PRINT_URL ="http://interact.regionalchange.ucdavis.edu/arcgis/rest/services/PYOM/ExportWebMap/GPServer/Export%20Web%20Map";
+var PRINT_URL =varSerProv.concat("/arcgis/rest/services/PYOM/ExportWebMap/GPServer/Export%20Web%20Map");
 // For fixing an issue with the ESRI print return. 
 // The first array element is your internal server address. The second is the external address to replace it with.
 // Set this equal to null if no replacement is necessary --> var PRINT_PROXY_REPLACE = null;
@@ -99,7 +102,7 @@ var SERVICES = [{
         // Name isn't used anywhere - it's just for reference when editing this file
         name: "Youth Wellbeing",
         // The URL to the ArcGIS server service
-        url: "http://interact.regionalchange.ucdavis.edu/arcgis/rest/services/PYOM/Service345_well_district/",
+        url: varSerProv.concat("/arcgis/rest/services/PYOM/Service345_well_district/"),
         // This is required to be here, but should always be set to [] in this file. The application will make use of it later.
         layerObs: [],
         // If any of the services in this layer should show in a map tab when the application initially loads, then include the map #'s here.
@@ -247,7 +250,7 @@ var SERVICES = [{
             }]
     }, {
         name: "Youth Vuln",
-        url: "http://interact.regionalchange.ucdavis.edu/arcgis/rest/services/PYOM/Service12_vuln_tract_1/",
+        url: varSerProv.concat("/arcgis/rest/services/PYOM/Service12_vuln_tract_1/"),
         layerObs: [],
         defaultForMap: [1],
         defaultLayerIndex: [2],
@@ -332,7 +335,7 @@ var SERVICES = [{
             }]
     }, {
         name: "Civic Engagement",
-        url: "http://interact.regionalchange.ucdavis.edu/arcgis/rest/services/PYOM/Service9_CivicEng/",
+        url: varSerProv.concat("/arcgis/rest/services/PYOM/Service9_CivicEng/"),
         layerObs: [],
         defaultForMap: [],
         defaultLayerIndex: [],
@@ -419,7 +422,7 @@ var SERVICES = [{
             }]
     }, {
         name: "Demographics",
-        url: "http://interact.regionalchange.ucdavis.edu/arcgis/rest/services/PYOM/Service6_YouthDemog_1/",
+        url: varSerProv.concat("/arcgis/rest/services/PYOM/Service6_YouthDemog_1/"),
         layerObs: [],
         defaultForMap: [2],
         defaultLayerIndex: [4],
@@ -427,7 +430,7 @@ var SERVICES = [{
         chart: []
     }, {
         name: "Other",
-        url: "http://interact.regionalchange.ucdavis.edu/arcgis/rest/services/PYOM/Service7_Other_1/",
+        url: varSerProv.concat("/arcgis/rest/services/PYOM/Service7_Other_1/"),
         layerObs: [],
         defaultForMap: [],
         defaultLayerIndex: [],
@@ -468,7 +471,7 @@ var SEARCH = [{
         compareField: "DISTRICT"
     }];
 */
-var SEARCH_SVC = "http://interact.regionalchange.ucdavis.edu/arcgis/rest/services/PYOM/Service8_Search/";
+var SEARCH_SVC = varSerProv.concat("/arcgis/rest/services/PYOM/Service8_Search/");
 var SEARCH = [{
         title: "School Districts",
         index: 4,
