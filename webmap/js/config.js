@@ -1,4 +1,5 @@
 ﻿// Services Provider.  Uncomment the line to provide services from the map server
+// Note that the active line will need to be switched when you move code between the development and production servers
 // varSerProv = "http://interact.regionalchange.ucdavis.edu" //Production Server
 varSerProv = "http://crcdemo.caes.ucdavis.edu" //Development Server
 
