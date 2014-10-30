@@ -1331,8 +1331,8 @@ function applyRenderer(mapIndex, attribute) {'use strict';
     // dynamic layer stuff
     var svcIndex = OP_MAPS[mapIndex].svcIndex, optionsArray = [], disaggPart = attribute.substr(attribute.length - 3), drawingOptions = new esri.layers.LayerDrawingOptions();
 
-    //drawingOptions.renderer = new esri.renderer.ClassBreaksRenderer(fLayers[svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex].renderer.toJson());
-    drawingOptions.renderer = fLayers[svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex].renderer;
+    drawingOptions.renderer = new esri.renderer.ClassBreaksRenderer(fLayers[svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex].renderer.toJson());
+    //drawingOptions.renderer = fLayers[svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex].renderer;
     drawingOptions.renderer.attributeField = attribute;
 
     // set the drawing options for the relevant layer
