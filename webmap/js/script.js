@@ -202,10 +202,11 @@ function createMap(j) {'use strict';
                                 content += '<strong>' + POPUP_FIELDS[i].title + ':</strong> ' + feature.attributes[POPUP_FIELDS[i].field] + '<br />';         
                             }   
                         }
-                        
+                        /*
                         if (feature.attributes.hasOwnProperty(fl.rendererField)) {
                             content += '<strong>Value:</strong> ' + roundToDecimal(feature.attributes[fl.rendererField], 2);
                         }
+						*/
                         content += '</div>';
                         
                         maps[mapIndex].graphics.clear();
@@ -262,12 +263,13 @@ function createMap(j) {'use strict';
                             displayAlias = "Value";
                         }
                         
-                        if (typeof(chartParams.specificValueField) !== 'undefined') {
+                        /*
+						if (typeof(chartParams.specificValueField) !== 'undefined') {
                             $('#id-header' + mapIndex).append('<p><b>' + displayAlias + ':</b> ' + roundToDecimal(feature.attributes[chartParams.specificValueField], 2) + '</p>');
                         } else if (chartParams.subs.length === 0) {
                             $('#id-header' + mapIndex).append('<p><b>' + displayAlias + ':</b> ' + roundToDecimal(feature.attributes[fl.rendererField], 2) + '</p>');
                         }
-                                                
+                        */                        
                         if (chartParams.showCHKS) {
                             $('#link-chks' + mapIndex).show().find('span').html(feature.attributes.AvgRR < 0 ? "n/a" : Math.round(feature.attributes.AvgRR * 100) + "%");
                             $('#footnote-chks' + mapIndex).show();
