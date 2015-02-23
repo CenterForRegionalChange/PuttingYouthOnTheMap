@@ -1,0 +1,406 @@
+2015-02-19 12:32:15.2731|WARN|thread: 1|StandardUserErrors|Showing user error Please check your log file for more details, or email support if you are still having problems.
+GitHub.IO.ProcessException: Cloning into 'demo'...
+remote: Counting objects: 85, done.[K
+remote: Total 85 (delta 0), reused 0 (delta 0)[K
+Checking connectivity... done.
+git: 'submodule' is not a git command. See 'git --help'.
+2015-02-19 12:23:50.5836|INFO|thread: 1|CommandLineHandler|Parsing command line arguments:C:\Users\watterson\AppData\Local\Apps\2.0\3YJLC4JO.378\R8DJDE0W.CJ2\gith..tion_317444273a93ac29_0002.0008_1a88292d43fa2994\GitHub.exe
+2015-02-19 12:23:50.5906|INFO|thread: 1|AppInstanceCommunicator|Starting up as master instance of GitHub for Windows
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| #########################################
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| GitHub for Windows started. VERSION: 2.8.1.1
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| Build version: 172aee612ee11da007f0db72d06962a255c14347
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ***************************************
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ***                                 ***
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ***                                 ***
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ***        Have a problem?          ***
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ***    Email support@github.com     ***
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ***      and include this file      ***
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ***                                 ***
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ***                                 ***
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ***************************************
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| OS Version: Windows 7 Service Pack 1 6.1.7601.65536 amd64
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| CLR Version: 4.0.30319.18444
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| Current culture: en-US
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| Terminal Services session: no
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| Location: C:\Users\watterson\AppData\Local\Apps\2.0\3YJLC4JO.378\R8DJDE0W.CJ2\gith..tion_317444273a93ac29_0002.0008_1a88292d43fa2994\GitHub.exe
+2015-02-19 12:23:50.6526|INFO|thread: 7|StartupLogging| ActivationUri: https://github-windows.s3.amazonaws.com/GitHub.application
+2015-02-19 12:23:50.6526|INFO|thread: 1|HardwareRenderingHelper|Your video card appears to support hardware rendering. If this isn't the case and you see glitches
+2015-02-19 12:23:50.6526|INFO|thread: 1|HardwareRenderingHelper|set the GH_FORCE_SW_RENDERING environment variable to 1
+2015-02-19 12:23:50.6766|INFO|thread: 7|GitEnvironment|Process set up with this SSH Agent info: 11768:/tmp/ssh-pHoBaR5IpSEY/agent.11736
+2015-02-19 12:23:50.6766|INFO|thread: 7|GitEnvironment|PATH is C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\cmd;C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin;C:\Users\watterson\AppData\Local\Apps\2.0\3YJLC4JO.378\R8DJDE0W.CJ2\gith..tion_317444273a93ac29_0002.0008_1a88292d43fa2994;C:\Users\watterson\AppData\Local\GitHub\hawser-amd64_0.4.0;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Program Files\Common Files\Microsoft Shared\Microsoft Online Services;C:\Program Files (x86)\Common Files\Microsoft Shared\Microsoft Online Services;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\12.0\DLLShared\;C:\Program Files (x86)\Roxio\OEM\AudioCore\;C:\Program Files (x86)\QuickTime\QTSystem\
+2015-02-19 12:23:50.6766|INFO|thread: 7|StartupLogging| =====================================================
+2015-02-19 12:23:50.6766|INFO|thread: 7|StartupLogging|  DIAGNOSTICS                                        |
+2015-02-19 12:23:50.6766|INFO|thread: 7|StartupLogging| =====================================================
+2015-02-19 12:23:50.6766|INFO|thread: 7|StartupLogging| Git Extracted: 'True:
+2015-02-19 12:23:50.6766|INFO|thread: 7|StartupLogging| PortableGit Dir Exists: 'C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad'
+2015-02-19 12:23:50.6766|INFO|thread: 7|StartupLogging| Git Executable Exists: 'C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin\git.exe'
+2015-02-19 12:23:50.6766|ERROR|thread: 7|StartupLogging| MISSING PATH!!: 'C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\'
+2015-02-19 12:23:50.6826|ERROR|thread: 7|StartupLogging| MISSING PATH!!: 'C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\'
+2015-02-19 12:23:50.6826|INFO|thread: 7|StartupLogging| ----------------------------------------------------
+2015-02-19 12:23:50.6826|INFO|thread: 7|StartupLogging| PATH: C:\Program Files\Common Files\Microsoft Shared\Microsoft Online Services;C:\Program Files (x86)\Common Files\Microsoft Shared\Microsoft Online Services;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\Common Files\Roxio Shared\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\DLLShared\;C:\Program Files (x86)\Common Files\Roxio Shared\OEM\12.0\DLLShared\;C:\Program Files (x86)\Roxio\OEM\AudioCore\;C:\Program Files (x86)\QuickTime\QTSystem\
+2015-02-19 12:23:50.6826|INFO|thread: 7|StartupLogger|Proxy information: (None)
+2015-02-19 12:23:50.6826|INFO|thread: 7|StartupLogger|Couldn't fetch creds for proxy
+2015-02-19 12:23:50.7096|WARN|thread: 1|POCOObservableForProperty|ReactiveUI.ReactiveCommandSix`1[[System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]] is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:50.7576|INFO|thread: 1|App|Checking whether application is network deployed.
+2015-02-19 12:23:50.7786|INFO|thread: 1|ClickOnceAppIconHelper|Updating registry with our application icon 'C:\Users\watterson\AppData\Local\Apps\2.0\3YJLC4JO.378\R8DJDE0W.CJ2\gith..tion_317444273a93ac29_0002.0008_1a88292d43fa2994\Images\App.ico'
+2015-02-19 12:23:50.8967|WARN|thread: 1|LogHost|SuppressChangeNotifications was called (perhaps via AddRange), yet you do not
+2015-02-19 12:23:50.8967|WARN|thread: 1|LogHost|have a subscription to ShouldReset. This probably isn't what you want, as ItemsAdded
+2015-02-19 12:23:50.8967|WARN|thread: 1|LogHost|and friends will appear to 'miss' items
+2015-02-19 12:23:50.9557|INFO|thread: 7|PortablePackageManager|Already extracted PortableGit.7z, returning 100%
+2015-02-19 12:23:51.4497|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.DropRepositoryView is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.5047|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.DashboardView is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.5357|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.RepositoryCloneProgress is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.5817|INFO|thread: 1|GitExtractionVisualHelper|Portable Git is already extracted
+2015-02-19 12:23:51.5877|INFO|thread: 1|ReactiveScreen|Activating GitHub.ViewModels.ShellViewModel.
+2015-02-19 12:23:51.5877|INFO|thread: 1|ReactiveScreen|Activating GitHub.ViewModels.DashboardViewModel.
+2015-02-19 12:23:51.7727|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.SourceList is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.8117|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.SourceListRepositoryItem is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.8367|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.RepositoryNotFound is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.8367|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.PopupMenuView is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.8778|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.AddOrCreatePopup is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.9298|INFO|thread: 1|PortablePackageManager|Already extracted gitignore.7z, returning 100%
+2015-02-19 12:23:51.9348|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.CreateRepositoryTab is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.9698|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.BrowseRepositoriesTab is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:51.9848|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.BrowseRepositoriesList is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:52.0218|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.TwoFactorView is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:52.0318|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.CertificateErrorView is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:52.0548|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.UndoFlashView is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:52.1388|WARN|thread: 1|LogHost|SuppressChangeNotifications was called (perhaps via AddRange), yet you do not
+2015-02-19 12:23:52.1388|WARN|thread: 1|LogHost|have a subscription to ShouldReset. This probably isn't what you want, as ItemsAdded
+2015-02-19 12:23:52.1388|WARN|thread: 1|LogHost|and friends will appear to 'miss' items
+2015-02-19 12:23:52.1548|WARN|thread: 1|POCOObservableForProperty|GitHub.Validation.ReactivePropertyValidationResult is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:23:52.9119|INFO|thread: 1|RepositoryHost|Log in from cache for login 'swatterson' to host 'https://api.github.com/' SUCCEEDED
+2015-02-19 12:23:52.9339|INFO|thread:23|ApplicationShellInitializer|Running post login tasks. ~/.gitconfig is set up with user.name = 'swatterson' and user.email = 'sara.watterson@gmail.com'
+2015-02-19 12:23:52.9499|INFO|thread:23|SSHKeyHelper|ssh-agent already running
+2015-02-19 12:23:52.9499|INFO|thread:23|PortablePackageManager|Already extracted hawser-amd64.7z, returning 100%
+2015-02-19 12:23:52.9679|INFO|thread:23|GitEnvironment|Process set up with this SSH Agent info: 11768:/tmp/ssh-pHoBaR5IpSEY/agent.11736
+2015-02-19 12:23:52.9679|INFO|thread:23|GitEnvironment|PATH is C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\cmd;C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin;C:\Users\watterson\AppData\Local\Apps\2.0\3YJLC4JO.378\R8DJDE0W.CJ2\gith..tion_317444273a93ac29_0002.0008_1a88292d43fa2994;C:\Users\watterson\AppData\Local\GitHub\hawser-amd64_0.4.0;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Windows\System32
+2015-02-19 12:23:52.9779|INFO|thread:23|ProcessWrapper|Starting: Process - FileName: 'C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin\ssh-add.exe', Args: '"C:\Users\watterson\.ssh\github_rsa"', Working Directory: C:\Users\watterson\AppData\Local\Temp\
+2015-02-19 12:23:53.0269|INFO|thread:12|SSHKeyHelper|Found existing SSH key pair
+2015-02-19 12:23:53.3529|WARN|thread: 1|LogHost|SuppressChangeNotifications was called (perhaps via AddRange), yet you do not
+2015-02-19 12:23:53.3529|WARN|thread: 1|LogHost|have a subscription to ShouldReset. This probably isn't what you want, as ItemsAdded
+2015-02-19 12:23:53.3529|WARN|thread: 1|LogHost|and friends will appear to 'miss' items
+2015-02-19 12:24:00.7906|INFO|thread: 8|SoftwareUpdateViewModel|Checking for new version
+2015-02-19 12:24:02.6528|INFO|thread:13|SoftwareUpdateViewModel|New version available: 2.9.1.0
+2015-02-19 12:24:08.9045|WARN|thread: 1|POCOObservableForProperty|GitHub.Api.GitHubRepository is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:24:08.9045|WARN|thread: 1|POCOObservableForProperty|Octokit.User is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:32.3808|INFO|thread: 1|RepositoryModel|Cloning repo https://github.com/CenterForRegionalChange/PuttingYouthOnTheMap.git
+2015-02-19 12:25:32.3838|INFO|thread: 1|GitClient|Cloning 'https://github.com/CenterForRegionalChange/PuttingYouthOnTheMap.git' to 'PuttingYouthOnTheMap' in directory 'C:\Users\watterson\Documents\GitHub
+2015-02-19 12:25:32.3838|INFO|thread: 1|GitEnvironment|Process set up with this SSH Agent info: 11768:/tmp/ssh-pHoBaR5IpSEY/agent.11736
+2015-02-19 12:25:32.3838|INFO|thread: 1|GitEnvironment|PATH is C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\cmd;C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin;C:\Users\watterson\AppData\Local\Apps\2.0\3YJLC4JO.378\R8DJDE0W.CJ2\gith..tion_317444273a93ac29_0002.0008_1a88292d43fa2994;C:\Users\watterson\AppData\Local\GitHub\hawser-amd64_0.4.0;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Windows\System32
+2015-02-19 12:25:32.3838|INFO|thread: 1|ProcessWrapper|Starting: Process - FileName: 'C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin\git.exe', Args: 'clone --progress --recursive  --  "https://github.com/CenterForRegionalChange/PuttingYouthOnTheMap.git" "PuttingYouthOnTheMap" ', Working Directory: C:\Users\watterson\Documents\GitHub
+2015-02-19 12:25:32.6018|WARN|thread: 1|POCOObservableForProperty|ReactiveUI.ReactiveCommandSix`1[[System.Reactive.Unit, System.Reactive.Core, Version=2.2.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35]] is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:32.6768|WARN|thread: 1|LogHost|SuppressChangeNotifications was called (perhaps via AddRange), yet you do not
+2015-02-19 12:25:32.6768|WARN|thread: 1|LogHost|have a subscription to ShouldReset. This probably isn't what you want, as ItemsAdded
+2015-02-19 12:25:32.6768|WARN|thread: 1|LogHost|and friends will appear to 'miss' items
+2015-02-19 12:25:32.8318|WARN|thread: 1|POCOObservableForProperty|ReactiveUI.ReactiveCommandSix`1[[GitHub.Models.ICommitModel, GitHub, Version=2.8.1.1, Culture=neutral, PublicKeyToken=null]] is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.4109|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.RepositoryView is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.4279|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.PublishToHostButton is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.4339|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.AheadBehindIndicator is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.4639|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.CommitForm is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.4989|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.NewCommitView is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.5219|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.PublishToHostPopup is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.5419|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.PublishToHostTab is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.5749|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.GitHubLogin is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.5989|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.GitHubEnterpriseLogin is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:25:33.6179|WARN|thread: 1|POCOObservableForProperty|GitHub.Views.Controls.BranchesPopup is a POCO type and won't send change notifications, WhenAny will only return a single value!
+2015-02-19 12:27:00.2466|WARN|thread: 1|StandardUserErrors|Showing user error Please check your log file for more details, or email support if you are still having problems.
+GitHub.IO.ProcessException: Cloning into 'PuttingYouthOnTheMap'...
+remote: Counting objects: 558, done.[K
+remote: Compressing objects:  20% (1/5)   [K
+remote: Compressing objects:  40% (2/5)   [K
+remote: Compressing objects:  60% (3/5)   [K
+remote: Compressing objects:  80% (4/5)   [K
+remote: Compressing objects: 100% (5/5)   [K
+remote: Compressing objects: 100% (5/5), done.[K
+Receiving objects:   0% (1/558)   
+Receiving objects:   1% (6/558)   
+Receiving objects:   2% (12/558)   
+Receiving objects:   3% (17/558)   
+Receiving objects:   4% (23/558)   
+Receiving objects:   5% (28/558)   
+Receiving objects:   6% (34/558)   
+Receiving objects:   7% (40/558)   
+Receiving objects:   8% (45/558)   
+Receiving objects:   9% (51/558)   
+Receiving objects:  10% (56/558)   
+Receiving objects:  11% (62/558)   
+Receiving objects:  12% (67/558)   
+Receiving objects:  13% (73/558)   
+Receiving objects:  14% (79/558)   
+Receiving objects:  15% (84/558)   
+Receiving objects:  16% (90/558)   
+Receiving objects:  16% (94/558), 852.00 KiB | 804.00 KiB/s   
+Receiving objects:  17% (95/558), 852.00 KiB | 804.00 KiB/s   
+Receiving objects:  17% (96/558), 2.11 MiB | 1004.00 KiB/s   
+Receiving objects:  17% (97/558), 3.65 MiB | 1.12 MiB/s   
+Receiving objects:  17% (100/558), 5.23 MiB | 1.22 MiB/s   
+Receiving objects:  18% (101/558), 6.03 MiB | 1.26 MiB/s   
+Receiving objects:  19% (107/558), 6.03 MiB | 1.26 MiB/s   
+Receiving objects:  20% (112/558), 6.03 MiB | 1.26 MiB/s   
+Receiving objects:  20% (112/558), 6.84 MiB | 1.39 MiB/s   
+Receiving objects:  20% (114/558), 8.37 MiB | 1.47 MiB/s   
+Receiving objects:  20% (114/558), 9.97 MiB | 1.56 MiB/s   
+Receiving objects:  20% (114/558), 11.57 MiB | 1.55 MiB/s   
+Receiving objects:  20% (114/558), 13.18 MiB | 1.55 MiB/s   
+Receiving objects:  21% (118/558), 13.18 MiB | 1.55 MiB/s   
+Receiving objects:  22% (123/558), 13.18 MiB | 1.55 MiB/s   
+Receiving objects:  23% (129/558), 13.18 MiB | 1.55 MiB/s   
+Receiving objects:  24% (134/558), 13.18 MiB | 1.55 MiB/s   
+Receiving objects:  24% (139/558), 13.71 MiB | 1.49 MiB/s   
+Receiving objects:  25% (140/558), 13.71 MiB | 1.49 MiB/s   
+Receiving objects:  25% (144/558), 15.53 MiB | 1.38 MiB/s   
+Receiving objects:  25% (144/558), 16.72 MiB | 1.29 MiB/s   
+Receiving objects:  25% (144/558), 17.92 MiB | 1.19 MiB/s   
+Receiving objects:  25% (144/558), 19.11 MiB | 1.18 MiB/s   
+Receiving objects:  25% (144/558), 20.43 MiB | 1.19 MiB/s   
+Receiving objects:  25% (144/558), 21.23 MiB | 1.23 MiB/s   
+Receiving objects:  25% (144/558), 22.87 MiB | 1.33 MiB/s   
+Receiving objects:  25% (145/558), 24.43 MiB | 1.39 MiB/s   
+Receiving objects:  25% (145/558), 25.62 MiB | 1.40 MiB/s   
+Receiving objects:  25% (145/558), 26.87 MiB | 1.39 MiB/s   
+Receiving objects:  26% (146/558), 26.87 MiB | 1.39 MiB/s   
+Receiving objects:  26% (148/558), 28.14 MiB | 1.31 MiB/s   
+Receiving objects:  26% (148/558), 29.31 MiB | 1.20 MiB/s   
+Receiving objects:  26% (148/558), 30.46 MiB | 1.18 MiB/s   
+Receiving objects:  26% (148/558), 31.65 MiB | 1.15 MiB/s   
+Receiving objects:  26% (149/558), 32.90 MiB | 1.17 MiB/s   
+Receiving objects:  26% (149/558), 34.18 MiB | 1.18 MiB/s   
+Receiving objects:  26% (149/558), 35.33 MiB | 1.17 MiB/s   
+Receiving objects:  26% (150/558), 35.91 MiB | 1.17 MiB/s   
+Receiving objects:  27% (151/558), 36.64 MiB | 1.19 MiB/s   
+Receiving objects:  27% (152/558), 38.20 MiB | 1.27 MiB/s   
+Receiving objects:  27% (152/558), 38.97 MiB | 1.30 MiB/s   
+Receiving objects:  27% (155/558), 40.50 MiB | 1.36 MiB/s   
+Receiving objects:  27% (155/558), 42.04 MiB | 1.43 MiB/s   
+Receiving objects:  27% (155/558), 43.63 MiB | 1.51 MiB/s   
+Receiving objects:  27% (156/558), 45.32 MiB | 1.53 MiB/s   
+Receiving objects:  28% (157/558), 45.32 MiB | 1.53 MiB/s   
+Receiving objects:  28% (159/558), 46.75 MiB | 1.51 MiB/s   
+Receiving objects:  28% (159/558), 47.96 MiB | 1.44 MiB/s   
+Receiving objects:  28% (159/558), 49.25 MiB | 1.38 MiB/s   
+Receiving objects:  28% (159/558), 50.40 MiB | 1.26 MiB/s   
+Receiving objects:  28% (160/558), 51.05 MiB | 1.22 MiB/s   
+Receiving objects:  28% (160/558), 52.80 MiB | 1.16 MiB/s   
+Receiving objects:  28% (160/558), 53.96 MiB | 1.14 MiB/s   
+Receiving objects:  28% (160/558), 55.20 MiB | 1.15 MiB/s   
+Receiving objects:  28% (160/558), 55.89 MiB | 1.16 MiB/s   
+Receiving objects:  28% (160/558), 57.14 MiB | 1.15 MiB/s   
+Receiving objects:  28% (161/558), 58.43 MiB | 1.15 MiB/s   
+Receiving objects:  28% (161/558), 59.78 MiB | 1.19 MiB/s   
+Receiving objects:  29% (162/558), 59.78 MiB | 1.19 MiB/s   
+Receiving objects:  29% (162/558), 61.37 MiB | 1.27 MiB/s   
+Receiving objects:  29% (162/558), 62.95 MiB | 1.34 MiB/s   
+Receiving objects:  29% (163/558), 64.49 MiB | 1.43 MiB/s   
+Receiving objects:  29% (164/558), 66.06 MiB | 1.52 MiB/s   
+Receiving objects:  29% (166/558), 66.83 MiB | 1.54 MiB/s   
+Receiving objects:  29% (167/558), 69.32 MiB | 1.58 MiB/s   
+Receiving objects:  30% (168/558), 69.32 MiB | 1.58 MiB/s   
+Receiving objects:  31% (173/558), 70.05 MiB | 1.56 MiB/s   
+Receiving objects:  31% (175/558), 70.05 MiB | 1.56 MiB/s   
+Receiving objects:  32% (179/558), 70.63 MiB | 1.52 MiB/s   
+Receiving objects:  32% (183/558), 71.27 MiB | 1.49 MiB/s   
+Receiving objects:  33% (185/558), 71.27 MiB | 1.49 MiB/s   
+Receiving objects:  34% (190/558), 71.95 MiB | 1.46 MiB/s   
+Receiving objects:  34% (193/558), 72.77 MiB | 1.47 MiB/s   
+Receiving objects:  35% (196/558), 72.77 MiB | 1.47 MiB/s   
+Receiving objects:  36% (201/558), 73.54 MiB | 1.46 MiB/s   
+Receiving objects:  36% (205/558), 74.33 MiB | 1.45 MiB/s   
+Receiving objects:  37% (207/558), 74.33 MiB | 1.45 MiB/s   
+Receiving objects:  38% (213/558), 75.12 MiB | 1.44 MiB/s   
+Receiving objects:  38% (213/558), 75.93 MiB | 1.44 MiB/s   
+Receiving objects:  38% (217/558), 77.52 MiB | 1.50 MiB/s   
+Receiving objects:  39% (218/558), 77.52 MiB | 1.50 MiB/s   
+Receiving objects:  40% (224/558), 78.31 MiB | 1.53 MiB/s   
+Receiving objects:  40% (226/558), 78.31 MiB | 1.53 MiB/s   
+Receiving objects:  41% (229/558), 79.11 MiB | 1.56 MiB/s   
+Receiving objects:  42% (235/558), 79.90 MiB | 1.55 MiB/s   
+Receiving objects:  42% (236/558), 79.90 MiB | 1.55 MiB/s   
+Receiving objects:  43% (240/558), 81.56 MiB | 1.57 MiB/s   
+Receiving objects:  43% (242/558), 81.56 MiB | 1.57 MiB/s   
+Receiving objects:  44% (246/558), 82.96 MiB | 1.53 MiB/s   
+Receiving objects:  45% (252/558), 82.96 MiB | 1.53 MiB/s   
+Receiving objects:  45% (256/558), 82.96 MiB | 1.53 MiB/s   
+Receiving objects:  46% (257/558), 83.54 MiB | 1.49 MiB/s   
+Receiving objects:  46% (261/558), 84.81 MiB | 1.40 MiB/s   
+Receiving objects:  47% (263/558), 84.81 MiB | 1.40 MiB/s   
+Receiving objects:  47% (263/558), 86.02 MiB | 1.31 MiB/s   
+Receiving objects:  47% (263/558), 87.24 MiB | 1.20 MiB/s   
+Receiving objects:  47% (264/558), 88.44 MiB | 1.16 MiB/s   
+Receiving objects:  47% (265/558), 89.68 MiB | 1.17 MiB/s   
+Receiving objects:  47% (266/558), 90.97 MiB | 1.18 MiB/s   
+Receiving objects:  47% (267/558), 92.30 MiB | 1.19 MiB/s   
+Receiving objects:  48% (268/558), 92.30 MiB | 1.19 MiB/s   
+Receiving objects:  48% (268/558), 93.02 MiB | 1.22 MiB/s   
+Receiving objects:  48% (268/558), 93.99 MiB | 1.17 MiB/s   
+Receiving objects:  48% (269/558), 95.27 MiB | 1.15 MiB/s   
+Receiving objects:  48% (270/558), 95.91 MiB | 1.15 MiB/s   
+Receiving objects:  48% (271/558), 97.17 MiB | 1.15 MiB/s   
+Receiving objects:  48% (272/558), 98.36 MiB | 1.11 MiB/s   
+Receiving objects:  48% (273/558), 99.54 MiB | 1.15 MiB/s   
+Receiving objects:  49% (274/558), 100.21 MiB | 1.16 MiB/s   
+Receiving objects:  49% (278/558), 100.96 MiB | 1.18 MiB/s   
+Receiving objects:  50% (279/558), 100.96 MiB | 1.18 MiB/s   
+Receiving objects:  51% (285/558), 101.82 MiB | 1.23 MiB/s   
+Receiving objects:  51% (285/558), 102.61 MiB | 1.26 MiB/s   
+Receiving objects:  51% (289/558), 103.96 MiB | 1.28 MiB/s   
+Receiving objects:  51% (290/558), 105.43 MiB | 1.33 MiB/s   
+Receiving objects:  52% (291/558), 105.43 MiB | 1.33 MiB/s   
+Receiving objects:  53% (296/558), 106.21 MiB | 1.36 MiB/s   
+Receiving objects:  54% (302/558), 107.01 MiB | 1.40 MiB/s   
+Receiving objects:  55% (307/558), 107.01 MiB | 1.40 MiB/s   
+Receiving objects:  56% (313/558), 107.01 MiB | 1.40 MiB/s   
+Receiving objects:  57% (319/558), 107.01 MiB | 1.40 MiB/s   
+Receiving objects:  58% (324/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  59% (330/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  60% (335/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  61% (341/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  62% (346/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  63% (352/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  64% (358/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  65% (363/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  66% (369/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  67% (374/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  68% (380/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  69% (386/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  70% (391/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  71% (397/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  72% (402/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  73% (408/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  74% (413/558), 107.80 MiB | 1.42 MiB/s   
+Receiving objects:  75% (419/558), 108.55 MiB | 1.41 MiB/s   
+Receiving objects:  76% (425/558), 108.55 MiB | 1.41 MiB/s   
+Receiving objects:  77% (430/558), 108.55 MiB | 1.41 MiB/s   
+Receiving objects:  78% (436/558), 108.55 MiB | 1.41 MiB/s   
+Receiving objects:  79% (441/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  80% (447/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  81% (452/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  82% (458/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  82% (463/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  83% (464/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  84% (469/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  85% (475/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  86% (480/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  87% (486/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  88% (492/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  89% (497/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  90% (503/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  91% (508/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  92% (514/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  93% (519/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  94% (525/558), 109.37 MiB | 1.43 MiB/s   
+Receiving objects:  95% (531/558), 110.14 MiB | 1.46 MiB/s   
+Receiving objects:  96% (536/558), 110.14 MiB | 1.46 MiB/s   
+Receiving objects:  97% (542/558), 110.14 MiB | 1.46 MiB/s   
+Receiving objects:  98% (547/558), 110.14 MiB | 1.46 MiB/s   
+Receiving objects:  99% (553/558), 110.14 MiB | 1.46 MiB/s   
+Receiving objects: 100% (558/558), 110.14 MiB | 1.46 MiB/s   
+Receiving objects: 100% (558/558), 110.25 MiB | 1.50 MiB/s, done.
+Resolving deltas:   0% (0/144)   
+Resolving deltas:  15% (22/144)   
+Resolving deltas:  23% (34/144)   
+Resolving deltas:  24% (35/144)   
+Resolving deltas:  25% (37/144)   
+Resolving deltas:  26% (38/144)   
+Resolving deltas:  27% (39/144)   
+Resolving deltas:  29% (42/144)   
+Resolving deltas:  34% (49/144)   
+Resolving deltas:  38% (56/144)   
+Resolving deltas:  43% (62/144)   
+Resolving deltas:  46% (67/144)   
+Resolving deltas:  50% (73/144)   
+Resolving deltas:  51% (74/144)   
+Resolving deltas:  53% (77/144)   
+Resolving deltas:  54% (78/144)   
+Resolving deltas:  59% (85/144)   
+Resolving deltas:  60% (87/144)   
+Resolving deltas:  61% (88/144)   
+Resolving deltas:  65% (94/144)   
+Resolving deltas:  67% (97/144)   
+Resolving deltas:  68% (99/144)   
+Resolving deltas:  70% (102/144)   
+Resolving deltas:  71% (103/144)   
+Resolving deltas:  72% (104/144)   
+Resolving deltas:  73% (106/144)   
+Resolving deltas:  79% (114/144)   
+Resolving deltas:  80% (116/144)   
+Resolving deltas:  81% (117/144)   
+Resolving deltas:  85% (123/144)   
+Resolving deltas:  88% (128/144)   
+Resolving deltas:  90% (131/144)   
+Resolving deltas:  95% (137/144)   
+Resolving deltas: 100% (144/144)   
+Resolving deltas: 100% (144/144), done.
+remote: Total 558 (delta 0), reused 0 (delta 0)[K
+Checking connectivity... done.
+Checking out files:  37% (159/425)   
+Checking out files:  38% (162/425)   
+Checking out files:  39% (166/425)   
+Checking out files:  40% (170/425)   
+Checking out files:  41% (175/425)   
+Checking out files:  42% (179/425)   
+Checking out files:  43% (183/425)   
+Checking out files:  44% (187/425)   
+Checking out files:  45% (192/425)   
+Checking out files:  46% (196/425)   
+Checking out files:  47% (200/425)   
+Checking out files:  48% (204/425)   
+Checking out files:  49% (209/425)   
+Checking out files:  50% (213/425)   
+Checking out files:  51% (217/425)   
+Checking out files:  52% (221/425)   
+Checking out files:  53% (226/425)   
+Checking out files:  54% (230/425)   
+Checking out files:  55% (234/425)   
+Checking out files:  56% (238/425)   
+Checking out files:  57% (243/425)   
+Checking out files:  58% (247/425)   
+Checking out files:  59% (251/425)   
+Checking out files:  60% (255/425)   
+Checking out files:  61% (260/425)   
+Checking out files:  62% (264/425)   
+Checking out files:  63% (268/425)   
+Checking out files:  64% (272/425)   
+Checking out files:  65% (277/425)   
+Checking out files:  66% (281/425)   
+Checking out files:  67% (285/425)   
+Checking out files:  68% (289/425)   
+Checking out files:  69% (294/425)   
+Checking out files:  70% (298/425)   
+Checking out files:  71% (302/425)   
+Checking out files:  72% (306/425)   
+Checking out files:  73% (311/425)   
+Checking out files:  74% (315/425)   
+Checking out files:  75% (319/425)   
+Checking out files:  76% (323/425)   
+Checking out files:  77% (328/425)   
+Checking out files:  78% (332/425)   
+Checking out files:  79% (336/425)   
+Checking out files:  80% (340/425)   
+Checking out files:  81% (345/425)   
+Checking out files:  82% (349/425)   
+Checking out files:  83% (353/425)   
+Checking out files:  84% (357/425)   
+Checking out files:  85% (362/425)   
+Checking out files:  86% (366/425)   
+Checking out files:  87% (370/425)   
+Checking out files:  88% (374/425)   
+Checking out files:  89% (379/425)   
+Checking out files:  90% (383/425)   
+Checking out files:  91% (387/425)   
+Checking out files:  92% (391/425)   
+Checking out files:  93% (396/425)   
+Checking out files:  94% (400/425)   
+Checking out files:  95% (404/425)   
+Checking out files:  96% (408/425)   
+Checking out files:  97% (413/425)   
+Checking out files:  98% (417/425)   
+Checking out files:  99% (421/425)   
+Checking out files: 100% (425/425)   
+Checking out files: 100% (425/425), done.
+git: 'submodule' is not a git command. See 'git --help'.
+2015-02-19 12:32:12.8408|INFO|thread: 1|RepositoryModel|Cloning repo https://github.com/CenterForRegionalChange/demo.git
+2015-02-19 12:32:12.8408|INFO|thread: 1|GitClient|Cloning 'https://github.com/CenterForRegionalChange/demo.git' to 'demo' in directory 'C:\Users\watterson\Documents\GitHub
+2015-02-19 12:32:12.8408|INFO|thread: 1|GitEnvironment|Process set up with this SSH Agent info: 11768:/tmp/ssh-pHoBaR5IpSEY/agent.11736
+2015-02-19 12:32:12.8408|INFO|thread: 1|GitEnvironment|PATH is C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\cmd;C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin;C:\Users\watterson\AppData\Local\Apps\2.0\3YJLC4JO.378\R8DJDE0W.CJ2\gith..tion_317444273a93ac29_0002.0008_1a88292d43fa2994;C:\Users\watterson\AppData\Local\GitHub\hawser-amd64_0.4.0;C:\Windows\Microsoft.NET\Framework\v4.0.30319;C:\Windows\System32
+2015-02-19 12:32:12.8408|INFO|thread: 1|ProcessWrapper|Starting: Process - FileName: 'C:\Users\watterson\AppData\Local\GitHub\PortableGit_c2ba306e536fdf878271f7fe636a147ff37326ad\bin\git.exe', Args: 'clone --progress --recursive  --  "https://github.com/CenterForRegionalChange/demo.git" "demo" ', Working Directory: C:\Users\watterson\Documents\GitHub
