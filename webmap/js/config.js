@@ -375,46 +375,46 @@ var SERVICES = [{
             }, {
                 local: "c", region: "s", tractField: "", countyField: "CtyName", districtField: "",
                 unit: "ytcvap14", subs: [], scale: "%", specificValueField: "cytcv14", valueLabel: "Number of cvap youth",
-                title: "2014 Citizen Voting Age Population: % Youth (Age 18-23)",
+                title: "2014 Citizen Voting Age Population: % Youth (Age 18-24)",
                 categories: ['County', 'State Average'],
                 showMOE: false, showCHKS: false, showRates: true, showEquity: false
             }, {
                 local: "c", region: "s", tractField: "", countyField: "CtyName", districtField: "",
                 unit: "yregvr14", subs: ["ydemrv14","yreprv14","ynpprv14"], scale: "%", specificValueField: "cyregv14",
-                title: "2014 General Election Registered Voters: % Youth (Age 18-23)", subTitle: "Breakdown by Political Party", valueLabel: "Number of youth registered ",
+                title: "2014 General Election Registered Voters: % Youth (Age 18-24)", subTitle: "Breakdown by Political Party", valueLabel: "Number of youth registered ",
                 categories: ['County', 'State Average'], subCategories: ['Democratic', 'Republican', 'No Political Pref'],
                 subColors: ["#9BBB59", "#4BACC6", "#FFC000"], subLayerNames: null,
                 showMOE: false, showCHKS: false, showRates: true, showEquity: false
             }, {
                 local: "c", region: "s", tractField: "", countyField: "CtyName", districtField: "",
                 unit: "ytotv14", subs: ["ydemav14","yrepav14","ynppav14"], scale: "%", specificValueField: "cyactv14",
-                title: "2014 General Election Voters: % Youth (Age 18-23)", subTitle: "Breakdown by Political Party", valueLabel: "Number of youth voters",
+                title: "2014 General Election Voters: % Youth (Age 18-24)", subTitle: "Breakdown by Political Party", valueLabel: "Number of youth voters",
                 categories: ['County', 'State Average'], subCategories: ['Democratic', 'Republican', 'No Political Pref'],
                 subColors: ["#9BBB59", "#4BACC6", "#FFC000"], subLayerNames: null,
                 showMOE: false, showCHKS: false, showRates: true, showEquity: false
             }, {
                 local: "c", region: "s", tractField: "", countyField: "CtyName", districtField: "",
                 unit: "ototv14", subs: [], scale: "%", specificValueField: "coactv14", valueLabel: "Number of age 64+ voters",
-                title: "2014 General Election Voters: % Age 64+",
+                title: "2014 General Election Voters: % Age 65+",
                 categories: ['County', 'State Average'],
                 showMOE: false, showCHKS: false, showRates: true, showEquity: false
             }, {
                 local: "c", region: "s", tractField: "", countyField: "CtyName", districtField: "",
                 unit: "yrvtout14", subs: ["ydemav14","yrepav14","ynppav14"], scale: "%", specificValueField: "cyregv14",
-                title: "2014 General Election: Youth (Age 18-23) Registered Voter Turnout", subTitle: "Breakdown by Political Party", valueLabel: "Number of youth voters",
+                title: "2014 General Election: Youth (Age 18-24) Registered Voter Turnout", subTitle: "Breakdown by Political Party", valueLabel: "Number of youth voters",
                 categories: ['County', 'State Average'], subCategories: ['Democratic', 'Republican', 'No Political Pref'],
                 subColors: ["#9BBB59", "#4BACC6", "#FFC000"], subLayerNames: null,
                 showMOE: false, showCHKS: false, showRates: true, showEquity: false
             }, {
                 local: "c", region: "s", tractField: "", countyField: "CtyName", districtField: "",
                 unit: "yeliout14", subs: [], scale: "%", specificValueField: "cyactv14", valueLabel: "Number of youth voters",
-                title: "2014 General Election Youth (Age 18-23) Eligible Voter Turnout",
+                title: "2014 General Election Youth (Age 18-24) Eligible Voter Turnout",
                 categories: ['County', 'State Average'],
                 showMOE: false, showCHKS: false, showRates: true, showEquity: false
             }, {
                 local: "c", region: "s", tractField: "", countyField: "CtyName", districtField: "",
                 unit: "yrrate14", subs: [], scale: "%", specificValueField: "cyregv14", valueLabel: "Number of youth  registered",
-                title: "2014 General Election Youth (Age 18-23) Registration Rates",
+                title: "2014 General Election Youth (Age 18-24) Registration Rates",
                 categories: ['County', 'State Average'],
                 showMOE: false, showCHKS: false, showRates: true, showEquity: false
             }, {
