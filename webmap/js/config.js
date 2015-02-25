@@ -363,8 +363,8 @@ var SERVICES = [{
         name: "Civic Engagement",
         url: varSerProv.concat("/arcgis/rest/services/PYOM/Service9_CivicEng/"),
         layerObs: [],
-        defaultForMap: [],
-        defaultLayerIndex: [],
+        defaultForMap: [2],
+        defaultLayerIndex: [8],
         disagg: [],
         chart: [{
                 // group layer, no data, VOTER DATA - CCEP 
@@ -546,8 +546,8 @@ var SERVICES = [{
         name: "Demographics",
         url: varSerProv.concat("/arcgis/rest/services/PYOM/Service6_YouthDemog_1/"),
         layerObs: [],
-        defaultForMap: [2],
-        defaultLayerIndex: [4],
+        defaultForMap: [],
+        defaultLayerIndex: [],
         disagg: [],
         chart: []
     }, {
