@@ -219,11 +219,11 @@ function createMap(j) {'use strict';
                                 content += '<strong>' + POPUP_FIELDS[i].title + ':</strong> ' + feature.attributes[POPUP_FIELDS[i].field] + '<br />';         
                             }   
                         }
-                        /*
+                        
                         if (feature.attributes.hasOwnProperty(fl.rendererField)) {
                             content += '<strong>Value:</strong> ' + roundToDecimal(feature.attributes[fl.rendererField], 2);
                         }
-						*/
+						
                         content += '</div>';
                         
                         maps[mapIndex].graphics.clear();
