@@ -56,7 +56,18 @@ function init() {'use strict';
 }
 
 function initMaps() {'use strict';
-    caExtent = new esri.geometry.Extent(CA_EXTENT_JSON);
+    var url = window.location.href;
+
+    //the url has extents already
+    if(url.indexOf("?") > -1) {
+        var newUrl = url.substr(url.indexOf("?") + 1);
+        var extents = newUrl.split('+');
+        var savedExtent = { "xmin": parseInt(extents[0]), "ymin": parseInt(extents[1]), "xmax": parseInt(extents[2]), "ymax": parseInt(extents[3]), "spatialReference": { "wkid": 102100 } };
+        caExtent = new esri.geometry.Extent(savedExtent);
+    }
+    else {
+        caExtent = new esri.geometry.Extent(CA_EXTENT_JSON);
+    }
     // mapCount = 0;
 
     $("#mapDiv0").mouseover(function(e) {
@@ -223,7 +234,7 @@ function createMap(j) {'use strict';
                         if (feature.attributes.hasOwnProperty(fl.rendererField)) {
                             content += '<strong>Value:</strong> ' + roundToDecimal(feature.attributes[fl.rendererField], 2);
                         }
-						
+                        
                         content += '</div>';
                         
                         maps[mapIndex].graphics.clear();
@@ -281,7 +292,7 @@ function createMap(j) {'use strict';
                         }
                         
                         /*
-						if (typeof(chartParams.specificValueField) !== 'undefined') {
+                        if (typeof(chartParams.specificValueField) !== 'undefined') {
                             $('#id-header' + mapIndex).append('<p><b>' + displayAlias + ':</b> ' + roundToDecimal(feature.attributes[chartParams.specificValueField], 2) + '</p>');
                         } else if (chartParams.subs.length === 0) {
                             $('#id-header' + mapIndex).append('<p><b>' + displayAlias + ':</b> ' + roundToDecimal(feature.attributes[fl.rendererField], 2) + '</p>');
@@ -985,7 +996,7 @@ function checkLoadToc() {'use strict';
             }
         }
     };
-	enableSyncing()
+    enableSyncing()
 }
 
 function addLayerHandlers(layerOb, cfg, mapIdx, svcIdx) {'use strict';
@@ -2161,4 +2172,33 @@ function roundToDecimal(val, places) {'use strict';
     }
 
     return ret;
+}
+
+function bookmark () {
+
+    $('#facebook-button').html('');
+    var urlWithExtent = window.location.href;
+    urlWithExtent += "?";
+
+    if($('#checkLocSync').is(':checked')) {
+        var mapTempExtent = maps[0].extent["xmin"].toFixed(0).toString() + "+" + maps[0].extent["ymin"].toFixed(0).toString() + "+" + maps[0].extent["xmax"].toFixed(0).toString() + "+" + maps[0].extent["ymax"].toFixed(0).toString();
+    }
+    else {
+        for(var i=0;i<maps.length;i++){
+            var mapTempExtent = maps[i].extent["xmin"].toFixed(0).toString() + "+" + maps[i].extent["ymin"].toFixed(0).toString() + "+" + maps[i].extent["xmax"].toFixed(0).toString() + "+" + maps[i].extent["ymax"].toFixed(0).toString() + "++";
+        }
+    }
+    urlWithExtent += mapTempExtent;
+    //this needs to be inserted into the st_url attribute of the span class for facebook, twitter, tumblr, and email.
+    //if the window url is just appended with this, its too late for sharethis, as it already gets the URL when the page loads.
+    // $('#social-media').children('span').each(function() {
+    //     this.setAttribute('st_url', "abc.com");
+    // });
+
+    stWidget.addEntry({
+        "service":"facebook",
+        "element":document.getElementById('facebook-button'),
+        "url": urlWithExtent,
+        "type":"large",
+    });
 }
