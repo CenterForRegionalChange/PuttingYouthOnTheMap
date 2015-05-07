@@ -15,10 +15,16 @@
     <meta name="viewport" content="width=device-width">
     <link rel="shortcut icon" href="img/favicon.png">
 
+    <meta property="og:url"                content="http://interact.regionalchange.ucdavis.edu/youth/webmap/webmap.html"/>
+    <meta property="og:title"              content="Putting Youth on the Map" />
+    <meta property="og:description"        content="Learn about UC Davis Putting Youth on the Map, download data and analyses, access resources for youth data mapping and see users putting data into action " />
+    <meta property="og:image"              content="http://interact.regionalchange.ucdavis.edu/youth/webmap/img/Logo_POTM_FB.png" />
+
     <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css">
     <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/esri/css/esri.css">
     <link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.css">
     <link rel="stylesheet" href="css/webmap.css">
+
 
     <style type="text/css"> 
         html, body, #mainWindow { height: 100%; width: 100%; overflow: hidden; }
@@ -46,16 +52,37 @@
 </head>
 <body class="claro">
 <script>
-	  if (isProd == true) {
-	  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-	  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-	  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    if (isProd == true) {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+    	ga('create', 'UA-57356134-1', 'auto');
+	    ga('send', 'pageview');
+	};
 
-	  ga('create', 'UA-57356134-1', 'auto');
-	  ga('send', 'pageview');
-	  };
-	</script>
+    !function(d,s,id){
+        var js,fjs=d.getElementsByTagName(s)[0], p=/^http:/.test(d.location)?'http':'https';
+        if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;js.src=p+'://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js,fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+
+
+    !function(d,s,id){
+        var js,ajs=d.getElementsByTagName(s)[0];
+        if(!d.getElementById(id)){
+            js=d.createElement(s);
+            js.id=id;
+            js.src="https://secure.assets.tumblr.com/share-button.js";
+            ajs.parentNode.insertBefore(js,ajs);
+        }
+    }(document, "script", "tumblr-js");
+
+</script>
 <div id="mainWindow" style="width: 100%; height: 100%;">
      <div id="header">
         <div id="logoArea"><a href="../index.html"><img src="img/Logo_POTM_75.png" border="0" /></a></div>
@@ -422,7 +449,14 @@
     <br/>
 </div>
 
-<div id="dialog-print" title="Print Map">
+<div id="dialog-print" title="Share Or Print Map">
+    <div id="social-media-links" class="row">
+        <a href="javascript:shareFacebook()" target="_blank" alt="Share on Facebook" style="outline: 0;"><img border-"0" src="img/facebook_button.png"></a>
+        <a href="javascript:shareTwitter()" target="_blank" alt="Share on Twitter" style="outline: 0;"><img border-"0" src="img/twitter_button.png"></a>
+         <a href="javascript:gmailCurrentPage()"  target="_blank" alt="Email" style="outline: 0;"><img border-"0" src="img/gmail_button.png"></a>
+         <a href="javascript:yahooCurrentPage()"  target="_blank" alt="Email" style="outline: 0;"><img border-"0" src="img/yahoo_button.png"></a>
+         <hr>
+    </div>
     Choose desired format by clicking arrow.<br />
     The box below will turn into a hyperlink to the generated PDF or JPG.
     <br />
@@ -471,3 +505,4 @@
 
 </body>
 </html>
+generated

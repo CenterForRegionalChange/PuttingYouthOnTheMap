@@ -46,7 +46,7 @@ visibleSvcByMap = {
     "2" : null
 }, activeBottomTab = "", currentBaseMapName = "", layerList = [], domainLayerNames = [], tocList = {
     count : 0
-}, tocActiveMap = -1, numPanels = 3;
+}, tocActiveMap = -1, numPanels = 3, serviceLoadCheck = 0;
 
 //show map on load
 dojo.addOnLoad(init);
@@ -58,6 +58,7 @@ function init() {'use strict';
 function initMaps() {'use strict';
     caExtent = new esri.geometry.Extent(CA_EXTENT_JSON);
     // mapCount = 0;
+    var pageURL = window.location.href;
 
     $("#mapDiv0").mouseover(function(e) {
         if (mouseDown === 0) {
@@ -1012,7 +1013,6 @@ function addLayerHandlers(layerOb, cfg, mapIdx, svcIdx) {'use strict';
                 });
             }
         }
-
         if (cfg.defaultForMap !== null) {
             for ( i = 0, il = cfg.defaultForMap.length; i < il; i += 1) {
                 if (cfg.defaultForMap[i] === mapIdx) {
@@ -1198,7 +1198,7 @@ function backMapLayer(mapIndex) {'use strict';
     }
 }
 
-function setMapLayer(mapIndex, svcIndex, lyrIndex) {'use strict';
+function setMapLayer(mapIndex, svcIndex, lyrIndex, callback) {'use strict';
     var myLayer, oldVisSvc, featLyrId = "f" + lyrIndex, featLyr;
 
     $("#dialog-print").dialog('close');
@@ -1245,7 +1245,7 @@ function setMapLayer(mapIndex, svcIndex, lyrIndex) {'use strict';
     // if the user already loaded this layer, use its cached info, else load it now.
     // its info will be cached in the callback event below (from the map's onLayerAdd event)
     if (fLayers[svcIndex].hasOwnProperty(featLyrId)) {
-        setCachedLayerInfo(mapIndex, svcIndex, featLyrId);
+        setCachedLayerInfo(mapIndex, svcIndex, featLyrId, callback);
     } else {
         featLyr = new esri.layers.FeatureLayer(SERVICES[svcIndex].url + 'FeatureServer/' + lyrIndex, {
             mode : esri.layers.FeatureLayer.MODE_SELECTION,
@@ -1262,7 +1262,7 @@ function setMapLayer(mapIndex, svcIndex, lyrIndex) {'use strict';
     }
 
     // update the disaggregate UI options on the layer selection panel
-    updateDisagg(mapIndex, true);
+   updateDisagg(mapIndex, OP_MAPS[mapIndex].rendererField);
 
     // close the layers pane if the user got here from there
     //if ($('#layersPane' + mapIndex).css('display') === 'block') {
@@ -1310,11 +1310,10 @@ function processNewFeatLayer(lyr) {'use strict';
     }
 }
 
-function updateDisagg(mapIndex, reset) {'use strict';
+function updateDisagg(mapIndex, reset, callback) {'use strict';
     // #active-map-title
     // #active-map-number
     // #active-map-disagg (select box)
-
     if (mapIndex === -1) {
         $('#active-map-disagg').empty().append('<option value="">(not applicable)</option>');
         OP_MAPS[mapIndex].gender = 0;
@@ -1345,13 +1344,18 @@ function updateDisagg(mapIndex, reset) {'use strict';
             $('#active-map-disagg').val(OP_MAPS[mapIndex].rendererField);
         }
     }
+
+    if(callback)
+        callback();
 }
 
 function applyRenderer(mapIndex, attribute) {'use strict';
     // dynamic layer stuff
+    console.log(mapIndex, attribute);
     var svcIndex = OP_MAPS[mapIndex].svcIndex, optionsArray = [], disaggPart = attribute.substr(attribute.length - 3), drawingOptions = new esri.layers.LayerDrawingOptions();
 
     drawingOptions.renderer = new esri.renderer.ClassBreaksRenderer(fLayers[svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex].renderer.toJson());
+    console.log(drawingOptions.renderer);
     //drawingOptions.renderer = fLayers[svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex].renderer;
     drawingOptions.renderer.attributeField = attribute;
 
@@ -1375,7 +1379,7 @@ function applyRenderer(mapIndex, attribute) {'use strict';
     }
 }
 
-function setCachedLayerInfo(mapIndex, svcIndex, lyrId) {'use strict';
+function setCachedLayerInfo(mapIndex, svcIndex, lyrId, callback) {'use strict';
     var i, il, info, descParts, legendInfos = fLayers[svcIndex][lyrId].legendInfo, $legend = $('#legend' + mapIndex + ' ul');
 
     descParts = fLayers[svcIndex][lyrId].description.split('___');
@@ -1398,6 +1402,9 @@ function setCachedLayerInfo(mapIndex, svcIndex, lyrId) {'use strict';
             $legend.append('<li><div style="border-color: ' + info.outline + '; background-color: ' + info.color + '"></div><div><span style="background-color: white;">&nbsp;' + info.label + '&nbsp;</span></div><br style="clear: both;"/></li>');
         }
     }
+
+    if(callback)
+        callback();
 }
 
 function updateTimeExtent(idx, yr) { 'use strict';
@@ -2105,6 +2112,7 @@ function showGeocodeResults(candidates) {'use strict';
 }
 
 function startFindDistrict() {'use strict';
+console.log("FF");
     locateGfx[geocodeMapIndex].clear();
     schoolResults = [];
     var query, queryTask, $searchSel = $('#search-type'), MY = SEARCH[$searchSel.get(0).selectedIndex], searchText = $("#search-text").val();
@@ -2145,6 +2153,7 @@ function startFindDistrict() {'use strict';
 }
 
 function zoomToResult(index) {'use strict';
+console.log("GG");
     locateGfx[geocodeMapIndex].clear();
     mapCount = geocodeMapIndex;
     maps[geocodeMapIndex].setExtent(schoolResults[index].geometry.getExtent().expand(1.2), true);
@@ -2152,6 +2161,7 @@ function zoomToResult(index) {'use strict';
 }
 
 function roundToDecimal(val, places) {'use strict';
+console.log("HH");
     var ret;
 
     if ((val + "").indexOf('.') !== -1) {
@@ -2161,4 +2171,143 @@ function roundToDecimal(val, places) {'use strict';
     }
 
     return ret;
+}
+
+function setURL() {
+    'use strict';
+    //make sure to reset URL
+    //URL FORMAL
+    //  #(Layers=a,b,type_a,b,type_a,b,type_layerCount(Extent=w,x,y,z_w,x,y,z_w,x,y,z
+
+    //  layerCount = numPanelsSelected.val()
+    //  a = OP_MAPS.lyrIndex
+    //  b = OP_MAPS.svcIndex
+    //  type = OP_MAPS.rendererField
+
+    //  Extent
+    //  w = xmin
+    //  x = ymin
+    //  y = xmax
+    //  z = ymax
+
+    var socialURL = window.location.href;
+
+    if(socialURL.indexOf('#Layers') > -1) {
+        socialURL = socialURL.substr(0, socialURL.indexOf('#'));
+    }
+
+    socialURL += "#Layers=" + OP_MAPS[0].lyrIndex + "," + OP_MAPS[0].svcIndex + "," + OP_MAPS[0].rendererField + "_" + 
+                             OP_MAPS[1].lyrIndex + "," + OP_MAPS[1].svcIndex + "," + OP_MAPS[1].rendererField + "_" +
+                             OP_MAPS[2].lyrIndex + "," + OP_MAPS[2].svcIndex + "," + OP_MAPS[2].rendererField + "_" + $('#numPanelsSelected').val() + 
+                "(Extent=" + parseInt(maps[0].extent.xmin) + "," + parseInt(maps[0].extent.ymin) + "," + parseInt(maps[0].extent.xmax) + "," + parseInt(maps[0].extent.ymax) + "_" +
+                             parseInt(maps[1].extent.xmin) + "," + parseInt(maps[1].extent.ymin) + "," + parseInt(maps[1].extent.xmax) + "," + parseInt(maps[1].extent.ymax) + "_" +
+                             parseInt(maps[2].extent.xmin) + "," + parseInt(maps[2].extent.ymin) + "," + parseInt(maps[2].extent.xmax) + "," + parseInt(maps[2].extent.ymax);
+
+    return socialURL;
+}
+
+function shareFacebook() {
+    'use strict';
+    var url = setURL();
+    getShortURL(url, function(shortenURL) {
+        window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(shortenURL)+"&t="+document.title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+        return false;
+    });
+}
+
+function shareTwitter() {
+    'use strict';
+    var url = setURL();
+    getShortURL(url, function(shortenURL) {
+        var twitterURL = "https://twitter.com/intent/tweet?hashtags=UCDavisPYOM&original_referer=" + escape(shortenURL) + "&text=Putting Youth on the Map&tw_p=tweetbutton&url=" + escape(shortenURL);
+        window.open(twitterURL, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
+        return false; 
+    });
+}
+
+function getShortURL(url, callback) {
+    var accessToken = 'af1c11396dc6ac54f333c5e540c93ea3016a0978';
+    var shortenURL = 'https://api-ssl.bitly.com/v3/shorten?access_token=' + accessToken + '&longUrl=' + encodeURIComponent(url);
+    $.getJSON(
+        shortenURL,
+        {},
+        function(response)
+        {
+            if(callback) {
+                callback(response.data.url);
+            }
+        }
+    );
+}
+
+function gmailCurrentPage(){
+    'use strict';
+    var url = setURL();
+    getShortURL(url, function(shortenURL) {
+        window.open('https://mail.google.com/mail/?view=cm&fs=1&to=&su=Putting Youth on The Map&body='+ shortenURL);
+        return false; 
+    });
+    // window.location.href="mailto:?subject="+document.title+"&body="+escape(url);
+    
+}
+
+function yahooCurrentPage(){
+    'use strict';
+    var url = setURL();
+    getShortURL(url, function(shortenURL) {
+        window.open('http://compose.mail.yahoo.com/?to=&subject=Putting Youth on the Map&body=' + shortenURL);
+        return false; 
+    });
+    // window.location.href="mailto:?subject="+document.title+"&body="+escape(url);
+    
+}
+
+function setOP_MAPS() {
+    var pageURL = window.location.href;
+
+    if(pageURL.indexOf('#Layers') > -1) {           
+        pageURL = pageURL.substr(pageURL.indexOf('#') + 1);
+        pageURL = pageURL.split('(');
+
+        //pageURL[0] Layers=a,b,type_a,b,type_a,b,type_layerCount
+        //pageURL[1] Extent=w,x,y,z_w,x,y,z_w,x,y,z
+        var layerURL = pageURL[0].replace("Layers=", "");
+        var extentURL = pageURL[1].replace("Extent=", "");
+
+        layerURL = layerURL.split('_');
+        extentURL = extentURL.split('_');
+
+        console.log(layerURL);
+        console.log(extentURL);
+        $('#numPanelsSelected').val(layerURL[3]).change();
+        for(var i=0;i<3;i++) {
+            var lyrAttr = layerURL[i].split(',');
+            OP_MAPS[i].lyrIndex      = parseInt(lyrAttr[0]);
+            OP_MAPS[i].svcIndex      = parseInt(lyrAttr[1]);
+            OP_MAPS[i].rendererField = lyrAttr[2];
+            setMapLayer(i, OP_MAPS[i].svcIndex, OP_MAPS[i].lyrIndex, function() {
+                console.log("setMapLayer done");
+                // updateDisagg(i, false, function() {
+                //     console.log("update done");
+                
+                // });
+            });
+            
+
+            var extAttr = extentURL[i].split(',');
+            var spatialRef = new esri.SpatialReference({wkid:102100});
+            var startExtent = new esri.geometry.Extent();
+            startExtent.xmin = parseInt(extAttr[0]);
+            startExtent.ymin = parseInt(extAttr[1]);
+            startExtent.xmax = parseInt(extAttr[2]);
+            startExtent.ymax = parseInt(extAttr[3]);
+            startExtent.spatialReference = spatialRef;
+
+            maps[i].setExtent(startExtent);
+        }
+    }
+}
+
+window.onload = function() {
+    setOP_MAPS();
 }
