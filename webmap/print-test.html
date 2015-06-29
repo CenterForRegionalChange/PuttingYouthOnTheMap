@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no">
+    <title></title>
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/dijit/themes/nihilo/nihilo.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
+    <style>
+      html, body { 
+        height: 100%; width: 100%;
+        margin: 0; padding: 0;
+      } 
+      body{
+        background-color: #fff; overflow:hidden; 
+        font-family: sans-serif;
+      } 
+      label {
+        display: inline-block;
+        padding: 5px 5px 0 5px;
+        font-weight: 400;
+        font-size: 12pt;
+      }
+      .button {
+        width: 100%;
+        margin: 3px auto;
+        text-align: center;
+      }
+      #header {
+        padding-top: 4px;
+        padding-right: 15px;
+        color: #444; 
+        font-size:16pt; text-align:right;font-weight:bold;
+        height:55px;
+        background: #fff;
+        border-bottom: 1px solid #444;
+      }
+      #subheader {
+        font-size:small;
+        color: #444;
+        text-align:right;
+        padding-right:20px;
+      }
+      #rightPane{
+        margin: 0;
+        padding: 10px;
+        background-color: #fff;
+        color: #421b14;
+        width: 180px;
+      }
+
+      .ds { background: #000; overflow: hidden; position: absolute; z-index: 2; }
+      #ds-h div { width: 100%; }
+      #ds-l div, #ds-r div { height: 100%; }
+      #ds-r div { right: 0; }
+      #ds .o1 { filter: alpha(opacity=10); opacity: .1; }
+      #ds .o2 { filter: alpha(opacity=8); opacity: .08; }
+      #ds .o3 { filter: alpha(opacity=6); opacity: .06; }
+      #ds .o4 { filter: alpha(opacity=4); opacity: .04; }
+      #ds .o5 { filter: alpha(opacity=2); opacity: .02; }
+      #ds .h1 { height: 1px; }
+      #ds .h2 { height: 2px; }
+      #ds .h3 { height: 3px; }
+      #ds .h4 { height: 4px; }
+      #ds .h5 { height: 5px; }
+      #ds .v1 { width: 1px; }
+      #ds .v2 { width: 2px; }
+      #ds .v3 { width: 3px; }
+      #ds .v4 { width: 4px; }
+      #ds .v5 { width: 5px; }
+
+      /* make all dijit buttons the same width */
+      .dijitButton .dijitButtonNode, #drawingWrapper, #printButton, #postRenderButton {
+        width: 160px;
+      }
+      .esriPrint {
+        padding: 0;
+      }
+    </style>
+
+    <script src="http://js.arcgis.com/3.13/"></script>
+    <script>
+      var app = {};
+      app.map = null; app.toolbar = null; app.tool = null; app.symbols = null; app.printer = null, app.featureLayerRenderer = null;
+      require([
+        "esri/map", "esri/toolbars/draw", "esri/dijit/Print",
+        "esri/layers/ArcGISTiledMapServiceLayer", "esri/layers/ArcGISDynamicMapServiceLayer",
+        "esri/layers/FeatureLayer", "esri/layers/LayerDrawingOptions",
+        "esri/symbols/SimpleMarkerSymbol", "esri/symbols/SimpleLineSymbol", 
+        "esri/symbols/SimpleFillSymbol", "esri/graphic",
+        "esri/renderers/ClassBreaksRenderer",
+        "esri/tasks/PrintTask", "esri/tasks/PrintParameters", "esri/tasks/PrintTemplate", "esri/tasks/LegendLayer",
+        "esri/config",
+        "dojo/_base/array", "esri/Color", "dojo/parser", 
+        "dojo/query", "dojo/dom", "dojo/dom-construct", 
+        "dijit/form/CheckBox", "dijit/form/Button",
+        "dijit/layout/BorderContainer", "dijit/layout/ContentPane", "dojo/on", "dojo/domReady!"
+      ], function(
+        Map, Draw, Print,
+        ArcGISTiledMapServiceLayer, ArcGISDynamicMapServiceLayer,
+        FeatureLayer, LayerDrawingOptions,
+        SimpleMarkerSymbol, SimpleLineSymbol,
+        SimpleFillSymbol, Graphic,
+        ClassBreaksRenderer,
+        PrintTask, PrintParameters, PrintTemplate, LegendLayer,
+        esriConfig,
+        arrayUtils, Color, parser, 
+        query, dom, domConstruct, 
+        CheckBox, Button, BorderContainer, ContentPane, on
+      ) {
+        parser.parse();
+
+        // Will need to update your proxy URL. This is the temporary one I use here.
+        esri.config.defaults.io.proxyUrl = "/agsproxy/proxy.ashx";
+        
+        app.map = new Map("map", {
+          center: [-121.13, 37.95],
+          zoom: 8
+        });
+
+        app.map.on("load", function() {
+          app.toolbar = new Draw(app.map);
+          app.toolbar.on("draw-end", addToMap);
+        });        
+
+        app.map.on("layer-add", function(evt) {
+          // (This is a bit redundant here, as we could just use the "featLyr" variable. But it's necessary in 
+          //   the actual app, due to many feature layers being retrieved and read from temporarily. We don't want all 
+          //   of those feature layers sticking around inside the map after their renderer info has been retrieved, so
+          //   the renderer info is cached in a local array. Just using a single app variable here in this sample.)
+            if (evt.layer.declaredClass === "esri.layers.FeatureLayer") {
+                app.featureLayerRenderer = evt.layer.renderer;
+            }
+        });
+
+        var url = "http://services.arcgisonline.com/ArcGIS/rest/services/Ocean_Basemap/MapServer";
+        var tiledLayer = new ArcGISTiledMapServiceLayer(url, { "id": "Ocean" });
+        app.map.addLayer(tiledLayer);
+
+        // Load the dynamic version of the layer. This is the one used for actual display on both the screen map and the print.
+        var layer = new ArcGISDynamicMapServiceLayer("http://crcdemo.caes.ucdavis.edu/arcgis/rest/services/Vestra/Service345_well_district_ungrouped/MapServer", {
+          id: "testDynaLayer",
+          opacity: 0.5
+        });
+        layer.setVisibleLayers([0]);
+        app.map.addLayer(layer);
+
+        // Load the feature layer version of the above layer, but in selection mode so it doesn't display anything.
+        // The purpose of this is to get the class-breaks renderer for this specific layer in the dynamic service above.
+        // The renderer is retrieved and cached in the layer-add event. 
+        var featLyr = new FeatureLayer("http://crcdemo.caes.ucdavis.edu/arcgis/rest/services/Vestra/Service345_well_district_ungrouped/FeatureServer/0", {
+            mode : FeatureLayer.MODE_SELECTION,
+            id : "tempFeatLyr"
+        });
+        app.map.addLayer(featLyr);
+
+        // Change the dynamic layer's renderer to use a new attribute field
+        on(dom.byId("postRenderButton"), 'click', function() {            
+            var drawingOptions = new LayerDrawingOptions();
+            drawingOptions.renderer = new ClassBreaksRenderer(app.featureLayerRenderer.toJson());
+            drawingOptions.renderer.attributeField = "dywi041";
+
+            var optionsArray = [];
+            optionsArray[0] = drawingOptions;
+            layer.setLayerDrawingOptions(optionsArray);
+        });
+        
+        // Direct call to the print service.
+        on(dom.byId("printButton"), 'click', function() {
+            // The app I showed you uses *this* method in addition as the print dijit. Both methods have the same
+            //   behavior with the legend not displaying. So this should be valid as a test case here. It was easier to implement 
+            //   the template customizations for the legendLayer object using this method vs. the dijit.
+            var printTask = new PrintTask("http://crcdemo.caes.ucdavis.edu/arcgis/rest/services/PYOM/ExportWebMap/GPServer/Export%20Web%20Map"); 
+            var params = new PrintParameters();
+            var plate = new PrintTemplate();
+            var legendLayer = new LegendLayer();
+            
+            legendLayer.layerId = "testDynaLayer";
+            legendLayer.subLayerIds = [0];
+         
+            plate.layout = "letter";
+            plate.label = "letter";
+            plate.format = "PDF";
+            plate.layoutOptions = {
+                "authorText": "Source: UC Davis Center for Regional Change",
+                "copyrightText": "Copyright Text",
+                "legendLayers": [legendLayer],
+                "scalebarUnit": "Miles",
+                "customTextElements": [{
+                        "PanelTitle": "Panel Title"
+                    },{
+                        "LayerTitle": ""
+                    }, {
+                        "SourceUrl": "Source Text",
+                    }, {
+                        "LayerDescription": "Description Text"
+                    }]
+            };
+    
+            params.map = app.map;
+            params.template = plate;
+                  
+            printTask.execute(params, function(resp) {
+                window.open(resp.url);
+            }, function(error) {
+                console.log("Error: " + error.message);
+            });
+        });
+
+
+        // Stuff below was part of the sample page, and not really relevant to this test, 
+        //   unless you want to confirm that drawn graphics still work in both cases.
+
+        app.symbols = {};
+        app.symbols.point = new SimpleMarkerSymbol("square", 10, new SimpleLineSymbol(), new Color([0, 255, 0, 0.75]));
+        app.symbols.polyline = new SimpleLineSymbol("solid", new Color([255, 128, 0]), 2);
+        app.symbols.polygon = new SimpleFillSymbol().setColor(new Color([255,255,0,0.25]));
+        app.symbols.circle = new SimpleFillSymbol().setColor(new Color([0, 0, 180, 0.25]));
+
+        // find the divs for buttons
+        query(".drawing").forEach(function(btn) {
+          var button = new Button({
+            label: btn.innerHTML,
+            onClick: function() {
+              activateTool(this.id);
+            }
+          }, btn);
+        });
+
+        function activateTool(type) {
+          app.tool = type.replace("freehand", "");
+          app.toolbar.activate(type);
+          app.map.hideZoomSlider();
+        }
+
+        function addToMap(evt) {
+          app.toolbar.deactivate();
+          app.map.showZoomSlider();
+          
+          var graphic = new Graphic(evt.geometry, app.symbols[app.tool]);
+          app.map.graphics.add(graphic);
+        }
+        
+      });
+    </script>
+  </head>
+  <body class="nihilo">
+    <div id="mainWindow" 
+         data-dojo-type="dijit/layout/BorderContainer" 
+         data-dojo-props="design:'headline',gutters:false"
+         style="width: 100%; height: 100%; margin: 0;">
+      <div id="header" 
+           data-dojo-type="dijit/layout/ContentPane"
+           data-dojo-props="region:'top'">
+        Test <div id="subheader">Requires ArcGIS Server 10.1</div>
+      </div>
+      <div id="map" class="shadow" 
+           data-dojo-type="dijit/layout/ContentPane"
+           data-dojo-props="region:'center'">
+
+        <!-- drop shadow divs -->
+        <div id="ds">
+          <div id="ds-h">
+            <div class="ds h1 o1"></div>
+            <div class="ds h2 o2"></div>
+            <div class="ds h3 o3"></div>
+            <div class="ds h4 o4"></div>
+            <div class="ds h5 o5"></div>
+          </div>
+          <div id="ds-r">
+            <div class="ds v1 o1"></div>
+            <div class="ds v2 o2"></div>
+            <div class="ds v3 o3"></div>
+            <div class="ds v4 o4"></div>
+            <div class="ds v5 o5"></div>
+          </div>
+        </div> <!-- end drop shadow divs -->
+            
+      </div>
+      <div id="rightPane"
+           data-dojo-type="dijit/layout/ContentPane"
+           data-dojo-props="region:'right'">
+           
+        <input type="button" id="postRenderButton" value="Set New Renderer">
+        <input type="button" id="printButton" value="Print">
+        <hr />
+        
+        <div id="drawingWrapper">
+          Add some graphics:
+          <div id="point" class="drawing">Point</div>
+          <div id="freehandpolyline" class="drawing">Freehand Polyline</div>
+          <div id="freehandpolygon" class="drawing">Freehand Polygon</div>
+          <div id="circle" class="drawing">Circle</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

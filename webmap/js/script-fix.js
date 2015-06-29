@@ -1,4 +1,4 @@
-/* Configuration file for the ROI webmap
+﻿/* Configuration file for the ROI webmap
     Copyright (C) 2015  Center for Regional Change, University of California, Davis
 
     This program is free software: you can redistribute it and/or modify
@@ -40,8 +40,8 @@ priorMapWidths = [0, 0, 0], mapCount = 0, mapChange = false, mapExtent, firstMap
 geocodeMapIndex = 0, printMapIndex = 0, syncLoc = true, syncLevel = true, sync = false, numMapsSyncCheck = 0, 
 mapsResized = 0, mapsResizedTest = 0, mapExtent, mapCenter, mapScale, widgetPrint, 
 basemapGallery = null, caExtent = null, jqueryReadyChecks = 0, mouseDown = 0, currentTocIndex = 0,
-visibleSvcByMap = {"0" : null, "1" : null, "2" : null}, activeBottomTab = "", currentBaseMapName = "", 
-layerList = [], domainLayerNames = [], tocList = {count : 0}, tocActiveMap = -1, numPanels = 3;
+visibleSvcByMap = { "0" : null, "1" : null, "2" : null }, activeBottomTab = "", currentBaseMapName = "", 
+layerList = [], domainLayerNames = [], tocList = { count : 0 }, tocActiveMap = -1, numPanels = 3;
 
 //show map on load
 dojo.addOnLoad(init);
@@ -120,7 +120,7 @@ function syncMaps() {'use strict';
             if (mapExtent !== maps[mapCount].extent) {
                 mapExtent = maps[mapCount].extent;
                 mapCenter = maps[mapCount].extent.getCenter();
-                for (i = 0; i < numVisibleMaps; i += 1) {
+                for ( i = 0; i < numVisibleMaps; i += 1) {
                     if (maps[i] !== null) {
                         if (i !== mapCount) {
                             maps[i].centerAt(mapCenter);
@@ -131,7 +131,7 @@ function syncMaps() {'use strict';
         } else if (syncLoc === false && syncLevel === true) {
             if (mapScale !== maps[mapCount].getLevel()) {
                 mapScale = maps[mapCount].getLevel();
-                for (i = 0; i < numVisibleMaps; i += 1) {
+                for ( i = 0; i < numVisibleMaps; i += 1) {
                     if (maps[i] !== null) {
                         if (i !== mapCount) {
                             maps[i].setLevel(mapScale);
@@ -142,7 +142,7 @@ function syncMaps() {'use strict';
         } else if (syncLoc === true && syncLevel === true) {
             if (mapExtent !== maps[mapCount].extent) {
                 mapExtent = maps[mapCount].extent;
-                for (i = 0; i < numVisibleMaps; i += 1) {
+                for ( i = 0; i < numVisibleMaps; i += 1) {
                     if (maps[i] !== null) {
                         if (i !== mapCount) {
                             maps[i].setExtent(mapExtent);
@@ -157,19 +157,12 @@ function syncMaps() {'use strict';
 function createMap(j) {'use strict';
     // Setup the popup window for identify results
     var tempMap, b, bl, tempBasemapOption, $basemaps = $('#baseMapSelected');
-    //popup = new esri.dijit.Popup({ marginTop: 80,
-    //    fillSymbol: new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID,
-    //                                                 new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID,
-    //                                                 new dojo.Color([255, 0, 0]), 2), new dojo.Color([255, 255, 0, 0.25]))
-    //}, dojo.create("div"));
-
-    //remember to add your server to the proxy.config as a fallback from CORS
 
     idSymbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([0, 0, 0]), 2), new dojo.Color([0, 0, 0, 0]));
     idHighSymbol = new esri.symbol.SimpleFillSymbol(esri.symbol.SimpleFillSymbol.STYLE_SOLID, new esri.symbol.SimpleLineSymbol(esri.symbol.SimpleLineSymbol.STYLE_SOLID, new dojo.Color([0, 225, 255]), 2), new dojo.Color([0, 0, 0, 0]));
 
     tempMap = new esri.Map("mapDiv" + j, {
-        extent : (OP_MAPS[j].preloadExtent === null ? caExtent : OP_MAPS[j].preloadExtent),
+        extent : caExtent,
         slider : false,
         showInfoWindowOnClick : false,
         showAttribution : false,
@@ -186,256 +179,157 @@ function createMap(j) {'use strict';
             //, geographicPoint = esri.geometry.webMercatorToGeographic(evt.mapPoint);
 
             mapIndex = parseInt(this.id.replace('mapDiv', ''), 10);
-            
-            idQueryTask = new esri.tasks.QueryTask(SERVICES[OP_MAPS[mapIndex].svcIndex].url + "FeatureServer/" + OP_MAPS[mapIndex].lyrIndex);
-            idQuery = new esri.tasks.Query();
+            if ($('#rdoClickIdentify').get(0).checked) {
 
-            OP_MAPS[mapIndex].idPoint = evt.mapPoint;
-            idQuery.geometry = evt.mapPoint;
-            idQuery.returnGeometry = true;
-            idQuery.outSpatialReference = maps[mapIndex].spatialReference;
-            idQuery.outFields = ["*"];
-            idQuery.timeExtent = maps[mapIndex].timeExtent;
+                idQueryTask = new esri.tasks.QueryTask(SERVICES[OP_MAPS[mapIndex].svcIndex].url + "FeatureServer/" + OP_MAPS[mapIndex].lyrIndex);
+                idQuery = new esri.tasks.Query();
 
-            //$('#identify' + mapIndex).html("<tr><td>Loading...</tr></td>");
-            idQueryTask.execute(idQuery, function(results) {
-                var i, il, key, val, feature, content, idResults = results.features, field, subData, displayAlias,
-                    fl = fLayers[OP_MAPS[mapIndex].svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex], moeText,
-                    chartParams = SERVICES[OP_MAPS[mapIndex].svcIndex].chart[OP_MAPS[mapIndex].lyrIndex];
+                OP_MAPS[mapIndex].idPoint = evt.mapPoint;
+                idQuery.geometry = evt.mapPoint;
+                idQuery.returnGeometry = true;
+                idQuery.outSpatialReference = maps[mapIndex].spatialReference;
+                idQuery.outFields = ["*"];
 
-                
-                if (idResults.length > 0 && (typeof (chartParams) === 'undefined' || chartParams === null)) {
-                    feature = idResults[0];
+                //$('#identify' + mapIndex).html("<tr><td>Loading...</tr></td>");
+                idQueryTask.execute(idQuery, function(results) {
+                    var i, il, key, val, feature, content, idResults = results.features, field, subData, displayAlias,
+                        fl = fLayers[OP_MAPS[mapIndex].svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex], moeText,
+                        chartParams = SERVICES[OP_MAPS[mapIndex].svcIndex].chart[OP_MAPS[mapIndex].lyrIndex];
+
                     
-                    content = '<div class="id-details"><strong>' + $('#titleCon' + mapIndex + ' span').eq(0).html() + '<br/>' + feature.attributes[fl.displayField] + '</strong><hr/>';
-                    
-                    for (i = 0; i < POPUP_FIELDS.length; i += 1) {
-                        if (feature.attributes.hasOwnProperty(POPUP_FIELDS[i].field)) {
-                            content += '<strong>' + POPUP_FIELDS[i].title + ':</strong> ' + feature.attributes[POPUP_FIELDS[i].field] + '<br />';         
-                        }   
-                    }
-                    
-                    if (feature.attributes.hasOwnProperty(fl.rendererField)) {
-                        content += '<strong>Value:</strong> ' + roundToDecimal(feature.attributes[fl.rendererField], 2);
-                    }
-                    
-                    content += '</div>';
-                    
-                    maps[mapIndex].graphics.clear();
-                    maps[mapIndex].graphics.add(new esri.Graphic(feature.geometry, idSymbol, feature.attributes, null));
-                    
-                    $('#id-header' + mapIndex).html(content);
-                    $('#id-chart' + mapIndex).empty();
-                    $('#id-subchart' + mapIndex).empty();
-                    $('#link-moe' + mapIndex).hide();
-                    $('#value-moe' + mapIndex).empty().hide();
-                    $('#link-chks' + mapIndex).hide();
-                    $('#footnote-chks' + mapIndex).hide();
-                    $('#bth-equity' + mapIndex).hide();
-                    //$('#footnote-hover' + mapIndex).hide();
-                    $('#chartValues' + mapIndex).html('<br/>');
-                    $("#dialog-identify" + mapIndex).dialog("option", "title", "Map " + (mapIndex+1) + " - details: ");
-                    
-                    $('#bth-equity' + mapIndex).hide();
-                    if (!($("#dialog-identify" + mapIndex).dialog("isOpen"))) {
-                        $("#dialog-identify" + mapIndex).dialog("option", "position", {
-                            my : "left top",
-                            at : "left+5 bottom",
-                            of : $("#titleCon" + mapIndex)
-                        }).dialog('open');
-                    }
-                } else if (idResults.length > 0) {
-                    feature = idResults[0];
-                                            
-                    $('#id-header' + mapIndex).empty()
-                        .append(((typeof(chartParams.tractField) === 'undefined' || chartParams.tractField === "") ? "" : '<p><b>Tract:</b> ' + feature.attributes[chartParams.tractField] + '</p>'))
-                        .append(((typeof(chartParams.countyField) === 'undefined' || chartParams.countyField === "") ? "" : '<p><b>County:</b> ' + feature.attributes[chartParams.countyField] + '</p>'))
-                        .append(((typeof(chartParams.ccdField) === 'undefined' || chartParams.ccdField === "") ? "" : '<p><b>CCD:</b> ' + feature.attributes[chartParams.ccdField] + '</p>'))
-                        .append(((typeof(chartParams.districtField) === 'undefined' || chartParams.districtField === "") ? "" : '<p><b>District:</b> ' + feature.attributes[chartParams.districtField] + '</p>'));
-                    $('#id-chart' + mapIndex).empty();
-                    $('#id-subchart' + mapIndex).empty();
-                    $('#link-moe' + mapIndex).hide();
-                    $('#value-moe' + mapIndex).empty().hide();
-                    $('#link-chks' + mapIndex).hide();
-                    $('#footnote-chks' + mapIndex).hide();
-                    //if (typeof(chartParams.hoverFormat) === 'undefined') {
-                    //    $('#footnote-hover' + mapIndex).hide();
-                    //} else {
-                    //    $('#footnote-hover' + mapIndex).show();
-                    //}
-                    if (chartParams.showEquity) {
-                        if (OP_MAPS[mapIndex].gender > 0 || OP_MAPS[mapIndex].eth > 0) {
-                            $('#bth-equity' + mapIndex).hide();
-                        } else {
-                            $('#bth-equity' + mapIndex).show();
+                    if (idResults.length > 0 && (typeof (chartParams) === 'undefined' || chartParams === null)) {
+                        feature = idResults[0];
+                        
+                        content = '<div class="id-details"><strong>' + $('#titleCon' + mapIndex + ' span').eq(0).html() + '<br/>' + feature.attributes[fl.displayField] + '</strong><hr/>';
+                        
+                        for (i = 0; i < POPUP_FIELDS.length; i += 1) {
+                            if (feature.attributes.hasOwnProperty(POPUP_FIELDS[i].field)) {
+                                content += '<strong>' + POPUP_FIELDS[i].title + ':</strong> ' + feature.attributes[POPUP_FIELDS[i].field] + '<br />';         
+                            }   
                         }
-                    } else {
+                        
+                        if (feature.attributes.hasOwnProperty(fl.rendererField)) {
+                            content += '<strong>Value:</strong> ' + roundToDecimal(feature.attributes[fl.rendererField], 2);
+                        }
+						
+                        content += '</div>';
+                        
+                        maps[mapIndex].graphics.clear();
+                        maps[mapIndex].graphics.add(new esri.Graphic(feature.geometry, idSymbol, feature.attributes, null));
+                        
+                        $('#id-header' + mapIndex).html(content);
+                        $('#id-chart' + mapIndex).empty();
+                        $('#id-subchart' + mapIndex).empty();
+                        $('#link-moe' + mapIndex).hide();
+                        $('#value-moe' + mapIndex).empty().hide();
+                        $('#link-chks' + mapIndex).hide();
+                        $('#footnote-chks' + mapIndex).hide();
                         $('#bth-equity' + mapIndex).hide();
-                    }
-                    
-                    if (typeof(chartParams.valueLabel) !== 'undefined') {
-                        displayAlias = chartParams.valueLabel;
-                    } else {
-                        displayAlias = "Value";
-                    }
-                    
-                    /*
-                    if (typeof(chartParams.specificValueField) !== 'undefined') {
-                        $('#id-header' + mapIndex).append('<p><b>' + displayAlias + ':</b> ' + roundToDecimal(feature.attributes[chartParams.specificValueField], 2) + '</p>');
-                    } else if (chartParams.subs.length === 0) {
-                        $('#id-header' + mapIndex).append('<p><b>' + displayAlias + ':</b> ' + roundToDecimal(feature.attributes[fl.rendererField], 2) + '</p>');
-                    }
-                    */                        
-                    if (chartParams.showCHKS) {
-                        $('#link-chks' + mapIndex).show().find('span').html(feature.attributes.AvgRR < 0 ? "n/a" : Math.round(feature.attributes.AvgRR * 100) + "%");
-                        $('#footnote-chks' + mapIndex).show();
-                    }
-                    
-                    if (feature.attributes.hasOwnProperty(fl.displayField)) {
-                        $("#dialog-identify" + mapIndex).dialog("option", "title", "Map " + (mapIndex+1) + " - details for: " + feature.attributes[fl.displayField]);
-                    } else {
-                        $("#dialog-identify" + mapIndex).dialog("option", "title", "Unknown feature");
-                    }
-
-                    if (!($("#dialog-identify" + mapIndex).dialog("isOpen"))) {
-                        $("#dialog-identify" + mapIndex).dialog("option", "position", {
-                            my : "left top",
-                            at : "left+5 bottom",
-                            of : $("#titleCon" + mapIndex)
-                        }).dialog('open');
-                    }
-
-                    maps[mapIndex].graphics.clear();
-                    maps[mapIndex].graphics.add(new esri.Graphic(feature.geometry, idSymbol, feature.attributes, null));
-
-                    field = chartParams.unit + (SERVICES[OP_MAPS[mapIndex].svcIndex].disagg.length > 0 ? "" + OP_MAPS[mapIndex].gender + OP_MAPS[mapIndex].eth + "1" : "");
-                    // local field = chartParams.local + field
-                    // regional field = chartParams.region + field
-                    
-                    if (chartParams.showMOE) {
-                        moeText = (feature.attributes.hasOwnProperty(chartParams.local+field+'r') ? feature.attributes[chartParams.local+field+'r'] : 0);
-                        if (moeText < 0) { moeText = 0; }
-                        moeText = roundToDecimal(moeText, 2) + "%";
+                        //$('#footnote-hover' + mapIndex).hide();
+                        $('#chartValues' + mapIndex).html('<br/>');
+                        $("#dialog-identify" + mapIndex).dialog("option", "title", "Map " + (mapIndex+1) + " - details: ");
                         
-                        $('#link-moe' + mapIndex).show();
-                        $('#value-moe' + mapIndex).show().html(moeText);
-                    }
-                    
-                    if (chartParams.showRates) {
-                        $('#chartValues' + mapIndex).html('<strong>' + chartParams.categories[0] + " Rate:</strong> " + formatRate((chartParams.hasOwnProperty('hoverFormat') ? chartParams.hoverFormat : null), feature.attributes[chartParams.local + field + "v"]) + ", " 
-                                                        + '<strong>' + chartParams.categories[1] + " Rate:</strong> " + formatRate((chartParams.hasOwnProperty('hoverFormat') ? chartParams.hoverFormat : null), feature.attributes[chartParams.region + field + "v"]) + '<br/>'); 
-                    } else {
-                        $('#chartValues' + mapIndex).html('');
-                    }
-                    
-                    // make top chart for this layer's unit
-                    $('#id-chart' + mapIndex).highcharts({
-                        chart : {
-                            type : 'column',
-                            height: 200,
-                            width: 280,
-                            margin : [50, 30, 40, 40],
-                            backgroundColor : '#ffffff',
-                            borderColor: '#4572A7',
-                            borderWidth: 1
-                        },
-                        title : {
-                            text : chartParams.title 
-                                        + (OP_MAPS[mapIndex].gender > 0 ? " (" + GENDER[OP_MAPS[mapIndex].gender] + ")" : "")
-                                        + (OP_MAPS[mapIndex].eth > 0 ? " (" + ETH[OP_MAPS[mapIndex].eth] + ")" : "")
-                                        + (chartParams.showCHKS ? "*" : ""),
-                            style: {
-                                fontSize: "1.2em"
-                            }
-                        },
-                        credits : {
-                            enabled : false
-                        },
-                        legend : {
-                            enabled : false
-                        },
-                        xAxis : {
-                            categories : chartParams.categories
-                        },
-                        yAxis : {
-                            title: null,
-                            maxPadding: 0.5,
-                            endOnTick : true,
-                            tickInterval: (chartParams.scale === "%" ? 20 : chartParams.scale/5),
-                            showLastLabel: (chartParams.scale === "%"),
-                            gridLineWidth: 0,
-                            min : 0,
-                            max : (chartParams.scale === "%" ? 100 : chartParams.scale + 1),
-                            labels: {
-                                format: '{value}' + (chartParams.scale === "%" ? "%" : "")
-                            }
-                            
-                        },
-                        tooltip : {
-                            enabled : true,
-                            followPointer : true,
-                            formatter : function() {
-                                return this.point.hover + "This chart indicates how the<br/>selected area compares to the<br/>statewide average for this<br/>measurement.";
-                            }
-                        },
-                        plotOptions : {
-                            column : {
-                                cursor : "pointer",
-                                colorByPoint : true,
-                                borderWidth : 1,
-                                borderColor : '#000000',
-                                shadow : true,
-                                pointPadding : 0,
-                                //pointWidth : 80,
-                                dataLabels : {
-                                    enabled : true,
-                                    format: '{y}' + (chartParams.scale === "%" ? "%" : "")
-                                }
-                            }
-                        },
-                        series : [{
-                            data : [{
-                                name : 'Local',
-                                color : '#4F81BD',
-                                hover: chartHoverValue((chartParams.hasOwnProperty('hoverFormat') ? chartParams.hoverFormat : null), feature.attributes[chartParams.local + field + 'v']),
-                                y : (chartParams.scale === "%" ? Math.round(feature.attributes[chartParams.local + field] * 100) : feature.attributes[chartParams.local + field])
-                            }, {
-                                name : 'Region',
-                                color : '#F79646',
-                                hover: chartHoverValue((chartParams.hasOwnProperty('hoverFormat') ? chartParams.hoverFormat : null), feature.attributes[chartParams.region + field + 'v']),
-                                y : (chartParams.scale === "%" ? Math.round(feature.attributes[chartParams.region + field] * 100) : feature.attributes[chartParams.region + field])
-                            }]
-                        }]
-                    });
-
-
-                    if (chartParams.subs.length > 0) {
-                        subData = [];
-                        
-                        // make bottom chart for this layer's sub units
-                        for (i = 0, il = chartParams.subs.length; i < il; i += 1) {
-                            field = chartParams.local + chartParams.subs[i] + (SERVICES[OP_MAPS[mapIndex].svcIndex].disagg.length > 0 ? "" + OP_MAPS[mapIndex].gender + OP_MAPS[mapIndex].eth + "1" : "");
-                            subData.push({
-                                field : field,
-                                name : chartParams.subs[i],
-                                color : (chartParams.subColors !== null ? chartParams.subColors[i] : '#9BBB59'),
-                                layerName: (chartParams.subLayerNames === null ? null : chartParams.subLayerNames[chartParams.subs[i]]),
-                                y : (chartParams.scale === "%" ? Math.round(feature.attributes[field] * 100) : feature.attributes[field])
-                            });
+                        $('#bth-equity' + mapIndex).hide();
+                        if (!($("#dialog-identify" + mapIndex).dialog("isOpen"))) {
+                            $("#dialog-identify" + mapIndex).dialog("option", "position", {
+                                my : "left top",
+                                at : "left+5 bottom",
+                                of : $("#titleCon" + mapIndex)
+                            }).dialog('open');
+                        }
+                    } else if (idResults.length > 0) {
+                        feature = idResults[0];
+                                                
+                        $('#id-header' + mapIndex).empty()
+                            .append(((typeof(chartParams.tractField) === 'undefined' || chartParams.tractField === "") ? "" : '<p><b>Tract:</b> ' + feature.attributes[chartParams.tractField] + '</p>'))
+                            .append(((typeof(chartParams.countyField) === 'undefined' || chartParams.countyField === "") ? "" : '<p><b>County:</b> ' + feature.attributes[chartParams.countyField] + '</p>'))
+                            .append(((typeof(chartParams.ccdField) === 'undefined' || chartParams.ccdField === "") ? "" : '<p><b>CCD:</b> ' + feature.attributes[chartParams.ccdField] + '</p>'))
+                            .append(((typeof(chartParams.districtField) === 'undefined' || chartParams.districtField === "") ? "" : '<p><b>District:</b> ' + feature.attributes[chartParams.districtField] + '</p>'));
+                        $('#id-chart' + mapIndex).empty();
+                        $('#id-subchart' + mapIndex).empty();
+                        $('#link-moe' + mapIndex).hide();
+                        $('#value-moe' + mapIndex).empty().hide();
+                        $('#link-chks' + mapIndex).hide();
+                        $('#footnote-chks' + mapIndex).hide();
+                        //if (typeof(chartParams.hoverFormat) === 'undefined') {
+                        //    $('#footnote-hover' + mapIndex).hide();
+                        //} else {
+                        //    $('#footnote-hover' + mapIndex).show();
+                        //}
+                        if (chartParams.showEquity) {
+                            $('#bth-equity' + mapIndex).show();
+                        } else {
+                            $('#bth-equity' + mapIndex).hide();
                         }
                         
-                        $('#id-subchart' + mapIndex).highcharts({
+                        if (typeof(chartParams.valueLabel) !== 'undefined') {
+                            displayAlias = chartParams.valueLabel;
+                        } else {
+                            displayAlias = "Value";
+                        }
+                        
+                        /*
+						if (typeof(chartParams.specificValueField) !== 'undefined') {
+                            $('#id-header' + mapIndex).append('<p><b>' + displayAlias + ':</b> ' + roundToDecimal(feature.attributes[chartParams.specificValueField], 2) + '</p>');
+                        } else if (chartParams.subs.length === 0) {
+                            $('#id-header' + mapIndex).append('<p><b>' + displayAlias + ':</b> ' + roundToDecimal(feature.attributes[fl.rendererField], 2) + '</p>');
+                        }
+                        */                        
+                        if (chartParams.showCHKS) {
+                            $('#link-chks' + mapIndex).show().find('span').html(feature.attributes.AvgRR < 0 ? "n/a" : Math.round(feature.attributes.AvgRR * 100) + "%");
+                            $('#footnote-chks' + mapIndex).show();
+                        }
+                        
+                        if (feature.attributes.hasOwnProperty(fl.displayField)) {
+                            $("#dialog-identify" + mapIndex).dialog("option", "title", "Map " + (mapIndex+1) + " - details for: " + feature.attributes[fl.displayField]);
+                        } else {
+                            $("#dialog-identify" + mapIndex).dialog("option", "title", "Unknown feature");
+                        }
+
+                        if (!($("#dialog-identify" + mapIndex).dialog("isOpen"))) {
+                            $("#dialog-identify" + mapIndex).dialog("option", "position", {
+                                my : "left top",
+                                at : "left+5 bottom",
+                                of : $("#titleCon" + mapIndex)
+                            }).dialog('open');
+                        }
+
+                        maps[mapIndex].graphics.clear();
+                        maps[mapIndex].graphics.add(new esri.Graphic(feature.geometry, idSymbol, feature.attributes, null));
+
+                        field = chartParams.unit + (SERVICES[OP_MAPS[mapIndex].svcIndex].disagg.length > 0 ? "" + OP_MAPS[mapIndex].gender + OP_MAPS[mapIndex].eth + "1" : "");
+                        // local field = chartParams.local + field
+                        // regional field = chartParams.region + field
+                        
+                        if (chartParams.showMOE) {
+                            moeText = (feature.attributes.hasOwnProperty(chartParams.local+field+'r') ? feature.attributes[chartParams.local+field+'r'] : 0);
+                            if (moeText < 0) { moeText = 0; }
+                            moeText = roundToDecimal(moeText, 2) + "%";
+                            
+                            $('#link-moe' + mapIndex).show();
+                            $('#value-moe' + mapIndex).show().html(moeText);
+                        }
+                        
+                        if (chartParams.showRates) {
+                            $('#chartValues' + mapIndex).html('<strong>' + chartParams.categories[0] + " Rate:</strong> " + formatRate((chartParams.hasOwnProperty('hoverFormat') ? chartParams.hoverFormat : null), feature.attributes[chartParams.local + field + "v"]) + ", " 
+                                                            + '<strong>' + chartParams.categories[1] + " Rate:</strong> " + formatRate((chartParams.hasOwnProperty('hoverFormat') ? chartParams.hoverFormat : null), feature.attributes[chartParams.region + field + "v"]) + '<br/>'); 
+                        } else {
+                            $('#chartValues' + mapIndex).html('');
+                        }
+                        
+                        // make top chart for this layer's unit
+                        $('#id-chart' + mapIndex).highcharts({
                             chart : {
                                 type : 'column',
                                 height: 200,
                                 width: 280,
-                                margin : [50, 30, 50, 40],
+                                margin : [50, 30, 40, 40],
                                 backgroundColor : '#ffffff',
                                 borderColor: '#4572A7',
                                 borderWidth: 1
                             },
                             title : {
-                                text : chartParams.subTitle
+                                text : chartParams.title 
                                             + (OP_MAPS[mapIndex].gender > 0 ? " (" + GENDER[OP_MAPS[mapIndex].gender] + ")" : "")
                                             + (OP_MAPS[mapIndex].eth > 0 ? " (" + ETH[OP_MAPS[mapIndex].eth] + ")" : "")
                                             + (chartParams.showCHKS ? "*" : ""),
@@ -450,10 +344,7 @@ function createMap(j) {'use strict';
                                 enabled : false
                             },
                             xAxis : {
-                                categories : chartParams.subCategories,
-                                labels: { 
-                                    //step: 1
-                                }
+                                categories : chartParams.categories
                             },
                             yAxis : {
                                 title: null,
@@ -470,10 +361,10 @@ function createMap(j) {'use strict';
                                 
                             },
                             tooltip : {
-                                enabled : (chartParams.subLayerNames !== null),
+                                enabled : true,
                                 followPointer : true,
                                 formatter : function() {
-                                    return "Click to map this";
+                                    return this.point.hover + "This chart indicates how the<br/>selected area compares to the<br/>statewide average for this<br/>measurement.";
                                 }
                             },
                             plotOptions : {
@@ -488,28 +379,135 @@ function createMap(j) {'use strict';
                                     dataLabels : {
                                         enabled : true,
                                         format: '{y}' + (chartParams.scale === "%" ? "%" : "")
-                                    },
-                                    point: {
-                                        events: {
-                                            click: function () {
-                                                var idx = mapIndex, svc = OP_MAPS[idx].svcIndex;
-                                                //applyRenderer(idx, this.field);
-                                                if (this.layerName !== null) {
-                                                    OP_MAPS[idx].rendererField = this.field;
-                                                    loadLayerByName(idx, svc, this.layerName);
-                                                }
-                                            }
-                                        }
                                     }
                                 }
                             },
                             series : [{
-                                data : subData
+                                data : [{
+                                    name : 'Local',
+                                    color : '#4F81BD',
+                                    hover: chartHoverValue((chartParams.hasOwnProperty('hoverFormat') ? chartParams.hoverFormat : null), feature.attributes[chartParams.local + field + 'v']),
+                                    y : (chartParams.scale === "%" ? Math.round(feature.attributes[chartParams.local + field] * 100) : feature.attributes[chartParams.local + field])
+                                }, {
+                                    name : 'Region',
+                                    color : '#F79646',
+                                    hover: chartHoverValue((chartParams.hasOwnProperty('hoverFormat') ? chartParams.hoverFormat : null), feature.attributes[chartParams.region + field + 'v']),
+                                    y : (chartParams.scale === "%" ? Math.round(feature.attributes[chartParams.region + field] * 100) : feature.attributes[chartParams.region + field])
+                                }]
                             }]
                         });
+
+
+                        if (chartParams.subs.length > 0) {
+                            subData = [];
+                            
+                            // make bottom chart for this layer's sub units
+                            for (i = 0, il = chartParams.subs.length; i < il; i += 1) {
+                                field = chartParams.local + chartParams.subs[i] + (SERVICES[OP_MAPS[mapIndex].svcIndex].disagg.length > 0 ? "" + OP_MAPS[mapIndex].gender + OP_MAPS[mapIndex].eth + "1" : "");
+                                subData.push({
+                                    field : field,
+                                    name : chartParams.subs[i],
+                                    color : (chartParams.subColors !== null ? chartParams.subColors[i] : '#9BBB59'),
+                                    layerName: (chartParams.subLayerNames === null ? null : chartParams.subLayerNames[chartParams.subs[i]]),
+                                    y : (chartParams.scale === "%" ? Math.round(feature.attributes[field] * 100) : feature.attributes[field])
+                                });
+                            }
+                            
+                            $('#id-subchart' + mapIndex).highcharts({
+                                chart : {
+                                    type : 'column',
+                                    height: 200,
+                                    width: 280,
+                                    margin : [50, 30, 50, 40],
+                                    backgroundColor : '#ffffff',
+                                    borderColor: '#4572A7',
+                                    borderWidth: 1
+                                },
+                                title : {
+                                    text : chartParams.subTitle
+                                                + (OP_MAPS[mapIndex].gender > 0 ? " (" + GENDER[OP_MAPS[mapIndex].gender] + ")" : "")
+                                                + (OP_MAPS[mapIndex].eth > 0 ? " (" + ETH[OP_MAPS[mapIndex].eth] + ")" : "")
+                                                + (chartParams.showCHKS ? "*" : ""),
+                                    style: {
+                                        fontSize: "1.2em"
+                                    }
+                                },
+                                credits : {
+                                    enabled : false
+                                },
+                                legend : {
+                                    enabled : false
+                                },
+                                xAxis : {
+                                    categories : chartParams.subCategories,
+                                    labels: { 
+                                        //step: 1
+                                    }
+                                },
+                                yAxis : {
+                                    title: null,
+                                    maxPadding: 0.5,
+                                    endOnTick : true,
+                                    tickInterval: (chartParams.scale === "%" ? 20 : chartParams.scale/5),
+                                    showLastLabel: (chartParams.scale === "%"),
+                                    gridLineWidth: 0,
+                                    min : 0,
+                                    max : (chartParams.scale === "%" ? 100 : chartParams.scale + 1),
+                                    labels: {
+                                        format: '{value}' + (chartParams.scale === "%" ? "%" : "")
+                                    }
+                                    
+                                },
+                                tooltip : {
+                                    enabled : (chartParams.subLayerNames !== null),
+                                    followPointer : true,
+                                    formatter : function() {
+                                        return "Click to map this";
+                                    }
+                                },
+                                plotOptions : {
+                                    column : {
+                                        cursor : "pointer",
+                                        colorByPoint : true,
+                                        borderWidth : 1,
+                                        borderColor : '#000000',
+                                        shadow : true,
+                                        pointPadding : 0,
+                                        //pointWidth : 80,
+                                        dataLabels : {
+                                            enabled : true,
+                                            format: '{y}' + (chartParams.scale === "%" ? "%" : "")
+                                        },
+                                        point: {
+                                            events: {
+                                                click: function () {
+                                                    var idx = mapIndex, svc = OP_MAPS[idx].svcIndex;
+                                                    //applyRenderer(idx, this.field);
+                                                    if (this.layerName !== null) {
+                                                        OP_MAPS[idx].rendererField = this.field;
+                                                        loadLayerByName(idx, svc, this.layerName);
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                series : [{
+                                    data : subData
+                                }]
+                            });
+                        }
                     }
-                }
-            });
+                });
+
+            } else {
+                lastIdEvt = evt;
+                $('#dialog-report').dialog('open');
+
+                idForMap(0, evt);
+                idForMap(1, evt);
+                idForMap(2, evt);
+            }
         });
 
         // Other events
@@ -520,28 +518,32 @@ function createMap(j) {'use strict';
         dojo.connect(maps[j], "onUpdateEnd", function() {
             $('#mapLoading' + j).hide();
         });
-        
-        maps[j].addLayer(locateGfx[j]);
 
-        if (window.location.href.indexOf('#Layers') > -1) {
-            $('#btnTimeToggle' + j + ' span').html(OP_MAPS[j].year);
-            updateTimeExtent(j, OP_MAPS[j].year);
-        } else {
-            updateTimeExtent(j, DEFAULT_YEAR);
-        }
+        maps[j].addLayer(locateGfx[j]);
 
         mapsLoaded += 1;
         checkLoadToc();
     });
 
     // Load basemap layer(s)
-    for (b = 0, bl = BASEMAPS.length; b < bl; b += 1) {
+    if (j === 0) {
+        $basemaps.children().remove();
+    }
+    for ( b = 0, bl = BASEMAPS.length; b < bl; b += 1) {
         tempBasemapOption = BASEMAPS[b];
+        if (j === 0) {
+            $basemaps.append('<option value="' + b + '"' + (b === 0 ? ' selected' : '') + '>' + tempBasemapOption.name + '</option>');
+            if (b === 0) {
+                currentBaseMapName = tempBasemapOption.name;
+            }
+        }
         tempMap.addLayer(new esri.layers.ArcGISTiledMapServiceLayer(tempBasemapOption.url, {
             id : tempBasemapOption.name,
             visible : (b === 0 ? true : false)
         }));        
     }
+
+    //tempMap.addLayer(new esri.layers.ArcGISTiledMapServiceLayer("http://server.arcgisonline.com/ArcGIS/rest/services/Reference/World_Transportation/MapServer", { id: "tempTransportation" }));
 }
 
 function formatRate(formatter, value) { 'use strict';
@@ -576,7 +578,6 @@ function equityChart(mapIndex, svcIndex, lyrIndex) { 'use strict';
     idQuery.returnGeometry = true;
     idQuery.outSpatialReference = maps[mapIndex].spatialReference;
     idQuery.outFields = ["*"];
-    idQuery.timeExtent = maps[mapIndex].timeExtent;
 
     idQueryTask.execute(idQuery, function(results) {
         var i, il, key, val, feature, content, idResults = results.features, field, chartData, chartCats,
@@ -878,12 +879,13 @@ function loadLayerByName(mapIndex, svcIndex, lyrName) {'use strict';
     //}
 }
 
+// will be some changes in this one
 function addLayerHandlers(layerOb, cfg, mapIdx, svcIdx) {'use strict';
     dojo.connect(layerOb, "onLoad", function(lyr) {
         if (!tocList.hasOwnProperty(svcIdx)) {
             var data = [], $lyrList = $('<ul class="layer-group-header"></ul>'), i, il, tocData = [];
 
-            createToc($lyrList, SERVICES[svcIdx].toc, mapIdx, svcIdx, data); //lyr.layerInfos
+            createToc($lyrList, lyr.layerInfos, mapIdx, svcIdx, data);
             tocList[svcIdx] = data;
             tocList.count += 1;
 
@@ -903,21 +905,8 @@ function addLayerHandlers(layerOb, cfg, mapIdx, svcIdx) {'use strict';
             }
         }
 
-        if (window.location.href.indexOf('#Layers') > -1) {
-            if (OP_MAPS[mapIdx].svcIndex === svcIdx) {
-                
-                console.log("svcIdx (" + svcIdx + ") equals URL service for map " + mapIdx + '. lyrIndex is ' + OP_MAPS[mapIdx].lyrIndex);
-
-                lyr.setVisibleLayers([OP_MAPS[mapIdx].lyrIndex]);
-                visibleSvcByMap[mapIdx] = lyr.id;
-                setMapLayer(mapIdx, svcIdx, OP_MAPS[mapIdx].lyrIndex);
-
-                $('#titleCon' + mapIdx + ' span').eq(0).html((lyr.layerInfos[OP_MAPS[mapIdx].lyrIndex].name || "Untitled Layer"));
-
-                maps[mapIdx].addLayer(lyr);
-            }
-        } else if (cfg.defaultForMap !== null) {
-            for (i = 0, il = cfg.defaultForMap.length; i < il; i += 1) {
+        if (cfg.defaultForMap !== null) {
+            for ( i = 0, il = cfg.defaultForMap.length; i < il; i += 1) {
                 if (cfg.defaultForMap[i] === mapIdx) {
                     OP_MAPS[mapIdx].svcIndex = svcIdx;
                     OP_MAPS[mapIdx].lyrIndex = cfg.defaultLayerIndex[i];
@@ -934,9 +923,9 @@ function addLayerHandlers(layerOb, cfg, mapIdx, svcIdx) {'use strict';
         }
     });
 
-    // dojo.connect(layerOb, "onError", function(error) {
-    //     alert("Error loading operational layer for map " + (mapIdx + 1) + ".\n\n" + error.message);
-    // });
+    dojo.connect(layerOb, "onError", function(error) {
+        alert("Error loading operational layer for map " + (mapIdx + 1) + ".\n\n" + error.message);
+    });
 }
 
 function createDisaggOptions(svcIndex, lyrIndex) { 'use strict';
@@ -990,24 +979,49 @@ function checkLoadToc() {'use strict';
         for (i = 0, il = SERVICES.length; i < il; i += 1) {
             tempConfig = SERVICES[i];
             $toc.append('<div id="toc-svc-' + i + '"></div>');
-            for ( m = 0; m < 3; m += 1) {
-                tempOb = new esri.layers.ArcGISDynamicMapServiceLayer(tempConfig.url + 'MapServer', {
-                    opacity : 0.8,
-                    id : tempConfig.name
-                });
+
+            // new for toc config 
+            var data = [], $lyrList = $('<ul class="layer-group-header"></ul>'), tocData = [];
+
+            createToc($lyrList, SERVICES[i].toc, 0, i, data);
+            tocList[i] = data;
+            tocList.count += 1;
+            
+            $('#toc-svc-' + i).html($lyrList);
+            
+            if (tocList.count === SERVICES.length) {
+                for (m = 0, ml = tocList.count; m < ml; m += 1) {
+                    tocData = tocData.concat(tocList[m]);
+                }
+                $( "#toc-search" ).catcomplete({
+                    delay: 0,
+                    source: tocData,
+                    select: function(event, ui) {
+                        setMapLayer(-1, ui.item.svcIdx, ui.item.lyrIdx);
+                    }
+                });   
+            }
+            // end new
+
+
+            for (m = 0; m < 3; m += 1) {
+                tempOb = new esri.layers.ArcGISDynamicMapServiceLayer(tempConfig.url + 'MapServer', { opacity : 0.8, id : tempConfig.name });
                 tempConfig.layerObs.push(tempOb);
 
                 addLayerHandlers(tempOb, tempConfig, m, i);
             }
         }
 
-        //if (pageURL.indexOf('#Layers') > -1) {
-            changeMapPanels();
-            changeBaseMap($('#baseMapSelected').get(0).selectedIndex);
-        //}
+        if(pageURL.indexOf('#Layers') > -1) {
+            for (i = 0; i < 3; i += 1) {
+                //setMapLayer(i, OP_MAPS[i].svcIndex, OP_MAPS[i].lyrIndex);
+                maps[i].setExtent(startExtent);
+            }
+        }
     };
-    enableSyncing()
+    enableSyncing();
 }
+
 
 function createToc($myLyrList, infos, mapIndex, svcIndex, outData) {'use strict';
     var i, il, $myNode, $mySubNode, info, category, disaggOptions;
@@ -1159,6 +1173,7 @@ function setMapLayer(mapIndex, svcIndex, lyrIndex) {'use strict';
     }
 
     // if the user already loaded this layer, use its cached info, else load it now.
+    // its info will be cached in the callback event below (from the map's onLayerAdd event)
     if (fLayers[svcIndex].hasOwnProperty(featLyrId)) {
         setCachedLayerInfo(mapIndex, svcIndex, featLyrId);
     } else {
@@ -1177,16 +1192,18 @@ function setMapLayer(mapIndex, svcIndex, lyrIndex) {'use strict';
     }
 
     // update the disaggregate UI options on the layer selection panel
-   updateDisagg(mapIndex, true); 
+    updateDisagg(mapIndex, true);
+
+    // close the layers pane if the user got here from there
+    //if ($('#layersPane' + mapIndex).css('display') === 'block') {
+    //    $('#btnLayers' + mapIndex).click();
+    //}
 }
 
 function processNewFeatLayer(lyr) {'use strict';
     // process this layer after its added to the map, and cache its info if it's a feature layer
-    console.log("processNewFeatLayer fired. lyr.declaredClass = " + lyr.declaredClass);
     if (lyr.declaredClass === "esri.layers.FeatureLayer") {
         var valArray, myLabel, i, il, info, outlineColor, mapIndex = lyr.id.replace("tempFeatLyr", "");
-
-        console.log("In processNewFeatLayer for map " + mapIndex + ", preload field = " + OP_MAPS[mapIndex].preloadRendererField);
 
         // get renderer info and store in legend info cache
         if ( typeof (lyr.renderer.infos) !== "undefined") {
@@ -1220,15 +1237,6 @@ function processNewFeatLayer(lyr) {'use strict';
         fLayers[OP_MAPS[mapIndex].svcIndex]["f" + lyr.layerId].displayField = lyr.displayField;
         
         setCachedLayerInfo(mapIndex, OP_MAPS[mapIndex].svcIndex, "f" + lyr.layerId);
-
-        if (OP_MAPS[mapIndex].preloadRendererField !== "") {
-            if (OP_MAPS[mapIndex].preloadRendererField !== OP_MAPS[mapIndex].rendererField) {
-                console.log("if check passed");            
-                applyRenderer(mapIndex, OP_MAPS[mapIndex].preloadRendererField);
-                updateDisagg(mapIndex, false);
-            }
-            OP_MAPS[mapIndex].preloadRendererField = "";
-        }
     }
 }
 
@@ -1236,10 +1244,11 @@ function updateDisagg(mapIndex, reset) {'use strict';
     // #active-map-title
     // #active-map-number
     // #active-map-disagg (select box)
+
     if (mapIndex === -1) {
         $('#active-map-disagg').empty().append('<option value="">(not applicable)</option>');
-        //OP_MAPS[mapIndex].gender = 0;
-        //OP_MAPS[mapIndex].eth = 0;   
+        OP_MAPS[mapIndex].gender = 0;
+        OP_MAPS[mapIndex].eth = 0;   
     } else {
         var i, svcIndex = OP_MAPS[mapIndex].svcIndex, 
             lyrIndex = OP_MAPS[mapIndex].lyrIndex, node, list = tocList[svcIndex];
@@ -1270,11 +1279,10 @@ function updateDisagg(mapIndex, reset) {'use strict';
 
 function applyRenderer(mapIndex, attribute) {'use strict';
     // dynamic layer stuff
-    console.log(mapIndex);
-    console.log(attribute);
     var svcIndex = OP_MAPS[mapIndex].svcIndex, optionsArray = [], disaggPart = attribute.substr(attribute.length - 3), drawingOptions = new esri.layers.LayerDrawingOptions();
 
     drawingOptions.renderer = new esri.renderer.ClassBreaksRenderer(fLayers[svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex].renderer.toJson());
+    //drawingOptions.renderer = fLayers[svcIndex]["f" + OP_MAPS[mapIndex].lyrIndex].renderer;
     drawingOptions.renderer.attributeField = attribute;
 
     // set the drawing options for the relevant layer
@@ -1298,8 +1306,7 @@ function applyRenderer(mapIndex, attribute) {'use strict';
 }
 
 function setCachedLayerInfo(mapIndex, svcIndex, lyrId) {'use strict';
-    var i, il, info, descParts, legendInfos = fLayers[svcIndex][lyrId].legendInfo, 
-        $legend = $('#legend' + mapIndex + ' ul');
+    var i, il, info, descParts, legendInfos = fLayers[svcIndex][lyrId].legendInfo, $legend = $('#legend' + mapIndex + ' ul');
 
     descParts = fLayers[svcIndex][lyrId].description.split('___');
     $legend.children().remove();
@@ -1310,6 +1317,11 @@ function setCachedLayerInfo(mapIndex, svcIndex, lyrId) {'use strict';
 
     OP_MAPS[mapIndex].rendererField = fLayers[svcIndex][lyrId].renderer.attributeField;
     
+    if (lastIdEvt !== null) {
+        //idForMap(0, lastIdEvt);
+        idStartOver();
+    }
+
     if ( typeof (legendInfos) !== "undefined" && legendInfos !== null) {
         for ( i = 0, il = legendInfos.length; i < il; i += 1) {
             info = legendInfos[i];
@@ -1320,10 +1332,8 @@ function setCachedLayerInfo(mapIndex, svcIndex, lyrId) {'use strict';
 
 function updateTimeExtent(idx, yr) { 'use strict';
     var timeExtent = new esri.TimeExtent();
-    timeExtent.startTime = new Date(yr + "-01-01T00:00:00Z"); //new Date("1/1/" + yr + " UTC");
-    timeExtent.endTime = new Date(yr + "-01-01T00:00:00Z"); //new Date("1/1/" + yr + " UTC");
+    timeExtent.startTime = new Date("1/1/" + yr + " UTC");
     maps[idx].setTimeExtent(timeExtent);
-    OP_MAPS[idx].year = parseInt(yr,10);
 }
 
 function changeBaseMap(baseMapIdx) {'use strict';
@@ -1345,9 +1355,20 @@ function changeBaseMap(baseMapIdx) {'use strict';
     }
 }
 
-$(document).ready(function(e) {'use strict';
-    var tempBasemapOption, i, il, $sel = $('#numPanelsSelected'), $searchSel = $('#search-type'), $basemaps = $('#baseMapSelected');
+function idStartOver() {'use strict';
+    maps[0].graphics.clear();
+    maps[1].graphics.clear();
+    maps[2].graphics.clear();
+    $('#identify0').children().remove();
+    $('#identify1').children().remove();
+    $('#identify2').children().remove();
+    OP_MAPS[0].selectedGraphics = {};
+    OP_MAPS[1].selectedGraphics = {};
+    OP_MAPS[2].selectedGraphics = {};
+}
 
+
+$(document).ready(function(e) {'use strict';
     $(document).mousedown(function(e) {
         mouseDown = 1;
     });
@@ -1358,18 +1379,6 @@ $(document).ready(function(e) {'use strict';
     //$(window).resize(function () {
     //    resizeMaps(3);
     //});
-
-    // Load basemap layer(s)
-
-    $basemaps.children().remove();    
-    for (i = 0, il = BASEMAPS.length; i < il; i += 1) {
-        tempBasemapOption = BASEMAPS[i];
-    
-        $basemaps.append('<option value="' + i + '"' + (i === 0 ? ' selected' : '') + '>' + tempBasemapOption.name + '</option>');
-        if (i === 0) {
-            currentBaseMapName = tempBasemapOption.name;
-        }
-    }
 
     layersDialog = $("#dialog-layers").dialog({
         position : {
@@ -1394,6 +1403,25 @@ $(document).ready(function(e) {'use strict';
                 primary : 'ui-icon-triangle-1-e'
             }).removeClass('layer-button-active');
         }
+    });
+
+    $("#dialog-report").dialog({
+        position : {
+            my : 'top',
+            at : 'top',
+            of : $('body'),
+            collision : 'none'
+        },
+        modal : false,
+        maxHeight : 450,
+        //maxWidth: 350,
+        height : 'auto',
+        width : 800,
+        show : "fade",
+        hide : "fade",
+        draggable : true,
+        resizable : false,
+        autoOpen : false
     });
 
     $("#dialog-geocode").dialog({
@@ -1437,13 +1465,13 @@ $(document).ready(function(e) {'use strict';
     $('a.link-chks').on('click', function() {
         $('#dialog-chks').dialog('open'); 
     });
-
+    
     $('div.time-column').on('click', 'a', function() {
         var $me = $(this), idx = $me.data('mapindex');
         $('#btnTimeToggle' + idx + ' span').html($me.html());
         updateTimeExtent(idx, $me.html());
     });
-
+    
     $('div.time-column').each(function() {
         var i, il, $me = $(this), idx = $me.data('mapindex');
         $me.empty();
@@ -1452,18 +1480,35 @@ $(document).ready(function(e) {'use strict';
             $me.append('<a href="#" data-mapindex="' + idx + '">' + DATA_YEARS[i] + '</a><br/>');
         }
     });
+    
+    /*$("#dialog-legend").dialog({
+     position: {
+     my: 'top',
+     at: 'left',
+     of: $('#titleCon1'),
+     collision: 'none'
+     },
+     modal: false,
+     height: 'auto',
+     width: 800,
+     show: "fade",
+     hide: "fade",
+     draggable: true,
+     resizable: false,
+     autoOpen: false
+     });*/
 
     $("#dialog-print").dialog({
         autoOpen : false,
         width : 260,
-        height : 370,
+        height : 190,
         position : "right",
         open: function (event, ui) {
             var legendLayer = new esri.tasks.LegendLayer();
             legendLayer.layerId = visibleSvcByMap[printMapIndex];
             legendLayer.subLayerIds = [OP_MAPS[printMapIndex].lyrIndex];
             widgetPrint = vgis.widget.print({divToAttachTo: "divDefaultPrint", 
-                                             printFormat: ($('#rdoPrintPDF').get(0).checked ? "PDF" : "JPG"),
+                                             //customTitle: $('#titleCon' + printMapIndex).html(), 
                                              legendLayers: [legendLayer],
                                              customText: {
                                                  panelTitle: $('#titleCon' + printMapIndex + ' span').eq(0).html() + $('#titleCon' + printMapIndex + ' span').eq(1).html(),
@@ -1545,8 +1590,68 @@ $(document).ready(function(e) {'use strict';
         //$(this).prev('img').attr('src', 'img/toc-checked.png').addClass('layer-checked');
     });
 
+    // Handle change # of panels to display.
+    var $sel = $('#numPanelsSelected'), i, il, $searchSel = $('#search-type');
+
     $sel.get(0).selectedIndex = 2;
-    $sel.change(changeMapPanels);
+    $sel.change(function() {
+        var $pane;
+        numPanels = this.selectedIndex + 1;
+        priorMapWidths[0] = maps[0].width;
+        priorMapWidths[1] = maps[1].width;
+        priorMapWidths[2] = maps[2].width;
+
+        $pane = $('#dialog-layers');
+        if ($pane.dialog('isOpen')) {
+            $pane.dialog('close');
+        }
+        $pane = $('#dialog-print');
+        if ($pane.dialog('isOpen')) {
+            $pane.dialog('close');
+        }
+
+        // User changed the number of Panels.  Redraw the maps.
+        if (numPanels === 1) {
+            $("#titleCon2").hide();
+            $("#mapCon2").hide();
+            $(".details-for-map2").hide();
+            $("#titleCon1").hide();
+            $("#mapCon1").hide();
+            $(".details-for-map1").hide();
+            $("#titleCon0").css('width', '100%');
+            $("#mapCon0").css('width', '100%');
+        }
+
+        if (numPanels === 2) {
+            $("#titleCon2").hide();
+            $("#mapCon2").hide();
+            $(".details-for-map2").hide();
+            $("#titleCon1").show();
+            $("#mapCon1").show();
+            $(".details-for-map1").show();
+            $("#titleCon1").css('width', '50%');
+            $("#mapCon1").css('width', '50%');
+            $("#titleCon0").css('width', '50%');
+            $("#mapCon0").css('width', '50%');
+        }
+
+        if (numPanels === 3) {
+            $("#titleCon2").show();
+            $("#mapCon2").show();
+            $(".details-for-map2").show();
+            $("#titleCon1").show();
+            $("#mapCon1").show();
+            $(".details-for-map1").show();
+            $("#titleCon2").css('width', '33.3%');
+            $("#mapCon2").css('width', '33.3%');
+            $("#titleCon1").css('width', '33.3%');
+            $("#mapCon1").css('width', '33.3%');
+            $("#titleCon0").css('width', '33.4%');
+            $("#mapCon0").css('width', '33.4%');
+        }
+
+        resizeMaps(0);
+    });
 
     // Layer list buttons and panes
     $('button.back-button').button({
@@ -1652,7 +1757,7 @@ $(document).ready(function(e) {'use strict';
         }
     });
     
-    $('.btnTimeToggle').html(DEFAULT_YEAR).button().click(function() {
+    $('.btnTimeToggle').button().click(function() {
         var idx = $(this).data('mapindex'), $pane = $('#time' + idx);
 
         if ($pane.css('display') === 'none') {
@@ -1660,6 +1765,13 @@ $(document).ready(function(e) {'use strict';
         } else {
             $pane.hide();
         }
+    });
+
+    $('#rdoClickReport').on('click', function() {
+        $('#dialog-report').dialog('open');
+    });
+    $('#rdoClickIdentify').on('click', function() {
+        idStartOver();
     });
 
     // Map Zoom Buttons
@@ -1692,6 +1804,18 @@ $(document).ready(function(e) {'use strict';
     }).children(1).removeClass('ui-icon').addClass('full-ext-button');
 
     $('button.map-tool-square-button').css('width', '27px');
+
+    $('#id-clear-button').button().click(function() {
+        idStartOver();
+    });
+
+    $('#id-excel-button').button().click(function() {
+        alert("excel");
+    });
+
+    $('#id-csv-button').button().click(function() {
+        alert("csv");
+    });
 
     $('#checkScaleSync').click(function() {
         if ($("#checkScaleSync").get(0).checked) {
@@ -1842,70 +1966,10 @@ function finalizeJQueryIfReady() {'use strict';
     esri.config.defaults.io.proxyUrl = PROXY_PAGE;
     if (jqueryReadyChecks === 2) {
         var m;
-        setOP_MAPS();
-        for (m = 0; m < 3; m += 1) {
+        for ( m = 0; m < 3; m += 1) {
             createMap(m);
         }
     }
-}
-
-function changeMapPanels() {
-    var $pane;
-    numPanels = $('#numPanelsSelected').get(0).selectedIndex + 1;
-    priorMapWidths[0] = maps[0].width;
-    priorMapWidths[1] = maps[1].width;
-    priorMapWidths[2] = maps[2].width;
-
-    $pane = $('#dialog-layers');
-    if ($pane.dialog('isOpen')) {
-        $pane.dialog('close');
-    }
-    $pane = $('#dialog-print');
-    if ($pane.dialog('isOpen')) {
-        $pane.dialog('close');
-    }
-
-    // User changed the number of Panels.  Redraw the maps.
-    if (numPanels === 1) {
-        $("#titleCon2").hide();
-        $("#mapCon2").hide();
-        $(".details-for-map2").hide();
-        $("#titleCon1").hide();
-        $("#mapCon1").hide();
-        $(".details-for-map1").hide();
-        $("#titleCon0").css('width', '100%');
-        $("#mapCon0").css('width', '100%');
-    }
-
-    if (numPanels === 2) {
-        $("#titleCon2").hide();
-        $("#mapCon2").hide();
-        $(".details-for-map2").hide();
-        $("#titleCon1").show();
-        $("#mapCon1").show();
-        $(".details-for-map1").show();
-        $("#titleCon1").css('width', '50%');
-        $("#mapCon1").css('width', '50%');
-        $("#titleCon0").css('width', '50%');
-        $("#mapCon0").css('width', '50%');
-    }
-
-    if (numPanels === 3) {
-        $("#titleCon2").show();
-        $("#mapCon2").show();
-        $(".details-for-map2").show();
-        $("#titleCon1").show();
-        $("#mapCon1").show();
-        $(".details-for-map1").show();
-        $("#titleCon2").css('width', '33.3%');
-        $("#mapCon2").css('width', '33.3%');
-        $("#titleCon1").css('width', '33.3%');
-        $("#mapCon1").css('width', '33.3%');
-        $("#titleCon0").css('width', '33.4%');
-        $("#mapCon0").css('width', '33.4%');
-    }
-
-    resizeMaps(0);
 }
 
 function startFindAddress() {'use strict';
@@ -2027,217 +2091,4 @@ function roundToDecimal(val, places) {'use strict';
     }
 
     return ret;
-}
-
-function wordwrap(str, width, brk, cut) {
-    brk = (brk || '\n');
-    width = (width || 75);
-    cut = (cut || false);
- 
-    if (!str) { return str; }
- 
-    var regex = '.{1,' +width+ '}(\\s|$)' + (cut ? '|.{' +width+ '}|.+$' : '|\\S+?(\\s|$)');
- 
-    return str.match( new RegExp(regex, 'g') ).join( brk );     
-}
-
-function setURL(callback) {
-    'use strict';
-    //make sure to reset URL
-    //URL FORMAL
-    //  #(Layers=a,b,type_a,b,type_a,b,type_layerCount(Extent=w,x,y,z_w,x,y,z_w,x,y,z
-
-    //  layerCount = numPanelsSelected.val()
-    //  a = OP_MAPS.lyrIndex
-    //  b = OP_MAPS.svcIndex
-    //  type = OP_MAPS.rendererField
-
-    //  Extent
-    //  w = xmin
-    //  x = ymin
-    //  y = xmax
-    //  z = ymax
-
-    var syncBits = 0, socialURL = window.location.href;
-
-    if ($('#rdoShareBookmark').get(0).checked) {
-        if (socialURL.indexOf('#') > -1) {
-            socialURL = socialURL.substr(0, socialURL.indexOf('#'));
-        }
-
-        // bitwise combination of box status into one number
-        // later can use (syncBits & 1 === 1) to see if scale is checked, and (syncBits & 2 === 2) to see if location is checked
-        if ($('#checkScaleSync').get(0).checked) { syncBits = syncBits + 1; }
-        if ($('#checkLocSync').get(0).checked) { syncBits = syncBits + 2; }
-
-        socialURL += "#Layers=" + OP_MAPS[0].lyrIndex + "," + OP_MAPS[0].svcIndex + "," + OP_MAPS[0].year + "," + OP_MAPS[0].rendererField + "_" + 
-                                 OP_MAPS[1].lyrIndex + "," + OP_MAPS[1].svcIndex + "," + OP_MAPS[1].year + "," + OP_MAPS[1].rendererField + "_" +
-                                 OP_MAPS[2].lyrIndex + "," + OP_MAPS[2].svcIndex + "," + OP_MAPS[2].year + "," + OP_MAPS[2].rendererField + "_" + 
-                                 $('#numPanelsSelected').val() + "_" + syncBits + "_" + $('#baseMapSelected').val() +
-                    "(Extent=" + parseInt(maps[0].extent.xmin, 10) + "," + parseInt(maps[0].extent.ymin, 10) + "," + parseInt(maps[0].extent.xmax, 10) + "," + parseInt(maps[0].extent.ymax, 10) + "_" +
-                                 parseInt(maps[1].extent.xmin, 10) + "," + parseInt(maps[1].extent.ymin, 10) + "," + parseInt(maps[1].extent.xmax, 10) + "," + parseInt(maps[1].extent.ymax, 10) + "_" +
-                                 parseInt(maps[2].extent.xmin, 10) + "," + parseInt(maps[2].extent.ymin, 10) + "," + parseInt(maps[2].extent.xmax, 10) + "," + parseInt(maps[2].extent.ymax, 10);
-
-        if(callback) {
-            callback(socialURL);
-        }
-    } else {
-        // invoke print
-        // on callback complete, get URL to image off of the return object and generate the sharing link using that.
-
-        var printTask = new esri.tasks.PrintTask(PRINT_URL); // + "%20Task");
-        var params = new esri.tasks.PrintParameters();
-        var plate = new esri.tasks.PrintTemplate();
-        var legendLayer = new esri.tasks.LegendLayer();
-        
-        legendLayer.layerId = visibleSvcByMap[printMapIndex];
-        legendLayer.subLayerIds = [OP_MAPS[printMapIndex].lyrIndex];
-     
-        plate.layout = SOCIAL_MEDIA_PRINT_TEMPLATE;
-        plate.label = SOCIAL_MEDIA_PRINT_TEMPLATE;
-        plate.format = "JPG";
-        plate.layoutOptions = {
-            "authorText": "Source: UC Davis Center for Regional Change",
-            "copyrightText": PRINT_SOURCE_TEXT,
-            "legendLayers": [legendLayer],
-            "scalebarUnit": "Miles",
-            "customTextElements": [{
-                    "PanelTitle": $('#titleCon' + printMapIndex + ' span').eq(0).html() + $('#titleCon' + printMapIndex + ' span').eq(1).html()
-                },{
-                    "LayerTitle": ""
-                }, {
-                    "SourceUrl": PRINT_SOURCE_TEXT,
-                }, {
-                    "LayerDescription": wordwrap($('#titleCon' + printMapIndex + ' img').attr('title'), 35, '\n', false)
-                }]
-        };
-
-        params.map = maps[printMapIndex];
-        params.template = plate;
-
-        // TODO - some sort of UI indication for the user to wait while the print is generated.
-        $('#printWorkingNotice').show();
-        printTask.execute(params, function(resp) {
-            $('#printWorkingNotice').hide();
-            if(callback) {
-                callback(resp.url);
-            }
-        }, function(error) {
-            $('#printWorkingNotice').hide();
-            if(callback) {
-                callback("Error: " + error.message);
-            }
-        });
-
-    }
-}
-
-function getShortURL(url, callback) { 'use strict';
-    var accessToken = 'af1c11396dc6ac54f333c5e540c93ea3016a0978';
-    var shortenURL = 'https://api-ssl.bitly.com/v3/shorten?access_token=' + accessToken + '&longUrl=' + encodeURIComponent(url);
-    $.getJSON(
-        shortenURL,
-        {},
-        function(response)
-        {
-            if(callback) {
-                callback(response.data.url);
-            }
-        }
-    );
-}
-
-function shareFacebook() { 'use strict';
-    // TODO - See if can attach an acutal IMAGE via the API. If so, use that and not the minified URL.
-    setURL(function(url) {
-        getShortURL(url, function(shortenURL) {
-            window.open("https://www.facebook.com/sharer/sharer.php?u="+escape(shortenURL)+"&t="+document.title, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-            return false;
-        });
-    });
-}
-
-function shareTwitter() { 'use strict';
-    // TODO - See if can attach an acutal IMAGE via the API. If so, use that and not the minified URL.
-    setURL(function(url) {
-        getShortURL(url, function(shortenURL) {
-            var twitterURL = "https://twitter.com/intent/tweet?hashtags=UCDavisPYOM&original_referer=" + escape(shortenURL) + "&text=Putting Youth on the Map&tw_p=tweetbutton&url=" + escape(shortenURL);
-            window.open(twitterURL, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');
-            return false; 
-        });
-    });
-}
-
-function gmailCurrentPage() { 'use strict';
-    setURL(function(url) {
-        if (url.substr(-3) === "jpg") {
-            window.open('https://mail.google.com/mail/?view=cm&fs=1&to=&su=Putting Youth on The Map&body='+ url);
-            return false; 
-        } else {
-            getShortURL(url, function(shortenURL) {
-                window.open('https://mail.google.com/mail/?view=cm&fs=1&to=&su=Putting Youth on The Map&body='+ shortenURL);
-                return false; 
-            });
-        }
-    });
-}
-
-function yahooCurrentPage() { 'use strict';
-    setURL(function(url) {
-        if (url.substr(-3) === "jpg") {
-            window.open('http://compose.mail.yahoo.com/?to=&subject=Putting Youth on the Map&body=' + url);
-        } else {
-            getShortURL(url, function(shortenURL) {
-                window.open('http://compose.mail.yahoo.com/?to=&subject=Putting Youth on the Map&body=' + shortenURL);
-                return false; 
-            });
-        }
-    });
-}
-
-function setOP_MAPS() {
-    var syncBits, pageURL = window.location.href;
-
-    if (pageURL.indexOf('#Layers') > -1) {
-        pageURL = pageURL.substr(pageURL.indexOf('#') + 1);
-        pageURL = pageURL.split('(');
-
-        //pageURL[0] Layers=lyr,svc,year,renderField_lyr,svc,year,renderField_lyr,svc,year,renderField_layerCount_syncBits
-        //pageURL[1] Extent=w,x,y,z_w,x,y,z_w,x,y,z
-        var layerURL = pageURL[0].replace("Layers=", "");
-        var extentURL = pageURL[1].replace("Extent=", "");
-
-        layerURL = layerURL.split('_');
-        extentURL = extentURL.split('_');
-
-        console.log(layerURL);
-        console.log(extentURL);
-
-        syncBits = parseInt(layerURL[4], 10);
-        $('#checkScaleSync').get(0).checked = ((syncBits & 1) === 1); 
-        syncLevel = ((syncBits & 1) === 1);                
-        $('#checkLocSync').get(0).checked = ((syncBits & 2) === 2); 
-        syncLoc = ((syncBits & 2) === 2);
-
-        $('#numPanelsSelected').val(layerURL[3]);
-        $('#baseMapSelected').val(layerURL[5]);
-        
-        for (var i = 0; i < 3; i += 1) {
-            var lyrAttr = layerURL[i].split(',');
-            OP_MAPS[i].lyrIndex = parseInt(lyrAttr[0], 10);
-            OP_MAPS[i].svcIndex = parseInt(lyrAttr[1], 10);
-            OP_MAPS[i].year =  parseInt(lyrAttr[2], 10);
-            OP_MAPS[i].preloadRendererField = lyrAttr[3];
-
-            var extAttr = extentURL[i].split(',');
-            var spatialRef = new esri.SpatialReference({wkid:102100});
-            var startExtent = new esri.geometry.Extent();
-            startExtent.xmin = parseInt(extAttr[0], 10);
-            startExtent.ymin = parseInt(extAttr[1], 10);
-            startExtent.xmax = parseInt(extAttr[2], 10);
-            startExtent.ymax = parseInt(extAttr[3], 10);
-            startExtent.spatialReference = spatialRef;
-            OP_MAPS[i].preloadExtent = startExtent;
-        }
-    }
 }
