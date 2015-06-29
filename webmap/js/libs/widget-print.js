@@ -69,11 +69,11 @@ vgis.widget.print = function (params) {
             var plate = new esri.tasks.PrintTemplate();
             plate.layout = ch;
             plate.label = templateLabels[index];
-            plate.format = "PDF";
+            plate.format = params.printFormat;
             plate.layoutOptions = {
                 "authorText": "Source: UC Davis Center for Regional Change",
-                "copyrightText": "http://mappingregionalchange.ucdavis.edu/roi",
-                "legendLayers": [], //params.legendLayers,
+                "copyrightText": PRINT_SOURCE_TEXT,
+                "legendLayers": params.legendLayers,
                 "scalebarUnit": "Miles",
                 "customTextElements": [{
                         "PanelTitle": params.customText.panelTitle
@@ -106,18 +106,6 @@ vgis.widget.print = function (params) {
         console.log("Printer failed: ", err);
     }
     
-    function wordwrap( str, width, brk, cut ) {     
-        brk = (brk || '\n');
-        width = (width || 75);
-        cut = (cut || false);
-     
-        if (!str) { return str; }
-     
-        var regex = '.{1,' +width+ '}(\\s|$)' + (cut ? '|.{' +width+ '}|.+$' : '|\\S+?(\\s|$)');
-     
-        return str.match( new RegExp(regex, 'g') ).join( brk );     
-    }
-
     return {
         start: start,
         end: end

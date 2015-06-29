@@ -20,8 +20,8 @@
     <meta property="og:description"        content="Learn about UC Davis Putting Youth on the Map, download data and analyses, access resources for youth data mapping and see users putting data into action " />
     <meta property="og:image"              content="http://interact.regionalchange.ucdavis.edu/youth/webmap/img/Logo_POTM_FB.png" />
 
-    <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css">
-    <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/esri/css/esri.css">
+    
+    <link rel="stylesheet" href="http://js.arcgis.com/3.13/esri/css/esri.css">
     <link rel="stylesheet" href="css/smoothness/jquery-ui-1.10.3.custom.css">
     <link rel="stylesheet" href="css/webmap.css">
 
@@ -241,10 +241,10 @@
                 <div id="legendToggle2" class="legendToggle">
                     <button id="btnLegendToggle2" class="map-tool-button btnLegendToggle" title="Show/Hide Map Legend">Legend</button>
                     <button id="btnDescToggle2" class="map-tool-button btnDescToggle" title="Show/Hide Layer Information">?</button>
-                    <button id="btnTimeToggle2" class="map-tool-button btnTimeToggle" title="Change Display Year" data-mapindex="2">----</button>
+                    <!--<button id="btnTimeToggle2" class="map-tool-button btnTimeToggle" title="Change Display Year" data-mapindex="2">----</button>-->
                 </div>
                 <div id="desc2" class="desc-column ui-corner-all"> </div>
-                <div id="time2" class="time-column ui-corner-all" data-mapindex="2"></div>
+                <!--<div id="time2" class="time-column ui-corner-all" data-mapindex="2"></div>-->
                 <div id="mapLoading2" class="mapLoading">
                     <img src="img/loading.gif" />
                 </div>
@@ -450,27 +450,17 @@
 </div>
 
 <div id="dialog-print" title="Share Or Print Map">
-    Sharing options: First, choose whether to share a link to this website with your current map settings, or to share a "map printout" image for this single map. Then, choose how to share by clicking one of the four icons below.
-    <br /><br/>
-    <div style="text-align: center;">
-        <input type="radio" id="rdoShareBookmark" name="shareFormat" checked="checked" /> Full Site
-        <input type="radio" id="rdoShareImage" name="shareFormat" /> Map Print
+    <div id="social-media-links" class="row">
+        <a href="javascript:shareFacebook()" target="_blank" alt="Share on Facebook" style="outline: 0;"><img border-"0" src="img/facebook_button.png"></a>
+        <a href="javascript:shareTwitter()" target="_blank" alt="Share on Twitter" style="outline: 0;"><img border-"0" src="img/twitter_button.png"></a>
+         <a href="javascript:gmailCurrentPage()"  target="_blank" alt="Email" style="outline: 0;"><img border-"0" src="img/gmail_button.png"></a>
+         <a href="javascript:yahooCurrentPage()"  target="_blank" alt="Email" style="outline: 0;"><img border-"0" src="img/yahoo_button.png"></a>
+         <hr>
     </div>
-    <div id="printWorkingNotice" style="display: none; text-align: center; color: green;">Working... Please wait.</div>
+    Choose desired format by clicking arrow.<br />
+    The box below will turn into a hyperlink to the generated PDF or JPG.
     <br />
-    <div id="social-media-links" class="row" style="text-align: center;">
-        <a href="javascript:shareFacebook()" target="_blank" alt="Share on Facebook" style="outline: 0;"><img border-"0" src="img/facebook_icon.png"></a>
-        <a href="javascript:shareTwitter()" target="_blank" alt="Share on Twitter" style="outline: 0;"><img border-"0" src="img/twitter_icon.png"></a>
-        <a href="javascript:gmailCurrentPage()" target="_blank" alt="Email with Google Account" style="outline: 0;"><img border-"0" src="img/gmail_icon.png"></a>
-        <a href="javascript:yahooCurrentPage()" target="_blank" alt="Email with Yahoo Account" style="outline: 0;"><img border-"0" src="img/yahoo_icon.jpg"></a>
-        <hr>
-    </div>
-    Printing options: Choose whether to create the map layout as an JPG image or a PDF, then pick your desired format by clicking the dropdown arrow. The box below will turn into a hyperlink to the generated PDF or JPG.
-    <br /><br />
-    <div style="text-align: center;">
-        <input type="radio" id="rdoPrintPDF" name="printFormat" checked="checked" /> PDF
-        <input type="radio" id="rdoPrintJPG" name="printFormat" /> JPG
-    </div>
+    <br />
     <div id='divDefaultPrint' style='text-align: center;'>
     </div>
 </div>
@@ -505,13 +495,13 @@
 
 <div id="dialog-position" style="position: absolute; bottom: 10%; right: 10%;"> </div>
 
-<script src="//js.arcgis.com/3.7/"></script>
+<script src="http://js.arcgis.com/3.13/"></script>
 <script src="js/libs/jquery-1.10.2.min.js"></script>
 <script src="js/libs/jquery-ui-1.10.3.custom.min.js"></script>
 <script src="js/libs/highcharts.js"></script>
 
 <script src="js/libs/widget-print.js"></script>
-<script src="js/script.js"></script>
+<script src="js/script-amd.js"></script>
 
 </body>
 </html>
